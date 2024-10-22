@@ -1,11 +1,15 @@
+import Boarding from "@/components/Boarding";
+import { uiStyles } from "@/styles/global.styles";
 import React from "react";
-import { Text, View } from "react-native";
+import { StatusBar } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const App = () => {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <SafeAreaView style={uiStyles.container}>
+      <StatusBar barStyle="dark-content" />
+      <Boarding />
+    </SafeAreaView>
   );
 };
 
