@@ -1,16 +1,40 @@
+# Node modules
 node_modules/
+
+# Expo related files
 .expo/
+expo-env.d.ts
+
+# Distribution files
 dist/
+web-build/
+
+# NPM debug logs
 npm-debug.*
+yarn-debug.log*
+yarn-error.log*
+
+# Android/iOS keys and provisioning files
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
-*.orig.*
-web-build/
 
-# macOS
+# macOS system files
 .DS_Store
 
-expo-env.d.ts
+# Backup and temporary files
+*.orig.*
+*.log
+*.tmp
+*.swp
+*.swo
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Build directories
+build/
+%ProgramData%/
