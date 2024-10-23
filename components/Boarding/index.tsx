@@ -1,9 +1,11 @@
+import { Href, useRouter } from "expo-router";
 import React from "react";
 import { ImageBackground, Text, View } from "react-native";
 import Button from "../ui/Button";
 import { boardingStyles } from "./styles/boarding.styles";
 
 const Boarding = () => {
+  const router = useRouter();
   return (
     <ImageBackground
       source={require("../../assets/images/furniture-app-first-bg.png")}
@@ -32,7 +34,12 @@ const Boarding = () => {
         </Text>
       </View>
       <View style={boardingStyles.boardingButtonContainer}>
-        <Button text="Get Started" />
+        <Button
+          text="Get Started"
+          onPress={() => {
+            router.navigate("/registerUser" as Href<string>);
+          }}
+        />
       </View>
     </ImageBackground>
   );

@@ -31,7 +31,6 @@ export const boardingStyles = StyleSheet.create({
   },
   boardingButtonContainer: {
     flex: 1,
-    // paddingBottom: 250,
     justifyContent: "center",
     alignItems: "center",
   },

@@ -1,5 +1,5 @@
-import { ButtonProps } from "@/.expo/types";
 import { uiStyles } from "@/styles/global.styles";
+import { ButtonProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
     >
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         {icon && <Ionicons name={icon} size={iconSize} color={iconColor} />}
-        {text && <Text style={uiStyles.buttonText}>{text}</Text>}{" "}
+        {text && <Text style={uiStyles.buttonText}>{text}</Text>}
       </View>
     </TouchableOpacity>
   );
