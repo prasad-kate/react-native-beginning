@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export const boardingStyles = StyleSheet.create({
-
   backgroundImage: {
     flex: 1,
   },

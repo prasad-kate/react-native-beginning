@@ -18,9 +18,12 @@ const Boarding = () => {
             justifyContent: "center",
             alignItems: "baseline",
             gap: 8,
+            flexWrap: "wrap",
           }}
         >
-          <Text style={boardingStyles.textMakePart}>Make Your Home</Text>
+          <Text style={boardingStyles.textMakePart} numberOfLines={1}>
+            Make Your Home
+          </Text>
           <Text style={boardingStyles.textBeautiful}>Beautiful</Text>
         </View>
         <Text style={boardingStyles.textDescription}>
