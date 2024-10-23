@@ -4,6 +4,7 @@ import { hideAsync, preventAutoHideAsync } from "expo-splash-screen";
 import { useEffect } from "react";
 import { StatusBar } from "react-native";
 import "react-native-reanimated";
+import "../global.css";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 preventAutoHideAsync();
