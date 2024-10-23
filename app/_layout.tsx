@@ -31,7 +31,10 @@ export default function RootLayout() {
         <StatusBar barStyle="dark-content" />
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
-          <Stack.Screen name="registerUser" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="registerUser/index"
+            options={{ headerShown: false }}
+          />
           <Stack.Screen name="loginUser" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>
@@ -39,3 +42,6 @@ export default function RootLayout() {
     </SafeAreaProvider>
   );
 }
+
+// Figma
+// https://www.figma.com/design/kCs0IYujhamI8C0nglKkbq/Furniture-Shopping---Minimal-UI-Kit-(Community)?node-id=1-32&node-type=canvas&t=MqLFrgRHE50EamOc-0

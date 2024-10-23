@@ -20,4 +20,10 @@ export const uiStyles = StyleSheet.create({
     color: "white",
     fontWeight: "semibold",
   },
+  hr: {
+    borderBottomColor: "#A9A9A9",
+    borderBottomWidth: 1,
+    width: "100%",
+    marginVertical: 10,
+  },
 });
