@@ -26,3 +26,7 @@ export interface ButtonProps extends TouchableOpacityProps {
 export interface PasswordInputProps extends TextInputProps {
   label: string;
 }
+
+export interface GlobalTextInputProps extends TextInputProps {
+  label?: string;
+}

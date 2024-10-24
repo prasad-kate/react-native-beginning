@@ -55,3 +55,22 @@ export const passwordInputStyles = StyleSheet.create({
     paddingVertical: 5,
   },
 });
+
+export const textInputStyles = StyleSheet.create({
+  container: {
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 10,
+    color: "#333",
+  },
+  input: {
+    height: 40,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+    paddingHorizontal: 8,
+    fontSize: 16,
+    color: "#000",
+  },
+});

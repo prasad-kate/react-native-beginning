@@ -21,7 +21,7 @@ const PasswordInput: FC<PasswordInputProps> = ({ label, ...props }) => {
           value={password}
           onChangeText={setPassword}
           secureTextEntry={secureText}
-          placeholder="Enter your password"
+          placeholder={props.placeholder || ""}
           {...props}
         />
         <TouchableOpacity
