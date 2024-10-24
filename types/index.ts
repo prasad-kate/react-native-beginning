@@ -1,4 +1,8 @@
-import { GestureResponderEvent, TouchableOpacityProps } from "react-native";
+import {
+  GestureResponderEvent,
+  TextInputProps,
+  TouchableOpacityProps,
+} from "react-native";
 
 type IoniconName =
   | "arrow-back"
@@ -17,4 +21,8 @@ export interface ButtonProps extends TouchableOpacityProps {
   icon?: IoniconName;
   iconSize?: number;
   iconColor?: string;
+}
+
+export interface PasswordInputProps extends TextInputProps {
+  label: string;
 }

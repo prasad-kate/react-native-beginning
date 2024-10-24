@@ -27,3 +27,31 @@ export const uiStyles = StyleSheet.create({
     marginVertical: 10,
   },
 });
+
+export const passwordInputStyles = StyleSheet.create({
+  container: {
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 10,
+    color: "#333",
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+    paddingHorizontal: 8,
+  },
+  input: {
+    flex: 1,
+    height: 40,
+    fontSize: 16,
+    color: "#000",
+  },
+  icon: {
+    paddingLeft: 8,
+    paddingVertical: 5,
+  },
+});

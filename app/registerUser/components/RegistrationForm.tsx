@@ -1,5 +1,6 @@
 import { boardingStyles } from "@/components/Boarding/styles/boarding.styles";
 import Button from "@/components/ui/Button";
+import PasswordInput from "@/components/ui/PasswordInput";
 import { userRegistrationFormStyles } from "@/styles/registerUser.styles";
 import { Href, useRouter } from "expo-router";
 import React, { useState } from "react";
@@ -23,7 +24,7 @@ export default function UserRegistrationForm() {
       return;
     }
 
-    // Perform form submission logic (e.g., send data to backend)
+    // TODO: form submission with api integration
     Alert.alert("Form Submitted", `Username: ${username}, Email: ${email}`);
   };
 
@@ -51,16 +52,12 @@ export default function UserRegistrationForm() {
         />
       </View>
 
-      <View>
-        <Text style={userRegistrationFormStyles.label}>Password</Text>
-        <TextInput
-          style={userRegistrationFormStyles.input}
-          placeholder="Enter your password"
-          value={formData.password}
-          onChangeText={(text) => setFormData({ ...formData, password: text })}
-          secureTextEntry
-        />
-      </View>
+      <PasswordInput
+        label="Password"
+        placeholder="Enter your password"
+        value={formData.password}
+        onChangeText={(text) => setFormData({ ...formData, password: text })}
+      />
 
       {/* submission */}
       <Button
