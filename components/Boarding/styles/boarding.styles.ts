@@ -29,6 +29,14 @@ export const boardingStyles = StyleSheet.create({
     fontSize: 18,
     marginTop: 20,
   },
+  welcomeTextContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "baseline",
+    gap: 8,
+    flexWrap: "wrap",
+  },
   boardingButtonContainer: {
     flex: 1,
     justifyContent: "center",

@@ -13,16 +13,7 @@ const Boarding = () => {
       resizeMode="cover"
     >
       <View style={boardingStyles.textContainer}>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "baseline",
-            gap: 8,
-            flexWrap: "wrap",
-          }}
-        >
+        <View style={boardingStyles.welcomeTextContainer}>
           <Text style={boardingStyles.textMakePart} numberOfLines={1}>
             Make Your Home
           </Text>
@@ -33,6 +24,7 @@ const Boarding = () => {
           make your home beautiful
         </Text>
       </View>
+
       <View style={boardingStyles.boardingButtonContainer}>
         <Button
           text="Get Started"

@@ -10,6 +10,7 @@ export const registerUserStyles = StyleSheet.create({
     gap: 20,
     justifyContent: "center",
     alignItems: "center",
+    marginVertical: 50,
   },
 });
 
@@ -20,7 +21,7 @@ export const userRegistrationFormStyles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    marginBottom: 8,
+    marginBottom: 10,
     color: "#333",
   },
   input: {
@@ -31,5 +32,20 @@ export const userRegistrationFormStyles = StyleSheet.create({
     marginBottom: 20,
     fontSize: 16,
     color: "#000",
+  },
+  formContainer: {
+    backgroundColor: "#fff",
+    marginVertical: 20,
+    paddingHorizontal: 25,
+    paddingVertical: 30,
+    borderRadius: 20,
+    gap: 30,
+  },
+  submitButton: {
+    backgroundColor: "#242424",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 15,
+    borderRadius: 5,
   },
 });
