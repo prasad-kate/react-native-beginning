@@ -27,6 +27,12 @@ export default function UserRegistrationForm() {
 
     // TODO: form submission with api integration
     Alert.alert("Form Submitted", `Username: ${username}, Email: ${email}`);
+
+    setFormData({
+      username: "",
+      email: "",
+      password: "",
+    });
   };
 
   return (
