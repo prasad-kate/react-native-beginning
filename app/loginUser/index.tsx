@@ -1,13 +1,15 @@
 import AuthPageLogo from "@/components/AuthPageLogo";
 import { boardingStyles } from "@/components/Boarding/styles/boarding.styles";
 import { registerUserStyles } from "@/styles/registerUser.styles";
+import React from "react";
 import { Text, View } from "react-native";
-import UserRegistrationForm from "./components/RegistrationForm";
+import LoginUserForm from "./components/LoginUserForm";
 
-const RegisterUser = () => {
+const LoginUser = () => {
   return (
     <View style={registerUserStyles.container}>
       <AuthPageLogo />
+
       <Text
         style={[
           boardingStyles.textMakePart,
@@ -17,12 +19,22 @@ const RegisterUser = () => {
         ]}
         numberOfLines={1}
       >
-        Welcome
+        Hello!
+      </Text>
+      <Text
+        style={[
+          boardingStyles.textBeautiful,
+          {
+            marginBottom: 30,
+          },
+        ]}
+      >
+        Welcome Back
       </Text>
 
-      <UserRegistrationForm />
+      <LoginUserForm />
     </View>
   );
 };
 
-export default RegisterUser;
+export default LoginUser;

@@ -35,7 +35,10 @@ export default function RootLayout() {
             name="registerUser/index"
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="loginUser" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="loginUser/index"
+            options={{ headerShown: false }}
+          />
           <Stack.Screen name="+not-found" />
         </Stack>
       </SafeAreaView>

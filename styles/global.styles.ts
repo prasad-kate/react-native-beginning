@@ -18,7 +18,7 @@ export const uiStyles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     color: "white",
-    fontWeight: "semibold",
+    fontWeight: "bold",
   },
   hr: {
     borderBottomColor: "#A9A9A9",
