@@ -60,7 +60,8 @@ const LoginUserForm = () => {
       <TouchableOpacity
         activeOpacity={0.7}
         onPress={() => {
-          router.navigate("registerUser" as Href<string>);
+          // router.navigate("registerUser" as Href<string>);
+          router.navigate("tabs/home" as Href<string>); // TODO: temporary navigation for testing
         }}
       >
         <Text

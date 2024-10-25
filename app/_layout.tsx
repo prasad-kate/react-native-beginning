@@ -1,6 +1,6 @@
 import { uiStyles } from "@/styles/global.styles";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Href, Redirect, Stack } from "expo-router";
 import { hideAsync, preventAutoHideAsync } from "expo-splash-screen";
 import { useEffect } from "react";
 import { StatusBar } from "react-native";
@@ -25,6 +25,12 @@ export default function RootLayout() {
     return null;
   }
 
+  const isAuthenticated = false; // TODO: auth setup with api integration
+
+  if (isAuthenticated) {
+    return <Redirect href={"/tabs/home" as Href<string>} />;
+  }
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={uiStyles.container}>
@@ -39,6 +45,7 @@ export default function RootLayout() {
             name="loginUser/index"
             options={{ headerShown: false }}
           />
+          <Stack.Screen name="tabs" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>
       </SafeAreaView>
