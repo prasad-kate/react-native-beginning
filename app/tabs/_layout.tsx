@@ -3,13 +3,27 @@ import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
   return (
-    <Tabs screenOptions={{ headerShown: false }}>
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: "black",
+        tabBarInactiveTintColor: "lightgray",
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          height: 80,
+          paddingBottom: 0,
+          borderTopWidth: 0,
+          elevation: 0, // to remove shadow on Android
+          shadowOpacity: 0, // to remove shadow on iOS
+        },
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
           title: "Home",
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="home" color={color} size={size} />
+            <FontAwesome name="home" color={color} size={size + 4} />
           ),
         }}
       />
@@ -18,7 +32,7 @@ export default function TabsLayout() {
         options={{
           title: "Bookmark",
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="bookmark" color={color} size={size} />
+            <FontAwesome name="bookmark" color={color} size={size + 1} />
           ),
         }}
       />
@@ -27,7 +41,7 @@ export default function TabsLayout() {
         options={{
           title: "Notification",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="notifications" color={color} size={size} />
+            <Ionicons name="notifications" color={color} size={size + 3} />
           ),
         }}
       />
@@ -36,7 +50,7 @@ export default function TabsLayout() {
         options={{
           title: "Profile",
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="person" color={color} size={size} />
+            <MaterialIcons name="person" color={color} size={size + 5} />
           ),
         }}
       />
