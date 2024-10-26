@@ -13,8 +13,15 @@ export default function TabsLayout() {
           height: 80,
           paddingBottom: 0,
           borderTopWidth: 0,
-          elevation: 0, // to remove shadow on Android
-          shadowOpacity: 0, // to remove shadow on iOS
+
+          // for shadow on Android
+          elevation: 120,
+
+          // for shadow on ios
+          shadowColor: "#000",
+          shadowOpacity: 0.5,
+          shadowRadius: 60,
+          shadowOffset: { width: 0, height: 40 },
         },
       }}
     >
