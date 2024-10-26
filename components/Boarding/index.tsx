@@ -8,7 +8,7 @@ const Boarding = () => {
   const router = useRouter();
   return (
     <ImageBackground
-      source={require("../../assets/images/furniture-app-first-bg.png")}
+      source={require("@/assets/images/furniture-app-first-bg.png")}
       style={boardingStyles.backgroundImage}
       resizeMode="cover"
     >

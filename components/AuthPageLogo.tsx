@@ -15,7 +15,7 @@ const AuthPageLogo = () => {
         ]}
       />
       <Image
-        source={require("../assets/images/auth-page-icon.png")}
+        source={require("@/assets/images/auth-page-icon.png")}
         resizeMode="cover"
       />
       <View
