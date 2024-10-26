@@ -1,10 +1,12 @@
+import { homeScreenStyles } from "@/styles/homeScreen.styles";
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import HomeScreenHeader from "../../components/HomeScreen/HomeScreenHeader";
 
 const HomeScreen = () => {
   return (
-    <View>
-      <Text>HomeScreen tab screen</Text>
+    <View style={homeScreenStyles.container}>
+      <HomeScreenHeader />
     </View>
   );
 };
