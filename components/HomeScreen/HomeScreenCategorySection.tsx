@@ -6,7 +6,8 @@ import { Image, ScrollView, Text, View } from "react-native";
 const HomeScreenCategorySection = () => {
   return (
     <ScrollView
-      contentContainerStyle={homeScreenStyles.categoryContainer}
+      contentContainerStyle={homeScreenStyles.categoryContainerContentStyles}
+      style={homeScreenStyles.categoryContainerStyles}
       showsHorizontalScrollIndicator={false}
       horizontal
     >
@@ -20,7 +21,7 @@ const HomeScreenCategorySection = () => {
                 height: 44,
               }}
             />
-            <Text>{name}</Text>
+            <Text style={homeScreenStyles.categoryName}>{name}</Text>
           </View>
         );
       })}

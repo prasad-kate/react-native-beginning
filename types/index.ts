@@ -1,5 +1,6 @@
 import {
   GestureResponderEvent,
+  ImageSourcePropType,
   TextInputProps,
   TouchableOpacityProps,
 } from "react-native";
@@ -29,4 +30,10 @@ export interface PasswordInputProps extends TextInputProps {
 
 export interface GlobalTextInputProps extends TextInputProps {
   label?: string;
+}
+
+export interface HomeScreenProductCardProps {
+  name: string;
+  image: ImageSourcePropType;
+  price: string;
 }

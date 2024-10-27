@@ -14,6 +14,7 @@ export const homeScreenStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginVertical: 5,
   },
   headerTextContainer: {
     justifyContent: "center",
@@ -30,10 +31,56 @@ export const homeScreenStyles = StyleSheet.create({
   },
 
   // categroy styles
-  categoryContainer: {
+  categoryContainerContentStyles: {
     gap: 25,
     flexShrink: 0,
-    height: 80,
-    marginVertical: 25,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  categoryContainerStyles: {
+    maxHeight: 100,
+    minHeight: 70,
+    marginVertical: 10,
+  },
+  categoryName: {
+    fontSize: 14,
+    textAlign: "center",
+    color: "gray",
+  },
+
+  // products styles
+  productsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    gap: 15,
+    paddingBottom: 10,
+  },
+  productCardContainer: {
+    width: "48%",
+  },
+  productCardImage: {
+    width: "100%",
+    aspectRatio: "3/4",
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  productName: {
+    color: "#606060",
+    fontSize: 14,
+    marginVertical: 5,
+  },
+  productPrice: {
+    color: "#303030",
+    fontSize: 14,
+    fontWeight: "bold",
+  },
+  shoppingCartIcon: {
+    width: 30,
+    height: 30,
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    margin: 10,
   },
 });
