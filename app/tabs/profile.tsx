@@ -1,10 +1,12 @@
+import ProfileScreenHeader from "@/components/ProfileScreen/ProfileScreenHeader";
+import { profileScreenStyles } from "@/styles/profileScreen.styles";
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 const ProfileScreen = () => {
   return (
-    <View>
-      <Text>ProfileScreen tab screen</Text>
+    <View style={profileScreenStyles.container}>
+      <ProfileScreenHeader />
     </View>
   );
 };
