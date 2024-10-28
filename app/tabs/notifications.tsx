@@ -1,10 +1,12 @@
+import NotificationsHeader from "@/components/NotificationScreen/NotificationsHeader";
+import { homeScreenStyles } from "@/styles/homeScreen.styles";
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 const NotificationsScreen = () => {
   return (
-    <View>
-      <Text>NotificationsScreen tab screen</Text>
+    <View style={homeScreenStyles.container}>
+      <NotificationsHeader />
     </View>
   );
 };
