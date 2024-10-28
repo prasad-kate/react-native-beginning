@@ -46,3 +46,9 @@ export interface ProfileOptionCardProps {
   description: string;
   navigationPath: string;
 }
+
+export interface NotificationsCardProps {
+  image: ImageSourcePropType;
+  title: string;
+  description: string;
+}
