@@ -40,3 +40,9 @@ export interface HomeScreenProductCardProps {
 
 export interface FavouriteScreenProductCardProps
   extends HomeScreenProductCardProps {}
+
+export interface ProfileOptionCardProps {
+  name: string;
+  description: string;
+  navigationPath: string;
+}

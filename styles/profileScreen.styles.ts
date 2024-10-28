@@ -17,7 +17,7 @@ export const profileScreenStyles = StyleSheet.create({
   profileDetailsContainer: {
     flexDirection: "row",
     gap: 20,
-    marginVertical: 20,
+    marginVertical: 30,
   },
   profileImage: {
     width: 80,
@@ -34,5 +34,34 @@ export const profileScreenStyles = StyleSheet.create({
   profileEmail: {
     fontSize: 14,
     color: "#808080",
+  },
+
+  // options styles
+  optionsContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 20,
+    marginBottom: 15,
+    backgroundColor: "white",
+
+    // iOS Shadow
+    shadowColor: "#8A959E",
+    shadowOffset: { width: 0, height: 7 },
+    shadowOpacity: 0.2, // 33% opacity for shadow
+    shadowRadius: 40,
+
+    // Android Shadow
+    elevation: 12,
+  },
+  optionName: {
+    color: "#242424",
+    fontWeight: "bold",
+    fontSize: 18,
+    marginBottom: 5,
+  },
+  optionDescription: {
+    color: "#808080",
+    fontSize: 12,
   },
 });
