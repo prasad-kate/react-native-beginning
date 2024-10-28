@@ -37,3 +37,6 @@ export interface HomeScreenProductCardProps {
   image: ImageSourcePropType;
   price: string;
 }
+
+export interface FavouriteScreenProductCardProps
+  extends HomeScreenProductCardProps {}
