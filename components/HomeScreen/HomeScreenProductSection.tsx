@@ -8,7 +8,7 @@ const HomeScreenProductSection = () => {
   return (
     <FlatList
       data={homeScreenProducts}
-      keyExtractor={({ name, price }) => `${name}-${price}`}
+      keyExtractor={(_, index) => `${index}`}
       renderItem={({ item, index }) => {
         const isSingleItem =
           index % 2 === 0 && index === homeScreenProducts?.length - 1;
