@@ -45,7 +45,14 @@ export default function RootLayout() {
             name="loginUser/index"
             options={{ headerShown: false }}
           />
+
+          {/* tabs */}
           <Stack.Screen name="tabs" options={{ headerShown: false }} />
+
+          {/* details screens */}
+          <Stack.Screen name="orderDetails" options={{ headerShown: false }} />
+
+          {/* not found */}
           <Stack.Screen name="+not-found" />
         </Stack>
       </SafeAreaView>

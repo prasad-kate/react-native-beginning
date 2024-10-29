@@ -1,6 +1,7 @@
 import { profileScreenStyles } from "@/styles/profileScreen.styles";
 import { ProfileOptionCardProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
+import { Href, useRouter } from "expo-router";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
@@ -9,10 +10,15 @@ const ProfileOptionCard = ({
   description,
   navigationPath,
 }: ProfileOptionCardProps) => {
+  const router = useRouter();
+
   return (
     <TouchableOpacity
       activeOpacity={0.8}
       style={profileScreenStyles.optionsContainer}
+      onPress={() => {
+        router.push(navigationPath as Href<string>);
+      }}
     >
       <View>
         <Text style={profileScreenStyles.optionName}>{name}</Text>

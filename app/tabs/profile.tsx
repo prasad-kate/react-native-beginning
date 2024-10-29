@@ -2,7 +2,6 @@ import ProfileDetailsSection from "@/components/ProfileScreen/ProfileDetailsSect
 import ProfileOptionsSection from "@/components/ProfileScreen/ProfileOptionsSection";
 import ProfileScreenHeader from "@/components/ProfileScreen/ProfileScreenHeader";
 import { profileScreenStyles } from "@/styles/profileScreen.styles";
-import React from "react";
 import { View } from "react-native";
 
 const ProfileScreen = () => {
