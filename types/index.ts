@@ -36,6 +36,7 @@ export interface HomeScreenProductCardProps {
   name: string;
   image: ImageSourcePropType;
   price: string;
+  isSingleItem: boolean;
 }
 
 export interface FavouriteScreenProductCardProps

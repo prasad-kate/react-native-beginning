@@ -50,17 +50,12 @@ export const homeScreenStyles = StyleSheet.create({
 
   // products styles
   productsContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-    gap: 15,
-    paddingBottom: 10,
+    gap: 20,
   },
   productCardContainer: {
-    width: "48%",
+    marginBottom: 20,
   },
   productCardImage: {
-    width: "100%",
     aspectRatio: "3/4",
     borderRadius: 10,
     overflow: "hidden",

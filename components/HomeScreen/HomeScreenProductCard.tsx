@@ -8,9 +8,18 @@ const HomeScreenProductCard = ({
   name,
   image,
   price,
+  isSingleItem,
 }: HomeScreenProductCardProps) => {
   return (
-    <View style={homeScreenStyles.productCardContainer}>
+    <View
+      style={[
+        homeScreenStyles.productCardContainer,
+        {
+          flex: isSingleItem ? 0.5 : 1,
+          marginRight: isSingleItem ? 20 : 0,
+        },
+      ]}
+    >
       <ImageBackground
         source={image}
         style={homeScreenStyles.productCardImage}
