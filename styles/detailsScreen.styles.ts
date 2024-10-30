@@ -4,7 +4,6 @@ import { homeScreenStyles } from "./homeScreen.styles";
 
 export const detailsScreenStyles = StyleSheet.create({
   container: {
-    // paddingHorizontal: 20,
     backgroundColor: "white",
     flex: 1,
   },
@@ -98,5 +97,17 @@ export const detailsScreenStyles = StyleSheet.create({
     fontSize: 16,
     textTransform: "capitalize",
     fontWeight: "bold",
+  },
+
+  // empty order details section
+  emptyOrderDetailsContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
+  },
+  notFoundImage: {
+    width: 400,
+    height: 400,
+    marginBottom: 50,
   },
 });
