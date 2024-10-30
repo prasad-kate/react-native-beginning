@@ -50,8 +50,7 @@ const OrderDetailsTabSection = () => {
                   style={[
                     detailsScreenStyles.label,
                     {
-                      fontWeight: focused ? "bold" : "normal",
-                      color: focused ? "black" : "",
+                      color: focused ? "black" : "#999999",
                     },
                   ]}
                 >

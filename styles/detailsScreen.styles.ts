@@ -34,8 +34,8 @@ export const detailsScreenStyles = StyleSheet.create({
     backgroundColor: "black",
   },
   label: {
-    color: "#999999",
     textTransform: "none",
     fontSize: 16,
+    fontWeight: "bold",
   },
 });
