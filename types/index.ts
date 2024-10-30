@@ -53,3 +53,11 @@ export interface NotificationsCardProps {
   title: string;
   description: string;
 }
+
+export interface OrderDetailsCardProps {
+  orderNo: string;
+  orderDate: string;
+  orderStatus: "delivered" | "cancelled" | "processing";
+  quantity: string;
+  total: string;
+}

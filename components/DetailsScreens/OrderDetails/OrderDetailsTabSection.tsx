@@ -2,17 +2,12 @@ import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import React, { useState } from "react";
 import { Dimensions, Text, View } from "react-native";
 import { SceneMap, TabBar, TabView } from "react-native-tab-view";
+import OrderDeliveredDetails from "./OrderDeliveredDetails";
 
 const OrderDetailsTabSection = () => {
   const [index, setIndex] = useState(0);
 
   // Define individual tab content components
-  const FirstRoute = () => (
-    <View style={{ flex: 1 }}>
-      <Text>First Tab Content</Text>
-    </View>
-  );
-
   const SecondRoute = () => (
     <View style={{ flex: 1 }}>
       <Text>Second Tab Content</Text>
@@ -34,7 +29,7 @@ const OrderDetailsTabSection = () => {
     <TabView
       navigationState={{ index, routes }}
       renderScene={SceneMap({
-        first: FirstRoute,
+        first: OrderDeliveredDetails,
         second: SecondRoute,
         third: ThirdRoute,
       })}
