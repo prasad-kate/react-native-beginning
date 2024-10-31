@@ -1,3 +1,4 @@
+import { Dispatch } from "react";
 import {
   GestureResponderEvent,
   ImageSourcePropType,
@@ -60,4 +61,18 @@ export interface OrderDetailsCardProps {
   orderStatus: "delivered" | "cancelled" | "processing";
   quantity: string;
   total: string;
+}
+
+export interface PaymentMethodCardProps {
+  cardNumber: string;
+  cardHolderName: string;
+  expiryDate: string;
+  cardType: "visa" | "mastercard";
+  isSelectedCard?: boolean;
+}
+
+export interface PaymentCardSelectionCheckboxProps {
+  setSelectedCard: Dispatch<React.SetStateAction<string | null>>;
+  selectedCard: string | null;
+  cardNumber: string;
 }

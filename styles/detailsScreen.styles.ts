@@ -23,7 +23,7 @@ export const detailsScreenStyles = StyleSheet.create({
   backIcon: {
     position: "absolute",
     left: 0,
-    top: 5,
+    top: 10,
   },
 
   // order details tab styles
@@ -109,5 +109,66 @@ export const detailsScreenStyles = StyleSheet.create({
     width: 400,
     height: 400,
     marginBottom: 50,
+  },
+
+  // payment methods styles
+  paymentMethodsContainer: {
+    padding: 20,
+  },
+  paymentMethodCardContainer: {
+    width: "100%",
+    aspectRatio: "16/9",
+    borderRadius: 10,
+    overflow: "hidden",
+    // marginBottom: 20,
+    position: "relative",
+  },
+  paymentMethodCardImage: {
+    resizeMode: "cover",
+    borderRadius: 10,
+  },
+  paymentMethodCardNumber: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+    position: "absolute",
+    left: 30,
+    top: "40%",
+  },
+  paymentMethodsCardHolderDetailsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    position: "absolute",
+    bottom: 30,
+    left: 0,
+    width: "100%",
+    paddingHorizontal: 30,
+  },
+  paymentMethodCardValueText: {
+    color: "white",
+    fontSize: 14,
+    fontWeight: "bold",
+  },
+  paymentMethodCardTitleText: {
+    color: "white",
+    opacity: 0.8,
+    fontSize: 12,
+    marginBottom: 5,
+  },
+  paymentCardSelectionCheckboxContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 25,
+    marginTop: 15,
+  },
+  paymentCardSelectionCheckboxText: {
+    fontSize: 16,
+    marginLeft: 10,
+  },
+  paymentCardSelectionCheckbox: {
+    width: 24,
+    height: 24,
+    borderRadius: 4,
+    marginRight: 5,
   },
 });
