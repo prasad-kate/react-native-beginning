@@ -164,11 +164,11 @@ export const detailsScreenStyles = StyleSheet.create({
   },
   paymentCardSelectionCheckboxText: {
     fontSize: 16,
-    marginLeft: 10,
+    marginLeft: 8,
   },
   paymentCardSelectionCheckbox: {
-    width: 24,
-    height: 24,
+    width: 20,
+    height: 20,
     borderRadius: 4,
     marginRight: 5,
   },

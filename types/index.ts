@@ -81,3 +81,9 @@ export interface ShippingAddressCardProps {
   name: string;
   address: string;
 }
+
+export interface ShippingAddressCheckboxProps {
+  setSelectedAddress: Dispatch<React.SetStateAction<string | null>>;
+  selectedAddress: string | null;
+  addressId: string;
+}
