@@ -9,7 +9,7 @@ const ShippingDetailsHeader = () => {
 
   return (
     <View style={detailsScreenStyles.headerContainer}>
-      <Text style={detailsScreenStyles.headerText}>Payment Method</Text>
+      <Text style={detailsScreenStyles.headerText}>Shipping Address</Text>
       <Ionicons
         name="chevron-back"
         size={24}

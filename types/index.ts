@@ -76,3 +76,8 @@ export interface PaymentCardSelectionCheckboxProps {
   selectedCard: string | null;
   cardNumber: string;
 }
+
+export interface ShippingAddressCardProps {
+  name: string;
+  address: string;
+}

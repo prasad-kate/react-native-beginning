@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import { uiStyles } from "./global.styles";
 import { homeScreenStyles } from "./homeScreen.styles";
+import { profileScreenStyles } from "./profileScreen.styles";
 
 export const detailsScreenStyles = StyleSheet.create({
   container: {
@@ -170,5 +171,34 @@ export const detailsScreenStyles = StyleSheet.create({
     height: 24,
     borderRadius: 4,
     marginRight: 5,
+  },
+
+  // shipping details styles
+  shippingDetailsCardContainer: {
+    ...profileScreenStyles.optionsContainer,
+    marginHorizontal: 20,
+    flexDirection: "column",
+    // justifyContent: "flex-start",
+    alignItems: "flex-start",
+    padding: 0,
+  },
+  shippindDetailsCardHeader: {
+    borderBottomColor: "#F0F0F0",
+    borderBottomWidth: 1,
+    width: "100%",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  shippindAddressName: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  shippindAddress: {
+    color: "#808080",
+    fontSize: 14,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
   },
 });
