@@ -59,6 +59,7 @@ export default function RootLayout() {
             name="shippingDetails"
             options={{ headerShown: false }}
           />
+          <Stack.Screen name="reviewDetails" options={{ headerShown: false }} />
 
           {/* not found */}
           <Stack.Screen name="+not-found" />
