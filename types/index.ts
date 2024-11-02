@@ -99,3 +99,12 @@ export interface GlobalCheckboxProps extends CheckboxProps {
   onPress?: () => void;
   onLabelPress: () => void; // to maintain or ignore same functionality when lable pressed
 }
+
+export interface ReviewDetailsCardProps {
+  name: string;
+  price: string;
+  image: ImageSourcePropType;
+  numberOfStars: number;
+  date: string;
+  review: string;
+}

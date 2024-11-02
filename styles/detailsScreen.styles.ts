@@ -178,7 +178,6 @@ export const detailsScreenStyles = StyleSheet.create({
     ...profileScreenStyles.optionsContainer,
     marginHorizontal: 20,
     flexDirection: "column",
-    // justifyContent: "flex-start",
     alignItems: "flex-start",
     padding: 0,
   },
@@ -200,5 +199,50 @@ export const detailsScreenStyles = StyleSheet.create({
     fontSize: 14,
     paddingHorizontal: 20,
     paddingVertical: 10,
+  },
+
+  // review details styles
+  reviewDetailsCard: {
+    ...profileScreenStyles.optionsContainer,
+    marginHorizontal: 20,
+    borderRadius: 8,
+    padding: 16,
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: 15,
+    marginBottom: 18,
+  },
+  reviewImage: {
+    height: 70,
+    width: 70,
+    borderRadius: 8,
+  },
+  reviewDetailsImageAndProductNameContainer: {
+    flexDirection: "row",
+    gap: 20,
+    alignItems: "center",
+  },
+  reviewDetailsProductName: {
+    color: "#606060",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  reviewDetailsProductPrice: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  reviewDetailsProductDate: {
+    fontSize: 12,
+    color: "#808080",
+  },
+  reviewDetailsRatingAndDateContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
+  reviewDetailsReview: {
+    fontSize: 14,
   },
 });
