@@ -1,9 +1,12 @@
+import { CheckboxProps } from "expo-checkbox";
 import { Dispatch } from "react";
 import {
   GestureResponderEvent,
   ImageSourcePropType,
   TextInputProps,
+  TextStyle,
   TouchableOpacityProps,
+  ViewStyle,
 } from "react-native";
 
 type IoniconName =
@@ -86,4 +89,13 @@ export interface ShippingAddressCheckboxProps {
   setSelectedAddress: Dispatch<React.SetStateAction<string | null>>;
   selectedAddress: string | null;
   addressId: string;
+}
+
+export interface GlobalCheckboxProps extends CheckboxProps {
+  label: string;
+  labelStyle?: TextStyle;
+  checkboxContainerStyles?: ViewStyle;
+  value: boolean;
+  onPress?: () => void;
+  onLabelPress: () => void; // to maintain or ignore same functionality when lable pressed
 }

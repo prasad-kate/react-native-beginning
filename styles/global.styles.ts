@@ -74,3 +74,22 @@ export const textInputStyles = StyleSheet.create({
     color: "#000",
   },
 });
+
+export const checkboxStyles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 25,
+    marginTop: 15,
+  },
+  checkbox: {
+    width: 20,
+    height: 20,
+    borderRadius: 4,
+    marginRight: 5,
+  },
+  label: {
+    fontSize: 16,
+    marginLeft: 8,
+  },
+});
