@@ -1,7 +1,5 @@
-import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
+import Checkbox from "@/components/ui/Checkbox";
 import { ShippingAddressCheckboxProps } from "@/types";
-import Checkbox from "expo-checkbox";
-import { Text, TouchableOpacity } from "react-native";
 
 const ShippingAddressCheckbox = ({
   addressId,
@@ -12,29 +10,17 @@ const ShippingAddressCheckbox = ({
     setSelectedAddress(addressId);
   };
   return (
-    <TouchableOpacity
-      style={{
-        ...detailsScreenStyles.paymentCardSelectionCheckboxContainer,
+    <Checkbox
+      label="Use as shipping address"
+      value={selectedAddress === addressId}
+      onValueChange={handleSelection}
+      onLabelPress={handleSelection}
+      checkboxContainerStyles={{
         marginHorizontal: 20,
         marginTop: 0,
         marginBottom: 35,
       }}
-      activeOpacity={1}
-    >
-      <Checkbox
-        value={selectedAddress === addressId}
-        onValueChange={() => setSelectedAddress(addressId)}
-        color={selectedAddress === addressId ? "#333" : undefined}
-        style={detailsScreenStyles.paymentCardSelectionCheckbox}
-        onChange={handleSelection}
-      />
-      <Text
-        style={detailsScreenStyles.paymentCardSelectionCheckboxText}
-        onPress={handleSelection}
-      >
-        Use as shipping address
-      </Text>
-    </TouchableOpacity>
+    />
   );
 };
 
