@@ -8,7 +8,7 @@ const ShippingDetailsHeader = () => {
   const router = useRouter();
 
   return (
-    <View style={detailsScreenStyles.headerContainer}>
+    <View style={detailsScreenStyles.shippingDetailsHeaderContainer}>
       <Text style={detailsScreenStyles.headerText}>Shipping Address</Text>
       <Ionicons
         name="chevron-back"

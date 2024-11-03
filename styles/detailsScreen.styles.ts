@@ -174,6 +174,13 @@ export const detailsScreenStyles = StyleSheet.create({
   },
 
   // shipping details styles
+  shippingDetailsHeaderContainer: {
+    ...homeScreenStyles.headerContainer,
+    position: "relative",
+    paddingVertical: 10,
+    marginHorizontal: 20,
+    marginBottom: 20,
+  },
   shippingDetailsCardContainer: {
     ...profileScreenStyles.optionsContainer,
     marginHorizontal: 20,
@@ -245,4 +252,6 @@ export const detailsScreenStyles = StyleSheet.create({
   reviewDetailsReview: {
     fontSize: 14,
   },
+
+  // settings details styles
 });
