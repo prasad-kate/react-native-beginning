@@ -4,10 +4,12 @@ import { homeScreenStyles } from "./homeScreen.styles";
 export const profileScreenStyles = StyleSheet.create({
   container: {
     ...homeScreenStyles.container,
+    paddingHorizontal: 0,
   },
   // header styles
   headerContainer: {
     ...homeScreenStyles.headerContainer,
+    marginHorizontal: 20,
   },
   headerText: {
     ...homeScreenStyles.headerBeautifulText,
@@ -18,6 +20,7 @@ export const profileScreenStyles = StyleSheet.create({
     flexDirection: "row",
     gap: 20,
     marginVertical: 30,
+    marginHorizontal: 20,
   },
   profileImage: {
     width: 80,
@@ -43,6 +46,7 @@ export const profileScreenStyles = StyleSheet.create({
     justifyContent: "space-between",
     padding: 20,
     marginBottom: 15,
+    marginHorizontal: 20,
     backgroundColor: "white",
 
     // iOS Shadow
