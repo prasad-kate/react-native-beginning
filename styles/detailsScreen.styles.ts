@@ -254,4 +254,32 @@ export const detailsScreenStyles = StyleSheet.create({
   },
 
   // settings details styles
+  settingsTitle: {
+    fontSize: 16,
+    color: "#909191",
+    fontWeight: "bold",
+  },
+  settingsTitleContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginHorizontal: 20,
+    marginBottom: 15,
+  },
+  settingsDetailCard: {
+    ...profileScreenStyles.optionsContainer,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: 5,
+    borderRadius: 4,
+  },
+  settingsDetailsTitle: {
+    color: "#808080",
+    fontSize: 12,
+  },
+  settingsDetailsValue: {
+    fontSize: 14,
+    fontWeight: "bold",
+  },
 });

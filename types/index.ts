@@ -108,3 +108,7 @@ export interface ReviewDetailsCardProps {
   date: string;
   review: string;
 }
+
+export interface SettingTitleProps {
+  title: string;
+}
