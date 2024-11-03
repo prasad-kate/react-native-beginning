@@ -60,6 +60,7 @@ export default function RootLayout() {
             options={{ headerShown: false }}
           />
           <Stack.Screen name="reviewDetails" options={{ headerShown: false }} />
+          <Stack.Screen name="settings" options={{ headerShown: false }} />
 
           {/* not found */}
           <Stack.Screen name="+not-found" />
