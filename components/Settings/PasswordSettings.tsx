@@ -20,7 +20,7 @@ const PasswordSettings = () => {
       </View>
 
       <View style={detailsScreenStyles.settingsDetailCard}>
-        <Text style={detailsScreenStyles.settingsDetailsTitle}>Name</Text>
+        <Text style={detailsScreenStyles.settingsDetailsTitle}>Password</Text>
         <Text style={detailsScreenStyles.settingsDetailsValue}>
           {"****************"}
         </Text>

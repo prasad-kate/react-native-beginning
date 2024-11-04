@@ -1,3 +1,4 @@
+import NotificationSettings from "@/components/Settings/NotificationSettings";
 import PasswordSettings from "@/components/Settings/PasswordSettings";
 import PersonalInfoSettings from "@/components/Settings/PersonalInfoSettings";
 import SettingsScreenHeader from "@/components/Settings/SettingsScreenHeader";
@@ -11,6 +12,7 @@ const Settings = () => {
       <SettingsScreenHeader />
       <PersonalInfoSettings />
       <PasswordSettings />
+      <NotificationSettings />
     </View>
   );
 };
