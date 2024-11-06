@@ -62,6 +62,9 @@ export default function RootLayout() {
           <Stack.Screen name="reviewDetails" options={{ headerShown: false }} />
           <Stack.Screen name="settings" options={{ headerShown: false }} />
 
+          {/* cart screen */}
+          <Stack.Screen name="cartScreen" options={{ headerShown: false }} />
+
           {/* not found */}
           <Stack.Screen name="+not-found" />
         </Stack>
