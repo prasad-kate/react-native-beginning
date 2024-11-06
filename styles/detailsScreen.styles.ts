@@ -282,4 +282,15 @@ export const detailsScreenStyles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
   },
+  notificationSettingCard: {
+    ...profileScreenStyles.optionsContainer,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 4,
+    gap: 5,
+  },
+  notificationsSettingTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
 });
