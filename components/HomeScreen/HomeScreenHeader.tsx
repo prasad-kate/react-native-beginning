@@ -1,9 +1,11 @@
 import { homeScreenStyles } from "@/styles/homeScreen.styles";
 import { Ionicons } from "@expo/vector-icons";
+import { Href, useRouter } from "expo-router";
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 const HomeScreenHeader = () => {
+  const router = useRouter();
   return (
     <View style={homeScreenStyles.headerContainer}>
       <Ionicons name="search" size={26} color="gray" />
@@ -13,7 +15,14 @@ const HomeScreenHeader = () => {
         </Text>
         <Text style={homeScreenStyles.headerBeautifulText}>Beautiful</Text>
       </View>
-      <Ionicons name="cart" size={26} color="gray" />
+      <TouchableOpacity
+        activeOpacity={0.6}
+        onPress={() => {
+          router.push("cartScreen" as Href<string>);
+        }}
+      >
+        <Ionicons name="cart" size={26} color="gray" />
+      </TouchableOpacity>
     </View>
   );
 };
