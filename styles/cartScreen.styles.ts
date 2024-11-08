@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { favouriteScreenStyles } from "./favouriteScreen.styles";
+import { uiStyles } from "./global.styles";
 
 export const cartScreenStyles = StyleSheet.create({
   // main container
@@ -103,7 +104,7 @@ export const cartScreenStyles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginTop: 10,
-    marginBottom: 20,
+    // marginBottom: 20,
     marginHorizontal: 10,
   },
   cartTotalText: {
@@ -114,5 +115,13 @@ export const cartScreenStyles = StyleSheet.create({
   cartTotal: {
     fontWeight: "bold",
     fontSize: 20,
+  },
+
+  // checkout button styles
+  cartCheckoutButton: {
+    ...uiStyles.button,
+    width: "100%",
+    marginVertical: 15,
+    borderRadius: 8,
   },
 });
