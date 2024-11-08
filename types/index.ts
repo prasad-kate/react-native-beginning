@@ -112,3 +112,9 @@ export interface ReviewDetailsCardProps {
 export interface SettingTitleProps {
   title: string;
 }
+
+export interface CartItemCardProp {
+  name: string;
+  price: string;
+  image: ImageSourcePropType;
+}
