@@ -1,15 +1,20 @@
-import CartItemCard from "@/components/CartScreen/CartItemCard";
 import CartItemsSection from "@/components/CartScreen/CartItemsSection";
 import CartScreenHeader from "@/components/CartScreen/CartScreenHeader";
-import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
+import EnterPromocodeSection from "@/components/CartScreen/EnterPromocodeSection";
+import { cartScreenStyles } from "@/styles/cartScreen.styles";
 import React from "react";
 import { View } from "react-native";
 
 const cartScreen = () => {
   return (
-    <View style={detailsScreenStyles.container}>
-      <CartScreenHeader />
-      <CartItemsSection />
+    <View style={cartScreenStyles.container}>
+      <View>
+        <CartScreenHeader />
+        <CartItemsSection />
+      </View>
+      <View style={cartScreenStyles.promoCodeSectionContainer}>
+        <EnterPromocodeSection />
+      </View>
     </View>
   );
 };
