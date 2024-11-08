@@ -96,4 +96,23 @@ export const cartScreenStyles = StyleSheet.create({
     alignItems: "center",
     marginTop: 10,
   },
+
+  // cart total styles
+  cartTotalContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 20,
+    marginHorizontal: 10,
+  },
+  cartTotalText: {
+    color: "#808080",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+  cartTotal: {
+    fontWeight: "bold",
+    fontSize: 20,
+  },
 });
