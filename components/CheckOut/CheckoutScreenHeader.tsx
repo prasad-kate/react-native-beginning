@@ -1,3 +1,4 @@
+import { checkoutStyles } from "@/styles/checkout.styles";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -8,7 +9,7 @@ const CheckoutScreenHeader = () => {
   const router = useRouter();
 
   return (
-    <View style={detailsScreenStyles.shippingDetailsHeaderContainer}>
+    <View style={checkoutStyles.headerContainer}>
       <Text style={detailsScreenStyles.headerText}>Checkout</Text>
       <Ionicons
         name="chevron-back"

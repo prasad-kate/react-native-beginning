@@ -1,10 +1,11 @@
 import CheckoutScreenHeader from "@/components/CheckOut/CheckoutScreenHeader";
+import { checkoutStyles } from "@/styles/checkout.styles";
 import React from "react";
 import { View } from "react-native";
 
 const checkOut = () => {
   return (
-    <View>
+    <View style={checkoutStyles.container}>
       <CheckoutScreenHeader />
     </View>
   );

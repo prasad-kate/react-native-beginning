@@ -1,5 +1,5 @@
 import { CheckboxProps } from "expo-checkbox";
-import { Dispatch } from "react";
+import { Dispatch, ReactNode } from "react";
 import {
   GestureResponderEvent,
   ImageSourcePropType,
@@ -117,4 +117,11 @@ export interface CartItemCardProp {
   name: string;
   price: string;
   image: ImageSourcePropType;
+}
+
+export interface CheckoutDetailsCardProp {
+  children: ReactNode;
+  containerStyles?: ViewStyle;
+  title?: string;
+  onEdit?: () => void;
 }
