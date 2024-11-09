@@ -1,10 +1,11 @@
-import { View, Text } from "react-native";
+import CheckoutScreenHeader from "@/components/CheckOut/CheckoutScreenHeader";
 import React from "react";
+import { View } from "react-native";
 
 const checkOut = () => {
   return (
     <View>
-      <Text>checkOut</Text>
+      <CheckoutScreenHeader />
     </View>
   );
 };
