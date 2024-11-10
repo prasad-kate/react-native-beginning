@@ -34,4 +34,20 @@ export const checkoutStyles = StyleSheet.create({
     fontWeight: "bold",
     color: "#909090",
   },
+
+  // address details styles
+  addressName: {
+    fontSize: 18,
+    fontWeight: "bold",
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: "#F0F0F0",
+  },
+  address: {
+    color: "#808080",
+    fontSize: 14,
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+  },
 });
