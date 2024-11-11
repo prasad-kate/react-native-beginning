@@ -9,15 +9,20 @@ const CheckoutDetailsCard = ({
   containerStyles,
   title,
   onEdit,
+  hideEditButton,
   ...props
 }: CheckoutDetailsCardProp) => {
   return (
     <>
       <View style={checkoutStyles.checkoutDetailsHeaderContainer}>
-        <Text style={checkoutStyles.checkoutDetailsTitle}>{title}</Text>
-        <TouchableOpacity activeOpacity={0.5} onPress={onEdit}>
-          <Ionicons name="create" size={24} color="black" />
-        </TouchableOpacity>
+        {title && (
+          <Text style={checkoutStyles.checkoutDetailsTitle}>{title}</Text>
+        )}
+        {!hideEditButton && (
+          <TouchableOpacity activeOpacity={0.5} onPress={onEdit}>
+            <Ionicons name="create" size={24} color="black" />
+          </TouchableOpacity>
+        )}
       </View>
       <View
         style={{

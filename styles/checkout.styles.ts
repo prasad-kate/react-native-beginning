@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { uiStyles } from "./global.styles";
 import { homeScreenStyles } from "./homeScreen.styles";
 
 export const checkoutStyles = StyleSheet.create({
@@ -6,7 +7,7 @@ export const checkoutStyles = StyleSheet.create({
     paddingHorizontal: 20,
     justifyContent: "space-between",
     flex: 1,
-    paddingBottom: 20,
+    backgroundColor: "white",
   },
 
   // header styles
@@ -27,6 +28,7 @@ export const checkoutStyles = StyleSheet.create({
     shadowRadius: 40,
     elevation: 10,
     borderRadius: 8,
+    marginBottom: 15,
   },
   checkoutDetailsHeaderContainer: {
     flexDirection: "row",
@@ -107,5 +109,13 @@ export const checkoutStyles = StyleSheet.create({
   orderDetailValue: {
     color: "#242424",
     fontSize: 16,
+  },
+
+  // submit order buttons styles
+  submitOrderButton: {
+    ...uiStyles.button,
+    width: "100%",
+    marginVertical: 35,
+    borderRadius: 8,
   },
 });

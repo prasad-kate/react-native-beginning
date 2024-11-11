@@ -124,4 +124,5 @@ export interface CheckoutDetailsCardProp {
   containerStyles?: ViewStyle;
   title?: string;
   onEdit?: () => void;
+  hideEditButton?: boolean;
 }

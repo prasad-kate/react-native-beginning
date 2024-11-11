@@ -6,7 +6,7 @@ import CheckoutDetailsCard from "./CheckoutDetailsCard";
 
 const CheckoutOrderDetails = () => {
   return (
-    <CheckoutDetailsCard>
+    <CheckoutDetailsCard hideEditButton>
       <View style={checkoutStyles.orderDetailsContainer}>
         <View style={checkoutStyles.orderDetailsTextContainer}>
           <Text style={checkoutStyles.orderDetailTitle}>Order:</Text>
