@@ -10,18 +10,23 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   iconSize = 24,
   iconColor = "#000",
+  buttonTextStyles,
   ...props
 }) => {
   return (
     <TouchableOpacity
-      activeOpacity={0.8}
+      activeOpacity={0.9}
       style={uiStyles.button}
       onPress={onPress}
       {...props}
     >
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         {icon && <Ionicons name={icon} size={iconSize} color={iconColor} />}
-        {text && <Text style={uiStyles.buttonText}>{text}</Text>}
+        {text && (
+          <Text style={{ ...uiStyles.buttonText, ...buttonTextStyles }}>
+            {text}
+          </Text>
+        )}
       </View>
     </TouchableOpacity>
   );

@@ -26,6 +26,7 @@ export interface ButtonProps extends TouchableOpacityProps {
   icon?: IoniconName;
   iconSize?: number;
   iconColor?: string;
+  buttonTextStyles?: TextStyle;
 }
 
 export interface PasswordInputProps extends TextInputProps {

@@ -68,6 +68,9 @@ export default function RootLayout() {
           {/* checkout screen */}
           <Stack.Screen name="checkOut" options={{ headerShown: false }} />
 
+          {/* success screen */}
+          <Stack.Screen name="success" options={{ headerShown: false }} />
+
           {/* not found */}
           <Stack.Screen name="+not-found" />
         </Stack>
