@@ -2,7 +2,12 @@ import { StyleSheet } from "react-native";
 import { homeScreenStyles } from "./homeScreen.styles";
 
 export const checkoutStyles = StyleSheet.create({
-  container: { paddingHorizontal: 20 },
+  container: {
+    paddingHorizontal: 20,
+    justifyContent: "space-between",
+    flex: 1,
+    paddingBottom: 20,
+  },
 
   // header styles
   headerContainer: {
@@ -82,5 +87,25 @@ export const checkoutStyles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     color: "##242424",
+  },
+
+  // order details styles
+  orderDetailsContainer: {
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    gap: 15,
+  },
+  orderDetailsTextContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  orderDetailTitle: {
+    color: "#808080",
+    fontSize: 14,
+  },
+  orderDetailValue: {
+    color: "#242424",
+    fontSize: 16,
   },
 });
