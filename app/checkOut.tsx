@@ -1,3 +1,4 @@
+import CheckoutPaymentDetails from "@/components/CheckOut/CheckoutPaymentDetails";
 import CheckoutScreenHeader from "@/components/CheckOut/CheckoutScreenHeader";
 import CheckoutShippingDetails from "@/components/CheckOut/CheckoutShippingDetails";
 import { checkoutStyles } from "@/styles/checkout.styles";
@@ -9,6 +10,7 @@ const checkOut = () => {
     <View style={checkoutStyles.container}>
       <CheckoutScreenHeader />
       <CheckoutShippingDetails />
+      <CheckoutPaymentDetails />
     </View>
   );
 };

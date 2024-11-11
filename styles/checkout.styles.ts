@@ -50,4 +50,37 @@ export const checkoutStyles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 20,
   },
+
+  // payment details styles
+  paymentDetailsContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 17,
+    marginVertical: 15,
+    marginHorizontal: 20,
+  },
+  paymentDetailsCardIconContainer: {
+    borderRadius: 8,
+    backgroundColor: "white",
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+
+    // Shadow properties for iOS
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12.5,
+
+    // Shadow properties for Android
+    elevation: 6,
+  },
+  paymentDetailsCardIconImage: {
+    width: 32,
+    height: 25,
+  },
+  paymentDetailsCardNumber: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "##242424",
+  },
 });
