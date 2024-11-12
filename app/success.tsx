@@ -51,7 +51,10 @@ const Success = () => {
           text="Track your orders"
           style={successScreenStyles.trackYourOrderButton}
           onPress={() => {
-            router.push("/orderDetails");
+            router.push({
+              pathname: "/orderDetails",
+              params: { preventBackNavigation: "true" },
+            });
           }}
         />
         <Button
