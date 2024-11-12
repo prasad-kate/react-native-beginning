@@ -93,3 +93,23 @@ export const checkboxStyles = StyleSheet.create({
     marginLeft: 8,
   },
 });
+
+export const plusIconButtonStyles = StyleSheet.create({
+  buttonContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    height: 52,
+    width: 52,
+    borderRadius: 26,
+
+    // iOS shadow properties
+    shadowColor: "#8A959E",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 60, // Equivalent to blur
+
+    // Android shadow property
+    elevation: 4,
+  },
+});
