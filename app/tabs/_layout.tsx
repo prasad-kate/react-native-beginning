@@ -1,5 +1,6 @@
 import { FontAwesome, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
+import { TouchableWithoutFeedback, View } from "react-native";
 
 export default function TabsLayout() {
   return (
@@ -32,6 +33,9 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="home" color={color} size={size + 4} />
           ),
+          tabBarButton: (props) => (
+            <TabButton {...props}>{props.children}</TabButton>
+          ),
         }}
       />
       <Tabs.Screen
@@ -40,6 +44,9 @@ export default function TabsLayout() {
           title: "Favourites",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="bookmark" color={color} size={size + 1} />
+          ),
+          tabBarButton: (props) => (
+            <TabButton {...props}>{props.children}</TabButton>
           ),
         }}
       />
@@ -50,6 +57,9 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="notifications" color={color} size={size + 3} />
           ),
+          tabBarButton: (props) => (
+            <TabButton {...props}>{props.children}</TabButton>
+          ),
         }}
       />
       <Tabs.Screen
@@ -59,8 +69,32 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <MaterialIcons name="person" color={color} size={size + 5} />
           ),
+          tabBarButton: (props) => (
+            <TabButton {...props}>{props.children}</TabButton>
+          ),
         }}
       />
     </Tabs>
+  );
+}
+
+function TabButton(props) {
+  return (
+    <TouchableWithoutFeedback
+      style={{
+        backgroundColor: "red",
+      }}
+      {...props}
+    >
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {props.children}
+      </View>
+    </TouchableWithoutFeedback>
   );
 }

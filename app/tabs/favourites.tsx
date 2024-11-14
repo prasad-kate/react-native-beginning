@@ -1,7 +1,6 @@
 import FavouriteProductsSections from "@/components/FavouritesScreen/FavouriteProductsSections";
 import FavouriteScreenHeader from "@/components/FavouritesScreen/FavouriteScreenHeader";
 import { favouriteScreenStyles } from "@/styles/favouriteScreen.styles";
-import React from "react";
 import { View } from "react-native";
 
 const BookmarkScreen = () => {
