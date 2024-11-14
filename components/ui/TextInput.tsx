@@ -1,6 +1,6 @@
 import { textInputStyles } from "@/styles/global.styles";
 import { GlobalTextInputProps } from "@/types";
-import React, { FC } from "react";
+import { FC } from "react";
 import { TextInput as NativeTextInput, Text, View } from "react-native";
 
 const TextInput: FC<GlobalTextInputProps> = ({ label, ...props }) => {

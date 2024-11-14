@@ -113,3 +113,20 @@ export const plusIconButtonStyles = StyleSheet.create({
     elevation: 4,
   },
 });
+
+// TODO: styling dropdown as per the theme
+export const dropdownStyles = StyleSheet.create({
+  container: {
+    margin: 20,
+  },
+  label: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+  picker: {
+    height: 50,
+    borderWidth: 1,
+    borderColor: "red",
+    backgroundColor: "#F5F5F5",
+  },
+});

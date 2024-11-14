@@ -127,3 +127,8 @@ export interface CheckoutDetailsCardProp {
   onEdit?: () => void;
   hideEditButton?: boolean;
 }
+
+export interface DropdownOptions {
+  label: string;
+  value: string;
+}
