@@ -1,4 +1,4 @@
-import { FontAwesome, Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { TouchableWithoutFeedback, View } from "react-native";
 
@@ -30,11 +30,18 @@ export default function TabsLayout() {
         name="home"
         options={{
           title: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="home" color={color} size={size + 4} />
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="home" color={color} size={26} />
           ),
           tabBarButton: (props) => (
-            <TabButton {...props}>{props.children}</TabButton>
+            <TabButton
+              style={{
+                backgroundColor: "red",
+              }}
+              {...props}
+            >
+              {props.children}
+            </TabButton>
           ),
         }}
       />
@@ -43,7 +50,7 @@ export default function TabsLayout() {
         options={{
           title: "Favourites",
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="bookmark" color={color} size={size + 1} />
+            <Ionicons name="bookmark" color={color} size={size} />
           ),
           tabBarButton: (props) => (
             <TabButton {...props}>{props.children}</TabButton>
@@ -54,8 +61,8 @@ export default function TabsLayout() {
         name="notifications"
         options={{
           title: "Notification",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="notifications" color={color} size={size + 3} />
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="notifications" color={color} size={26} />
           ),
           tabBarButton: (props) => (
             <TabButton {...props}>{props.children}</TabButton>
@@ -67,7 +74,7 @@ export default function TabsLayout() {
         options={{
           title: "Profile",
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="person" color={color} size={size + 5} />
+            <Ionicons name="person" color={color} size={size} />
           ),
           tabBarButton: (props) => (
             <TabButton {...props}>{props.children}</TabButton>
@@ -78,14 +85,9 @@ export default function TabsLayout() {
   );
 }
 
-function TabButton(props) {
+function TabButton({ ...props }) {
   return (
-    <TouchableWithoutFeedback
-      style={{
-        backgroundColor: "red",
-      }}
-      {...props}
-    >
+    <TouchableWithoutFeedback {...props}>
       <View
         style={{
           flex: 1,
