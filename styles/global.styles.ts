@@ -124,17 +124,31 @@ export const plusIconButtonStyles = StyleSheet.create({
 
 // TODO: styling dropdown as per the theme
 export const dropdownStyles = StyleSheet.create({
-  container: {
-    margin: 20,
+  standardContainer: {
+    margin: 0,
+    padding: 0,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+    borderRadius: 14,
+    overflow: "hidden",
+  },
+  outlinedContainer: {
+    margin: 0,
+    padding: 0,
   },
   label: {
     fontSize: 18,
     marginBottom: 10,
   },
-  picker: {
+  standardPicker: {
+    fontSize: 16,
+    color: "#000",
     height: 50,
-    borderWidth: 1,
-    borderColor: "red",
+  },
+  outlinedPicker: {
+    fontSize: 16,
+    color: "#000",
+    height: 50,
     backgroundColor: "#F5F5F5",
   },
 });

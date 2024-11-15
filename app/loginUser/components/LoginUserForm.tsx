@@ -3,8 +3,8 @@ import Button from "@/components/ui/Button";
 import PasswordInput from "@/components/ui/PasswordInput";
 import TextInput from "@/components/ui/TextInput";
 import { userRegistrationFormStyles } from "@/styles/registerUser.styles";
-import { Href, useRouter } from "expo-router";
-import React, { useState } from "react";
+import { useRouter } from "expo-router";
+import { useState } from "react";
 import { Alert, Text, TouchableOpacity, View } from "react-native";
 
 const LoginUserForm = () => {
@@ -60,7 +60,7 @@ const LoginUserForm = () => {
       <TouchableOpacity
         activeOpacity={0.7}
         onPress={() => {
-          router.navigate("registerUser" as Href<string>);
+          router.navigate("/registerUser");
         }}
       >
         <Text
