@@ -3,12 +3,22 @@ import { GlobalTextInputProps } from "@/types";
 import { FC } from "react";
 import { TextInput as NativeTextInput, Text, View } from "react-native";
 
-const TextInput: FC<GlobalTextInputProps> = ({ label, ...props }) => {
+const TextInput: FC<GlobalTextInputProps> = ({
+  label,
+  variant = "standard",
+  customInputStyles,
+  ...props
+}) => {
+  const inputStyles =
+    variant === "standard"
+      ? textInputStyles.input
+      : textInputStyles.outlinedInput;
+
   return (
     <View style={textInputStyles.container}>
       <Text style={textInputStyles.label}>{label}</Text>
       <NativeTextInput
-        style={textInputStyles.input}
+        style={inputStyles}
         placeholder={props.placeholder || ""}
         {...props}
       />

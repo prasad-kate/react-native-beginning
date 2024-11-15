@@ -3,6 +3,7 @@ import { Dispatch, ReactNode } from "react";
 import {
   GestureResponderEvent,
   ImageSourcePropType,
+  StyleProp,
   TextInputProps,
   TextStyle,
   TouchableOpacityProps,
@@ -35,6 +36,8 @@ export interface PasswordInputProps extends TextInputProps {
 
 export interface GlobalTextInputProps extends TextInputProps {
   label?: string;
+  variant?: "standard" | "outlined";
+  customInputStyles?: StyleProp<TextStyle>;
 }
 
 export interface HomeScreenProductCardProps {

@@ -73,6 +73,14 @@ export const textInputStyles = StyleSheet.create({
     fontSize: 16,
     color: "#000",
   },
+
+  // outlined version styles
+  outlinedInput: {
+    backgroundColor: "#F5F5F5",
+    padding: 15,
+    fontSize: 16,
+    borderRadius: 4,
+  },
 });
 
 export const checkboxStyles = StyleSheet.create({
