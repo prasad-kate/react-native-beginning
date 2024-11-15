@@ -293,4 +293,17 @@ export const detailsScreenStyles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
   },
+
+  // plus icon button styles
+  plusIconButtonContainer: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    margin: 25,
+  },
+
+  // add shipping details styles
+  addShippingDetailsForm: {
+    padding: 20,
+  },
 });

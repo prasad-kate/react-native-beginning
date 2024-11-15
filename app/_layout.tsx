@@ -62,6 +62,12 @@ export default function RootLayout() {
           <Stack.Screen name="reviewDetails" options={{ headerShown: false }} />
           <Stack.Screen name="settings" options={{ headerShown: false }} />
 
+          {/* add details screens */}
+          <Stack.Screen
+            name="addShippingDetails"
+            options={{ headerShown: false }}
+          />
+
           {/* cart screen */}
           <Stack.Screen name="cartScreen" options={{ headerShown: false }} />
 

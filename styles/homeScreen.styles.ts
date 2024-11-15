@@ -27,7 +27,7 @@ export const homeScreenStyles = StyleSheet.create({
   headerBeautifulText: {
     ...boardingStyles.textBeautiful,
     fontSize: 18,
-    letterSpacing: 4,
+    letterSpacing: 3,
   },
 
   // categroy styles
