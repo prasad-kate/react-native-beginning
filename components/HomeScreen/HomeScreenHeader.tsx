@@ -1,7 +1,6 @@
 import { homeScreenStyles } from "@/styles/homeScreen.styles";
 import { Ionicons } from "@expo/vector-icons";
-import { Href, useRouter } from "expo-router";
-import React from "react";
+import { useRouter } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
 
 const HomeScreenHeader = () => {
@@ -18,7 +17,7 @@ const HomeScreenHeader = () => {
       <TouchableOpacity
         activeOpacity={0.6}
         onPress={() => {
-          router.push("cartScreen" as Href<string>);
+          router.push("/cartScreen");
         }}
       >
         <Ionicons name="cart" size={26} color="gray" />
