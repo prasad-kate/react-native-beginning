@@ -34,7 +34,7 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={uiStyles.container}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar barStyle="dark-content" backgroundColor={"white"} />
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
           <Stack.Screen
