@@ -9,7 +9,7 @@ export const favouriteScreenStyles = StyleSheet.create({
   },
   headerContainer: {
     ...homeScreenStyles.headerContainer,
-    paddingBottom: 10,
+    // paddingBottom: 10,
   },
   favouriteText: {
     ...homeScreenStyles.headerBeautifulText,

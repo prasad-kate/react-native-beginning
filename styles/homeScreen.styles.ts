@@ -14,7 +14,7 @@ export const homeScreenStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginVertical: 5,
+    marginVertical: 10,
   },
   headerTextContainer: {
     justifyContent: "center",
