@@ -1,15 +1,14 @@
+import BackButtonHeader from "@/components/BackButtonHeader";
 import NotificationSettings from "@/components/Settings/NotificationSettings";
 import PasswordSettings from "@/components/Settings/PasswordSettings";
 import PersonalInfoSettings from "@/components/Settings/PersonalInfoSettings";
-import SettingsScreenHeader from "@/components/Settings/SettingsScreenHeader";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
-import React from "react";
 import { View } from "react-native";
 
 const Settings = () => {
   return (
     <View style={detailsScreenStyles.container}>
-      <SettingsScreenHeader />
+      <BackButtonHeader title="settings" />
       <PersonalInfoSettings />
       <PasswordSettings />
       <NotificationSettings />
