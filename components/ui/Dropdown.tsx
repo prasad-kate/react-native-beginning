@@ -9,7 +9,7 @@ const Dropdown = ({
   options,
   variant = "standard",
 }: GlobalDropdownProps) => {
-  const [selectedValue, setSelectedValue] = useState(options?.[0]);
+  const [selectedValue, setSelectedValue] = useState("");
 
   const containerStyles =
     variant === "standard"

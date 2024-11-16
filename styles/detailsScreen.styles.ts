@@ -303,7 +303,9 @@ export const detailsScreenStyles = StyleSheet.create({
   },
 
   // add shipping details styles
-  addShippingDetailsForm: {
+  addShippingDetailsFormContainer: {
     padding: 20,
+    justifyContent: "space-between",
+    flex: 1,
   },
 });
