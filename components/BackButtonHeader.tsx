@@ -1,10 +1,13 @@
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { BackButtonHeaderProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
+import { Href, useRouter } from "expo-router";
 import { Text, View } from "react-native";
 
-const BackButtonHeader = ({ title }: BackButtonHeaderProps) => {
+const BackButtonHeader = ({
+  title,
+  backNavigationPath,
+}: BackButtonHeaderProps) => {
   const router = useRouter();
 
   return (
@@ -16,6 +19,9 @@ const BackButtonHeader = ({ title }: BackButtonHeaderProps) => {
         color="gray"
         style={detailsScreenStyles.backIcon}
         onPress={() => {
+          if (backNavigationPath) {
+            return router.push(backNavigationPath as Href);
+          }
           router.back();
         }}
       />

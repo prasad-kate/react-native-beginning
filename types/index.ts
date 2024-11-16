@@ -144,4 +144,5 @@ export interface GlobalDropdownProps {
 
 export interface BackButtonHeaderProps {
   title: string;
+  backNavigationPath?: string;
 }
