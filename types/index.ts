@@ -141,3 +141,7 @@ export interface GlobalDropdownProps {
   options: DropdownOptions[];
   variant?: "standard" | "outlined";
 }
+
+export interface BackButtonHeaderProps {
+  title: string;
+}
