@@ -1,13 +1,12 @@
-import OrderDetailsHeader from "@/components/DetailsScreens/OrderDetails/OrderDetailsHeader";
+import BackButtonHeader from "@/components/BackButtonHeader";
 import OrderDetailsTabSection from "@/components/DetailsScreens/OrderDetails/OrderDetailsTabSection";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
-import React from "react";
 import { View } from "react-native";
 
 const OrderDetails = () => {
   return (
     <View style={detailsScreenStyles.container}>
-      <OrderDetailsHeader />
+      <BackButtonHeader title="My Orders" backNavigationPath="/tabs/profile" />
       <OrderDetailsTabSection />
     </View>
   );
