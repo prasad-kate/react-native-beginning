@@ -1,7 +1,6 @@
 import { getCardImageAsPerCardType } from "@/constants/paymentMethodConstants";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { PaymentMethodCardProps } from "@/types";
-import React from "react";
 import { ImageBackground, Text, View } from "react-native";
 
 const PaymentMethodCard = ({

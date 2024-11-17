@@ -1,6 +1,6 @@
 import { paymentMethods } from "@/constants/paymentMethodConstants";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FlatList } from "react-native";
 import PaymentCardSelectionCheckbox from "./PaymentCardSelectionCheckbox";
 import PaymentMethodCard from "./PaymentMethodCard";
