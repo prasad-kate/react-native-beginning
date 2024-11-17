@@ -1,9 +1,11 @@
-import { Text, View } from "react-native";
+import BackButtonHeader from "@/components/BackButtonHeader";
+import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
+import { View } from "react-native";
 
 const addPaymentDetails = () => {
   return (
-    <View>
-      <Text>addPaymentDetails</Text>
+    <View style={detailsScreenStyles.container}>
+      <BackButtonHeader title="Add Payment Method" />
     </View>
   );
 };
