@@ -1,11 +1,10 @@
+import BackButtonHeader from "@/components/BackButtonHeader";
 import CartItemsSection from "@/components/CartScreen/CartItemsSection";
-import CartScreenHeader from "@/components/CartScreen/CartScreenHeader";
 import CartTotalSection from "@/components/CartScreen/CartTotalSection";
 import EnterPromocodeSection from "@/components/CartScreen/EnterPromocodeSection";
 import Button from "@/components/ui/Button";
 import { cartScreenStyles } from "@/styles/cartScreen.styles";
 import { useRouter } from "expo-router";
-import React from "react";
 import { View } from "react-native";
 
 const cartScreen = () => {
@@ -13,7 +12,7 @@ const cartScreen = () => {
   return (
     <View style={cartScreenStyles.container}>
       <View>
-        <CartScreenHeader />
+        <BackButtonHeader title="My Cart" />
         <CartItemsSection />
       </View>
       <View style={cartScreenStyles.promoCodeSectionContainer}>
