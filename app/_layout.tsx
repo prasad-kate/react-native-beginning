@@ -67,6 +67,10 @@ export default function RootLayout() {
             name="addShippingDetails"
             options={{ headerShown: false }}
           />
+          <Stack.Screen
+            name="addPaymentDetails"
+            options={{ headerShown: false }}
+          />
 
           {/* cart screen */}
           <Stack.Screen name="cartScreen" options={{ headerShown: false }} />

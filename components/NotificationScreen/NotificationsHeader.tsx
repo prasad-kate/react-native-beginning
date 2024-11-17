@@ -1,5 +1,4 @@
 import { notificationScreenStyles } from "@/styles/notificationScreen.styles";
-import React from "react";
 import { Text } from "react-native";
 
 const NotificationsHeader = () => {
