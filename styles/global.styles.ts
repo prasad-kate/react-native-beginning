@@ -73,6 +73,10 @@ export const textInputStyles = StyleSheet.create({
     fontSize: 16,
     color: "#000",
   },
+  error: {
+    color: "red",
+    fontSize: 12,
+  },
 
   // outlined version styles
   outlinedInput: {
