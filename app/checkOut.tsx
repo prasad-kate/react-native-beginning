@@ -1,11 +1,10 @@
+import BackButtonHeader from "@/components/BackButtonHeader";
 import CheckoutOrderDetails from "@/components/CheckOut/CheckoutOrderDetails";
 import CheckoutPaymentDetails from "@/components/CheckOut/CheckoutPaymentDetails";
-import CheckoutScreenHeader from "@/components/CheckOut/CheckoutScreenHeader";
 import CheckoutShippingDetails from "@/components/CheckOut/CheckoutShippingDetails";
 import Button from "@/components/ui/Button";
 import { checkoutStyles } from "@/styles/checkout.styles";
-import { Href, useRouter } from "expo-router";
-import React from "react";
+import { useRouter } from "expo-router";
 import { View } from "react-native";
 
 const checkOut = () => {
@@ -13,7 +12,7 @@ const checkOut = () => {
   return (
     <View style={checkoutStyles.container}>
       <View>
-        <CheckoutScreenHeader />
+        <BackButtonHeader title="Checkout" />
         <CheckoutShippingDetails />
         <CheckoutPaymentDetails />
         <CheckoutOrderDetails />
@@ -23,7 +22,7 @@ const checkOut = () => {
           text="Submit Order"
           style={checkoutStyles.submitOrderButton}
           onPress={() => {
-            router.push("/success" as Href<string>);
+            router.push("/success");
           }}
         />
       </View>
