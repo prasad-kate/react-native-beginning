@@ -13,11 +13,13 @@ const checkOut = () => {
     <View style={checkoutStyles.container}>
       <View>
         <BackButtonHeader title="Checkout" />
-        <CheckoutShippingDetails />
-        <CheckoutPaymentDetails />
-        <CheckoutOrderDetails />
+        <View style={checkoutStyles.checkoutDetailsContainer}>
+          <CheckoutShippingDetails />
+          <CheckoutPaymentDetails />
+          <CheckoutOrderDetails />
+        </View>
       </View>
-      <View>
+      <View style={checkoutStyles.checkoutDetailsContainer}>
         <Button
           text="Submit Order"
           style={checkoutStyles.submitOrderButton}
