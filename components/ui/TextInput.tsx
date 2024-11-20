@@ -7,6 +7,7 @@ const TextInput: FC<GlobalTextInputProps> = ({
   label,
   variant = "standard",
   customInputStyles,
+  customInputContainerStyles,
   ...props
 }) => {
   const inputStyles =
@@ -15,10 +16,10 @@ const TextInput: FC<GlobalTextInputProps> = ({
       : textInputStyles.outlinedInput;
 
   return (
-    <View style={textInputStyles.container}>
+    <View style={[textInputStyles.container, customInputContainerStyles]}>
       <Text style={textInputStyles.label}>{label}</Text>
       <NativeTextInput
-        style={inputStyles}
+        style={[inputStyles, customInputStyles]}
         placeholder={props.placeholder || ""}
         {...props}
       />

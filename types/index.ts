@@ -38,6 +38,7 @@ export interface GlobalTextInputProps extends TextInputProps {
   label?: string;
   variant?: "standard" | "outlined";
   customInputStyles?: StyleProp<TextStyle>;
+  customInputContainerStyles?: StyleProp<ViewStyle>;
 }
 
 export interface HomeScreenProductCardProps {
