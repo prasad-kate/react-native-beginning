@@ -308,4 +308,18 @@ export const detailsScreenStyles = StyleSheet.create({
     justifyContent: "space-between",
     flex: 1,
   },
+
+  // add payment details styles
+  addPaymentDetailsForm: {
+    paddingHorizontal: 20,
+    paddingVertical: 40,
+  },
+  addPaymentDetailsCvAndExpiryContainer: {
+    flexDirection: "row",
+    gap: 20,
+    justifyContent: "space-between",
+  },
+  addPaymentDetailsCvAndExpiryInputContainer: {
+    flex: 1,
+  },
 });
