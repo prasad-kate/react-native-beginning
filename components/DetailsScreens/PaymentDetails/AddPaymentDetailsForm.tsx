@@ -1,71 +1,68 @@
 import Button from "@/components/ui/Button";
 import TextInput from "@/components/ui/TextInput";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
-import { useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 import { View } from "react-native";
 
 const AddPaymentDetailsForm = () => {
-  const [formData, setFormData] = useState({
-    cardHolderName: "",
-    cardNumber: "",
-    cvv: "",
-    cardExpiry: "",
+  const methods = useForm({
+    defaultValues: {
+      cardHolderName: "",
+      cardNumber: "",
+      cvv: "",
+      cardExpiry: "",
+    },
   });
-  return (
-    <View style={detailsScreenStyles.addPaymentDetailsForm}>
-      <View>
-        <TextInput
-          label="Carholder Name"
-          placeholder="Enter your full name"
-          value={formData.cardHolderName}
-          onChangeText={(text) =>
-            setFormData({ ...formData, cardHolderName: text })
-          }
-          variant="outlined"
-        />
-        <TextInput
-          label="Card Number"
-          placeholder="Enter your card number"
-          value={formData.cardNumber}
-          onChangeText={(text) =>
-            setFormData({ ...formData, cardNumber: text })
-          }
-          variant="outlined"
-        />
 
-        <View style={detailsScreenStyles.addPaymentDetailsCvAndExpiryContainer}>
+  return (
+    <FormProvider {...methods}>
+      <View style={detailsScreenStyles.addPaymentDetailsForm}>
+        <View>
           <TextInput
-            label="CVV"
-            placeholder="XXX"
-            value={formData.cvv}
-            onChangeText={(text) => setFormData({ ...formData, cvv: text })}
-            variant="outlined"
-            customInputContainerStyles={
-              detailsScreenStyles.addPaymentDetailsCvAndExpiryInputContainer
-            }
-          />
-          <TextInput
-            label="Card Expiry"
-            placeholder="XX/XX"
-            value={formData.cardExpiry}
-            onChangeText={(text) =>
-              setFormData({ ...formData, cardExpiry: text })
-            }
-            customInputContainerStyles={
-              detailsScreenStyles.addPaymentDetailsCvAndExpiryInputContainer
-            }
+            name="cardHolderName"
+            label="Carholder Name"
+            placeholder="Enter your full name"
             variant="outlined"
           />
+          <TextInput
+            name="cardNumber"
+            label="Card Number"
+            placeholder="Enter your card number"
+            variant="outlined"
+          />
+
+          <View
+            style={detailsScreenStyles.addPaymentDetailsCvAndExpiryContainer}
+          >
+            <TextInput
+              name="cvv"
+              label="CVV"
+              placeholder="XXX"
+              variant="outlined"
+              customInputContainerStyles={
+                detailsScreenStyles.addPaymentDetailsCvAndExpiryInputContainer
+              }
+            />
+            <TextInput
+              name="cardExpiry"
+              label="Card Expiry"
+              placeholder="XX/XX"
+              customInputContainerStyles={
+                detailsScreenStyles.addPaymentDetailsCvAndExpiryInputContainer
+              }
+              variant="outlined"
+            />
+          </View>
         </View>
+        <Button
+          text="Add New Card"
+          style={detailsScreenStyles.saveCardDetailsButton}
+          onPress={() => {
+            alert(JSON.stringify(methods.getValues()));
+          }}
+        />
       </View>
-      <Button
-        text="Add New Card"
-        style={detailsScreenStyles.saveCardDetailsButton}
-        onPress={() => {
-          alert(JSON.stringify(formData));
-        }}
-      />
-    </View>
+    </FormProvider>
   );
 };
 
