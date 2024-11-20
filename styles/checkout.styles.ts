@@ -4,12 +4,12 @@ import { homeScreenStyles } from "./homeScreen.styles";
 
 export const checkoutStyles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20,
     justifyContent: "space-between",
     flex: 1,
     backgroundColor: "white",
   },
 
+  checkoutDetailsContainer: { paddingHorizontal: 20 },
   // header styles
   headerContainer: {
     ...homeScreenStyles.headerContainer,

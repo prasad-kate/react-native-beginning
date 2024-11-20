@@ -35,6 +35,7 @@ export interface PasswordInputProps extends TextInputProps {
 }
 
 export interface GlobalTextInputProps extends TextInputProps {
+  name: string;
   label?: string;
   variant?: "standard" | "outlined";
   customInputStyles?: StyleProp<TextStyle>;
