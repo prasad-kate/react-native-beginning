@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { cartScreenStyles } from "./cartScreen.styles";
 import { uiStyles } from "./global.styles";
 import { homeScreenStyles } from "./homeScreen.styles";
 import { profileScreenStyles } from "./profileScreen.styles";
@@ -312,7 +313,9 @@ export const detailsScreenStyles = StyleSheet.create({
   // add payment details styles
   addPaymentDetailsForm: {
     paddingHorizontal: 20,
-    paddingVertical: 40,
+    flex: 1,
+    justifyContent: "space-between",
+    backgroundColor: "white",
   },
   addPaymentDetailsCvAndExpiryContainer: {
     flexDirection: "row",
@@ -321,5 +324,8 @@ export const detailsScreenStyles = StyleSheet.create({
   },
   addPaymentDetailsCvAndExpiryInputContainer: {
     flex: 1,
+  },
+  saveCardDetailsButton: {
+    ...cartScreenStyles.cartCheckoutButton,
   },
 });
