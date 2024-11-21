@@ -9,6 +9,7 @@ const TextInput: FC<GlobalTextInputProps> = ({
   label,
   variant = "standard",
   customInputStyles,
+  customInputContainerStyles,
   ...props
 }) => {
   const {
@@ -22,7 +23,7 @@ const TextInput: FC<GlobalTextInputProps> = ({
       : textInputStyles.outlinedInput;
 
   return (
-    <View style={textInputStyles.container}>
+    <View style={[textInputStyles.container, customInputContainerStyles]}>
       {label && <Text style={textInputStyles.label}>{label}</Text>}
 
       <Controller
@@ -30,7 +31,7 @@ const TextInput: FC<GlobalTextInputProps> = ({
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <NativeTextInput
-            style={[inputStyles, customInputStyles]}
+            style={[[inputStyles, customInputStyles], customInputStyles]}
             placeholder={props.placeholder || ""}
             onBlur={onBlur}
             onChangeText={onChange}
