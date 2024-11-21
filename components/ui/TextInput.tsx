@@ -31,7 +31,7 @@ const TextInput: FC<GlobalTextInputProps> = ({
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <NativeTextInput
-            style={[[inputStyles, customInputStyles], customInputStyles]}
+            style={[inputStyles, customInputStyles]}
             placeholder={props.placeholder || ""}
             onBlur={onBlur}
             onChangeText={onChange}

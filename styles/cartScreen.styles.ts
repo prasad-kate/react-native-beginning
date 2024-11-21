@@ -77,6 +77,9 @@ export const cartScreenStyles = StyleSheet.create({
     paddingVertical: 11,
     paddingHorizontal: 20,
     borderRadius: 10,
+    height: 50,
+    marginTop: 25,
+    borderBottomWidth: 0,
 
     // Shadow for iOS
     shadowColor: "#8A959E",

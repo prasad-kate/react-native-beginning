@@ -17,7 +17,7 @@ const EnterPromocodeSection = () => {
           <TextInput
             name="promoCode"
             placeholder="Enter your promo code"
-            style={cartScreenStyles.promoCodeInputStyles}
+            customInputStyles={cartScreenStyles.promoCodeInputStyles}
           />
         </View>
         <TouchableOpacity
