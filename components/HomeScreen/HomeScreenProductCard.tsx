@@ -1,8 +1,8 @@
 import { homeScreenStyles } from "@/styles/homeScreen.styles";
 import { HomeScreenProductCardProps } from "@/types";
 import { formatPrice } from "@/utils";
-import React from "react";
-import { Image, ImageBackground, Text, View } from "react-native";
+import { useRouter } from "expo-router";
+import { Image, ImageBackground, Text, TouchableOpacity } from "react-native";
 
 const HomeScreenProductCard = ({
   name,
@@ -10,8 +10,10 @@ const HomeScreenProductCard = ({
   price,
   isSingleItem,
 }: HomeScreenProductCardProps) => {
+  const router = useRouter();
   return (
-    <View
+    <TouchableOpacity
+      activeOpacity={0.9}
       style={[
         homeScreenStyles.productCardContainer,
         {
@@ -19,6 +21,9 @@ const HomeScreenProductCard = ({
           marginRight: isSingleItem ? 20 : 0,
         },
       ]}
+      onPress={() => {
+        router.push(`/singleProductScreen?id=${name}`);
+      }}
     >
       <ImageBackground
         source={image}
@@ -32,7 +37,7 @@ const HomeScreenProductCard = ({
       </ImageBackground>
       <Text style={homeScreenStyles.productName}>{name}</Text>
       <Text style={homeScreenStyles.productPrice}>{formatPrice(+price)}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

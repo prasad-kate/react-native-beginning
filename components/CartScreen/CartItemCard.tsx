@@ -2,7 +2,6 @@ import { cartScreenStyles } from "@/styles/cartScreen.styles";
 import { CartItemCardProp } from "@/types";
 import { formatPrice } from "@/utils";
 import { Ionicons } from "@expo/vector-icons";
-import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const CartItemCard = ({ name, image, price }: CartItemCardProp) => {

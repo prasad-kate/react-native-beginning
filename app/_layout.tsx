@@ -49,6 +49,12 @@ export default function RootLayout() {
           {/* tabs */}
           <Stack.Screen name="tabs" options={{ headerShown: false }} />
 
+          {/* single product screen */}
+          <Stack.Screen
+            name="singleProductScreen"
+            options={{ headerShown: false }}
+          />
+
           {/* details screens */}
           <Stack.Screen name="orderDetails" options={{ headerShown: false }} />
           <Stack.Screen
