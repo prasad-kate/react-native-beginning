@@ -1,9 +1,14 @@
 import { StyleSheet } from "react-native";
+import { cartScreenStyles } from "./cartScreen.styles";
 
 export const singleProductScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
+  },
+  containerContentStyles: {
+    justifyContent: "space-between",
+    flex: 1,
   },
   productImageContainer: {
     flexDirection: "row",
@@ -11,7 +16,6 @@ export const singleProductScreenStyles = StyleSheet.create({
     marginLeft: "15%",
   },
   productImage: {
-    backgroundColor: "red",
     borderBottomLeftRadius: 52,
     width: "100%",
     aspectRatio: "3/4",
@@ -78,5 +82,26 @@ export const singleProductScreenStyles = StyleSheet.create({
     color: "#808080",
     fontSize: 14,
     fontWeight: "bold",
+  },
+
+  // add to cart/favourites styles
+  addToCartOrFavouritesContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    gap: 20,
+  },
+  addToFavouritesButtonContainer: {
+    width: 55,
+    height: 55,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F0F0F0",
+  },
+  addToCartButton: {
+    ...cartScreenStyles.cartCheckoutButton,
+    width: "auto",
+    flex: 1,
   },
 });
