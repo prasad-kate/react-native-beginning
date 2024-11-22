@@ -20,7 +20,7 @@ const SingleProductImageSection = () => {
           activeOpacity={0.8}
           style={singleProductScreenStyles.backButtonContainer}
           onPress={() => {
-            router.back();
+            router.push("/tabs/home");
           }}
         >
           <Ionicons name="chevron-back" size={22} />
