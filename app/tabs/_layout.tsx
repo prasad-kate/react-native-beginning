@@ -7,7 +7,7 @@ export default function TabsLayout() {
   const { authToken } = useAuthStore();
 
   if (!authToken) {
-    return <Redirect href={"/registerUser"} />;
+    return <Redirect href={"/loginUser"} />;
   }
 
   return (

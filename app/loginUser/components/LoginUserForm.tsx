@@ -2,6 +2,7 @@ import { boardingStyles } from "@/components/Boarding/styles/boarding.styles";
 import Button from "@/components/ui/Button";
 import PasswordInput from "@/components/ui/PasswordInput";
 import TextInput from "@/components/ui/TextInput";
+import useAuthStore from "@/store/authStore";
 import { userRegistrationFormStyles } from "@/styles/registerUser.styles";
 import { useRouter } from "expo-router";
 import { FormProvider, useForm } from "react-hook-form";
@@ -16,6 +17,7 @@ const LoginUserForm = () => {
   });
 
   const router = useRouter();
+  const { setAuthToken } = useAuthStore();
 
   // Handle form submission
   const handleSubmit = () => {
@@ -26,8 +28,8 @@ const LoginUserForm = () => {
       return;
     }
 
-    // TODO: form submission with api integration
-    Alert.alert("Form Submitted", `Email: ${email}`);
+    // TODO: removal of this temporary auth logic and implement actual auth flow
+    setAuthToken(`${email}`);
   };
 
   return (
