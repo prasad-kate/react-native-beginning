@@ -54,6 +54,18 @@ export const passwordInputStyles = StyleSheet.create({
     paddingLeft: 8,
     paddingVertical: 5,
   },
+  error: {
+    color: "red",
+    fontSize: 12,
+  },
+
+  // outlined version styles
+  outlinedInput: {
+    backgroundColor: "#F5F5F5",
+    padding: 15,
+    fontSize: 16,
+    borderRadius: 4,
+  },
 });
 
 export const textInputStyles = StyleSheet.create({
