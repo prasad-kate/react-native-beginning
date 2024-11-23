@@ -3,22 +3,24 @@ import Button from "@/components/ui/Button";
 import PasswordInput from "@/components/ui/PasswordInput";
 import TextInput from "@/components/ui/TextInput";
 import { userRegistrationFormStyles } from "@/styles/registerUser.styles";
-import { Href, useRouter } from "expo-router";
-import React, { useState } from "react";
+import { useRouter } from "expo-router";
+import { FormProvider, useForm } from "react-hook-form";
 import { Alert, Text, TouchableOpacity, View } from "react-native";
 
 export default function UserRegistrationForm() {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
+  const methods = useForm({
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+    },
   });
 
   const router = useRouter();
 
   // Handle form submission
   const handleSubmit = () => {
-    const { username, email, password } = formData;
+    const { username, email, password } = methods.getValues();
 
     if (!username || !email || !password) {
       Alert.alert("Error", "All fields are required!");
@@ -27,79 +29,72 @@ export default function UserRegistrationForm() {
 
     // TODO: form submission with api integration
     Alert.alert("Form Submitted", `Username: ${username}, Email: ${email}`);
-
-    setFormData({
-      username: "",
-      email: "",
-      password: "",
-    });
   };
 
   return (
-    <View style={userRegistrationFormStyles.formContainer}>
-      {/* form */}
-      <TextInput
-        label="Username"
-        placeholder="Enter your username"
-        value={formData.username}
-        onChangeText={(text) => setFormData({ ...formData, username: text })}
-      />
+    <FormProvider {...methods}>
+      <View style={userRegistrationFormStyles.formContainer}>
+        {/* form */}
+        <TextInput
+          name="username"
+          label="Username"
+          placeholder="Enter your username"
+        />
 
-      <TextInput
-        label="Email"
-        placeholder="Enter your email"
-        value={formData.email}
-        onChangeText={(text) => setFormData({ ...formData, email: text })}
-        keyboardType="email-address"
-      />
+        <TextInput
+          name="email"
+          label="Email"
+          placeholder="Enter your email"
+          keyboardType="email-address"
+        />
 
-      <PasswordInput
-        label="Password"
-        placeholder="Enter your password"
-        value={formData.password}
-        onChangeText={(text) => setFormData({ ...formData, password: text })}
-      />
+        <PasswordInput
+          name="password"
+          label="Password"
+          placeholder="Enter your password"
+        />
 
-      {/* submission */}
-      <Button
-        text="Submit"
-        onPress={handleSubmit}
-        style={userRegistrationFormStyles.submitButton}
-      />
+        {/* submission */}
+        <Button
+          text="Submit"
+          onPress={handleSubmit}
+          style={userRegistrationFormStyles.submitButton}
+        />
 
-      {/* already have account section */}
-      <View style={boardingStyles.welcomeTextContainer}>
-        <Text
-          style={[
-            boardingStyles.textMakePart,
-            {
-              fontSize: 12,
-            },
-          ]}
-          numberOfLines={1}
-        >
-          Already have account?
-        </Text>
-
-        <TouchableOpacity
-          activeOpacity={0.7}
-          onPress={() => {
-            router.navigate("loginUser" as Href<string>);
-          }}
-        >
+        {/* already have account section */}
+        <View style={boardingStyles.welcomeTextContainer}>
           <Text
             style={[
-              boardingStyles.textBeautiful,
+              boardingStyles.textMakePart,
               {
-                fontSize: 18,
-                letterSpacing: 1,
+                fontSize: 12,
               },
             ]}
+            numberOfLines={1}
           >
-            SIGN IN
+            Already have account?
           </Text>
-        </TouchableOpacity>
+
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => {
+              router.navigate("/loginUser");
+            }}
+          >
+            <Text
+              style={[
+                boardingStyles.textBeautiful,
+                {
+                  fontSize: 18,
+                  letterSpacing: 1,
+                },
+              ]}
+            >
+              SIGN IN
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </FormProvider>
   );
 }
