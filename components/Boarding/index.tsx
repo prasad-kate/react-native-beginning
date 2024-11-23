@@ -1,11 +1,12 @@
-import { Href, useRouter } from "expo-router";
-import React from "react";
+import useAuthStore from "@/store/authStore";
+import { useRouter } from "expo-router";
 import { ImageBackground, Text, View } from "react-native";
 import Button from "../ui/Button";
 import { boardingStyles } from "./styles/boarding.styles";
 
 const Boarding = () => {
   const router = useRouter();
+  const { authToken } = useAuthStore();
   return (
     <ImageBackground
       source={require("@/assets/images/furniture-app-first-bg.png")}
@@ -29,8 +30,12 @@ const Boarding = () => {
         <Button
           text="Get Started"
           onPress={() => {
-            // router.navigate("/registerUser" as Href<string>);
-            router.navigate("tabs/home" as Href<string>); // TODO: temporary navigation for testing
+            if (authToken) {
+              return router.push("/tabs/home");
+            }
+            if (!authToken) {
+              return router.navigate("/registerUser");
+            }
           }}
         />
       </View>

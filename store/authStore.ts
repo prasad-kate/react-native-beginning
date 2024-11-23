@@ -7,7 +7,7 @@ interface AuthState {
   clearAuthToken: () => void;
 }
 
-const authStore = create<AuthState>()(
+const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
       authToken: null,
@@ -20,4 +20,4 @@ const authStore = create<AuthState>()(
   )
 );
 
-export default authStore;
+export default useAuthStore;

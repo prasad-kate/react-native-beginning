@@ -1,6 +1,6 @@
 import { uiStyles } from "@/styles/global.styles";
 import { useFonts } from "expo-font";
-import { Redirect, Stack } from "expo-router";
+import { Stack } from "expo-router";
 import { hideAsync, preventAutoHideAsync } from "expo-splash-screen";
 import { useEffect } from "react";
 import { StatusBar } from "react-native";
@@ -23,12 +23,6 @@ export default function RootLayout() {
 
   if (!loaded) {
     return null;
-  }
-
-  const isAuthenticated = false; // TODO: auth setup with api integration
-
-  if (isAuthenticated) {
-    return <Redirect href={"/tabs/home"} />;
   }
 
   return (

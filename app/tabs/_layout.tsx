@@ -1,8 +1,15 @@
+import useAuthStore from "@/store/authStore";
 import { Ionicons } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import { Redirect, Tabs } from "expo-router";
 import { TouchableWithoutFeedback, View } from "react-native";
 
 export default function TabsLayout() {
+  const { authToken } = useAuthStore();
+
+  if (!authToken) {
+    return <Redirect href={"/registerUser"} />;
+  }
+
   return (
     <Tabs
       screenOptions={{
