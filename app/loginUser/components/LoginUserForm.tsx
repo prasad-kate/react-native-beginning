@@ -58,7 +58,7 @@ const LoginUserForm = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           onPress={() => {
-            router.navigate("/registerUser");
+            router.push("/registerUser");
           }}
         >
           <Text

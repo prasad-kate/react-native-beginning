@@ -78,7 +78,7 @@ export default function UserRegistrationForm() {
           <TouchableOpacity
             activeOpacity={0.7}
             onPress={() => {
-              router.navigate("/loginUser");
+              router.push("/loginUser");
             }}
           >
             <Text
