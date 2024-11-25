@@ -148,3 +148,8 @@ export interface BackButtonHeaderProps {
   title: string;
   backNavigationPath?: string;
 }
+
+export interface LoginUserPayload {
+  email: string;
+  password: string;
+}
