@@ -3,7 +3,7 @@ import { boardingStyles } from "@/components/Boarding/styles/boarding.styles";
 import useAuthStore from "@/store/authStore";
 import { registerUserStyles } from "@/styles/registerUser.styles";
 import { Redirect } from "expo-router";
-import { Text, View } from "react-native";
+import { ScrollView, Text } from "react-native";
 import UserRegistrationForm from "./components/RegistrationForm";
 
 const RegisterUser = () => {
@@ -14,7 +14,11 @@ const RegisterUser = () => {
   }
 
   return (
-    <View style={registerUserStyles.container}>
+    <ScrollView
+      style={registerUserStyles.container}
+      showsVerticalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false}
+    >
       <AuthPageLogo />
       <Text
         style={[
@@ -29,7 +33,7 @@ const RegisterUser = () => {
       </Text>
 
       <UserRegistrationForm />
-    </View>
+    </ScrollView>
   );
 };
 
