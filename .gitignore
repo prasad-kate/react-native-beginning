@@ -38,3 +38,5 @@ yarn-error.log*
 # Build directories
 build/
 %ProgramData%/
+
+.env
