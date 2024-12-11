@@ -1,19 +1,21 @@
-import { homeScreenProducts } from "@/constants/homeScreenConstants";
+import { useGetProducts } from "@/services/products.service";
 import { homeScreenStyles } from "@/styles/homeScreen.styles";
-import React from "react";
 import { FlatList } from "react-native";
 import HomeScreenProductCard from "./HomeScreenProductCard";
 
 const HomeScreenProductSection = () => {
+  const { productsList } = useGetProducts();
+
   return (
     <FlatList
-      data={homeScreenProducts}
+      data={productsList}
       keyExtractor={(_, index) => `${index}`}
       renderItem={({ item, index }) => {
         const isSingleItem =
-          index % 2 === 0 && index === homeScreenProducts?.length - 1;
+          index % 2 === 0 && index === productsList?.length - 1;
         return (
           <HomeScreenProductCard
+            id={item.id}
             name={item.name}
             image={item.image}
             price={item.price}

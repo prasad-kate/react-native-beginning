@@ -43,6 +43,7 @@ export interface GlobalTextInputProps extends TextInputProps {
 }
 
 export interface HomeScreenProductCardProps {
+  id: number;
   name: string;
   image: ImageSourcePropType;
   price: string;

@@ -5,6 +5,7 @@ import { useRouter } from "expo-router";
 import { Image, ImageBackground, Text, TouchableOpacity } from "react-native";
 
 const HomeScreenProductCard = ({
+  id,
   name,
   image,
   price,
@@ -22,11 +23,11 @@ const HomeScreenProductCard = ({
         },
       ]}
       onPress={() => {
-        router.push(`/singleProductScreen?id=${name}`);
+        router.push(`/singleProductScreen?id=${id}`);
       }}
     >
       <ImageBackground
-        source={image}
+        source={{ uri: image as string }}
         style={homeScreenStyles.productCardImage}
         resizeMode="cover"
       >
