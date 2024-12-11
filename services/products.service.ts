@@ -11,3 +11,18 @@ export const useGetProducts = () => {
     productsList: data?.data,
   };
 };
+
+export const useGetProductFromProductId = ({
+  productId,
+}: {
+  productId: number;
+}) => {
+  const { data } = useQuery({
+    queryKey: ["product-details", productId],
+    queryFn: () => api.get(`products/${productId}`),
+  });
+
+  return {
+    productDetails: data?.data,
+  };
+};

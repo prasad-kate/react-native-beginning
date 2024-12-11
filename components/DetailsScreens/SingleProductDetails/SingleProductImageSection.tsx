@@ -1,15 +1,18 @@
 import { singleProductScreenStyles } from "@/styles/singleProductScreen.styles";
+import { SingleProductImageSectionProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { ImageBackground, TouchableOpacity, View } from "react-native";
 
-const SingleProductImageSection = () => {
+const SingleProductImageSection = ({
+  imgUrl,
+}: SingleProductImageSectionProps) => {
   const router = useRouter();
 
   return (
     <View style={singleProductScreenStyles.productImageContainer}>
       <ImageBackground
-        source={require("@/assets/images/product-coffee-chair.png")}
+        source={{ uri: imgUrl }}
         style={singleProductScreenStyles.productImage}
         imageStyle={{
           borderBottomLeftRadius: 52,
