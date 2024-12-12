@@ -20,6 +20,7 @@ export const useGetProductFromProductId = ({
   const { data } = useQuery({
     queryKey: ["product-details", productId],
     queryFn: () => api.get(`products/${productId}`),
+    enabled: !!productId,
   });
 
   return {
