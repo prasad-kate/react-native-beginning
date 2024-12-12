@@ -1,21 +1,29 @@
 import { homeScreenCategories } from "@/constants/homeScreenConstants";
+import useProductStore from "@/store/productStore";
 import { homeScreenStyles } from "@/styles/homeScreen.styles";
-import { FlatList, Image, Text, View } from "react-native";
+import { FlatList, Image, Text, TouchableOpacity } from "react-native";
 
 const HomeScreenCategorySection = () => {
+  const { setCategory } = useProductStore();
   return (
     <FlatList
       data={homeScreenCategories}
       keyExtractor={(_, index) => `${index}`}
       renderItem={({ item }) => {
         return (
-          <View style={homeScreenStyles.singleCategoryContainer}>
+          <TouchableOpacity
+            activeOpacity={0.9}
+            style={homeScreenStyles.singleCategoryContainer}
+            onPress={() => {
+              setCategory(item.name);
+            }}
+          >
             <Image
               source={item.image}
               style={homeScreenStyles.singleCategoryImage}
             />
             <Text style={homeScreenStyles.categoryName}>{item.name}</Text>
-          </View>
+          </TouchableOpacity>
         );
       }}
       contentContainerStyle={homeScreenStyles.categoryContainerContentStyles}
