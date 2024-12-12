@@ -24,6 +24,6 @@ export const useGetProductFromProductId = ({
   });
 
   return {
-    productDetails: data?.data,
+    productDetails: data?.data || [],
   };
 };
