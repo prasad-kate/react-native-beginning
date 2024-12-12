@@ -4,10 +4,13 @@ import SingleProductImageSection from "@/components/DetailsScreens/SingleProduct
 import { useGetProductFromProductId } from "@/services/products.service";
 import { singleProductScreenStyles } from "@/styles/singleProductScreen.styles";
 import { useLocalSearchParams } from "expo-router";
+import { useState } from "react";
 import { ScrollView, View } from "react-native";
 
 const singleProductScreen = () => {
   const { id } = useLocalSearchParams();
+
+  const [productCount, setProductCount] = useState<number>(0);
 
   const { productDetails } = useGetProductFromProductId({
     productId: +id,
@@ -20,9 +23,12 @@ const singleProductScreen = () => {
     >
       <View>
         <SingleProductImageSection imgUrl={productDetails?.image} />
-        <SingleProductDetailsSection />
+        <SingleProductDetailsSection
+          productCount={productCount}
+          setProductCount={setProductCount}
+        />
       </View>
-      <SingleProductAddOrSaveSection />
+      <SingleProductAddOrSaveSection productCount={productCount} />
     </ScrollView>
   );
 };

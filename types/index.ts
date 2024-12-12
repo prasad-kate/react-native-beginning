@@ -158,3 +158,12 @@ export interface LoginUserPayload {
 export interface SingleProductImageSectionProps {
   imgUrl: string;
 }
+
+export interface SingleProductAddOrSaveSectionProps {
+  productCount: number;
+}
+
+export interface SingleProductDetailsSectionProps {
+  productCount: number;
+  setProductCount: Dispatch<React.SetStateAction<number>>;
+}

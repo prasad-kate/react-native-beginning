@@ -1,9 +1,14 @@
 import Button from "@/components/ui/Button";
 import { singleProductScreenStyles } from "@/styles/singleProductScreen.styles";
+import { SingleProductAddOrSaveSectionProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
+import { useLocalSearchParams } from "expo-router";
 import { TouchableOpacity, View } from "react-native";
 
-const SingleProductAddOrSaveSection = () => {
+const SingleProductAddOrSaveSection = ({
+  productCount,
+}: SingleProductAddOrSaveSectionProps) => {
+  const { id } = useLocalSearchParams();
   return (
     <View style={singleProductScreenStyles.addToCartOrFavouritesContainer}>
       <TouchableOpacity
@@ -15,6 +20,10 @@ const SingleProductAddOrSaveSection = () => {
       <Button
         text="Add To Cart"
         style={singleProductScreenStyles.addToCartButton}
+        onPress={() => {
+          // TODO: use productCount and productId from url to add to cart
+          console.log("zz", productCount, id);
+        }}
       />
     </View>
   );

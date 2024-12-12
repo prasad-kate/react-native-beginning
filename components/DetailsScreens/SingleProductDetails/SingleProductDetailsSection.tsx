@@ -1,11 +1,15 @@
 import { cartScreenStyles } from "@/styles/cartScreen.styles";
 import { singleProductScreenStyles } from "@/styles/singleProductScreen.styles";
+import { SingleProductDetailsSectionProps } from "@/types";
 import { formatPrice } from "@/utils";
 import { Ionicons } from "@expo/vector-icons";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Rating } from "react-native-ratings";
 
-const SingleProductDetailsSection = () => {
+const SingleProductDetailsSection = ({
+  productCount,
+  setProductCount,
+}: SingleProductDetailsSectionProps) => {
   return (
     <View style={singleProductScreenStyles.productDetailsContainer}>
       <Text style={singleProductScreenStyles.poductTitle}>Produt name</Text>
@@ -18,13 +22,21 @@ const SingleProductDetailsSection = () => {
           <TouchableOpacity
             activeOpacity={0.8}
             style={cartScreenStyles.cartNumberAddRemoveButton}
+            onPress={() => {
+              if (productCount) {
+                setProductCount((prev) => prev - 1);
+              }
+            }}
           >
             <Ionicons name="remove" size={18} color="#808080" />
           </TouchableOpacity>
-          <Text style={cartScreenStyles.cartItemNumber}>{"1"}</Text>
+          <Text style={cartScreenStyles.cartItemNumber}>{productCount}</Text>
           <TouchableOpacity
             activeOpacity={0.8}
             style={cartScreenStyles.cartNumberAddRemoveButton}
+            onPress={() => {
+              setProductCount((prev) => prev + 1);
+            }}
           >
             <Ionicons name="add" size={18} color="#808080" />
           </TouchableOpacity>
