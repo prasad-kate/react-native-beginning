@@ -47,6 +47,12 @@ export const homeScreenStyles = StyleSheet.create({
     textAlign: "center",
     color: "gray",
   },
+  singleCategoryContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 3,
+  },
+  singleCategoryImage: { width: 44, height: 44 },
 
   // products styles
   productsContainer: {
