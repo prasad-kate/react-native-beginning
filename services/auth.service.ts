@@ -5,7 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 
 export const useLogin = () => {
   const { setAuthToken } = useAuthStore();
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: (payload: LoginUserPayload) => api.post("auth/login", payload),
     onSuccess: (res) => {
       const token = res?.data?.token;
@@ -18,5 +18,6 @@ export const useLogin = () => {
 
   return {
     login: mutate,
+    isLogingIn: isPending,
   };
 };

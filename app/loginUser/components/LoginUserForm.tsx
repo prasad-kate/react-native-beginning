@@ -17,7 +17,7 @@ const LoginUserForm = () => {
   });
 
   const router = useRouter();
-  const { login } = useLogin();
+  const { login, isLogingIn } = useLogin();
 
   // Handle form submission
   const handleSubmit = () => {
@@ -54,7 +54,11 @@ const LoginUserForm = () => {
         <Button
           text="LOGIN"
           onPress={handleSubmit}
-          style={userRegistrationFormStyles.submitButton}
+          style={[
+            userRegistrationFormStyles.submitButton,
+            { opacity: isLogingIn ? 0.5 : 1 },
+          ]}
+          disabled={isLogingIn}
         />
 
         <TouchableOpacity
