@@ -1,12 +1,15 @@
 import useAuthStore from "@/store/authStore";
+import useUserStore from "@/store/userStore";
 import { Ionicons } from "@expo/vector-icons";
 import { Redirect, Tabs } from "expo-router";
 import { TouchableWithoutFeedback, View } from "react-native";
 
 export default function TabsLayout() {
   const { authToken } = useAuthStore();
+  const { setUserData } = useUserStore();
 
   if (!authToken) {
+    setUserData(null);
     return <Redirect href={"/loginUser"} />;
   }
 

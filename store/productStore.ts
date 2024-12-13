@@ -7,7 +7,7 @@ interface ProductState {
 
 const useProductStore = create<ProductState>((set) => ({
   category: "",
-  setCategory: (category: string) => set({ category }),
+  setCategory: (category) => set({ category }),
 }));
 
 export default useProductStore;

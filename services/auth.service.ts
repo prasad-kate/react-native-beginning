@@ -1,10 +1,12 @@
 import { api } from "@/api";
 import useAuthStore from "@/store/authStore";
+import useUserStore from "@/store/userStore";
 import { LoginUserPayload, RegisterUserPayload } from "@/types";
 import { useMutation } from "@tanstack/react-query";
 
 export const useRegisterUser = () => {
   const { setAuthToken } = useAuthStore();
+  const { setUserData } = useUserStore();
 
   const { mutate, isPending } = useMutation({
     mutationFn: (payload: RegisterUserPayload) =>
@@ -14,6 +16,7 @@ export const useRegisterUser = () => {
 
       if (token) {
         setAuthToken(token);
+        setUserData(res?.data?.userData);
       }
     },
   });
@@ -26,6 +29,8 @@ export const useRegisterUser = () => {
 
 export const useLogin = () => {
   const { setAuthToken } = useAuthStore();
+  const { setUserData } = useUserStore();
+
   const { mutate, isPending } = useMutation({
     mutationFn: (payload: LoginUserPayload) => api.post("auth/login", payload),
     onSuccess: (res) => {
@@ -33,6 +38,7 @@ export const useLogin = () => {
 
       if (token) {
         setAuthToken(token);
+        setUserData(res?.data?.userData);
       }
     },
   });
