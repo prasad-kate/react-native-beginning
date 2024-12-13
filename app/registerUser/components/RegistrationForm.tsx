@@ -2,12 +2,15 @@ import { boardingStyles } from "@/components/Boarding/styles/boarding.styles";
 import Button from "@/components/ui/Button";
 import PasswordInput from "@/components/ui/PasswordInput";
 import TextInput from "@/components/ui/TextInput";
+import { useRegisterUser } from "@/services/auth.service";
 import { userRegistrationFormStyles } from "@/styles/registerUser.styles";
 import { useRouter } from "expo-router";
 import { FormProvider, useForm } from "react-hook-form";
 import { Alert, Text, TouchableOpacity, View } from "react-native";
 
 export default function UserRegistrationForm() {
+  const router = useRouter();
+
   const methods = useForm({
     defaultValues: {
       username: "",
@@ -16,7 +19,7 @@ export default function UserRegistrationForm() {
     },
   });
 
-  const router = useRouter();
+  const { registerUser, isRegisteringUser } = useRegisterUser();
 
   // Handle form submission
   const handleSubmit = () => {
@@ -27,8 +30,11 @@ export default function UserRegistrationForm() {
       return;
     }
 
-    // TODO: form submission with api integration
-    Alert.alert("Form Submitted", `Username: ${username}, Email: ${email}`);
+    registerUser({
+      name: username,
+      email,
+      password,
+    });
   };
 
   return (
@@ -58,7 +64,13 @@ export default function UserRegistrationForm() {
         <Button
           text="Submit"
           onPress={handleSubmit}
-          style={userRegistrationFormStyles.submitButton}
+          disabled={isRegisteringUser}
+          style={[
+            userRegistrationFormStyles.submitButton,
+            {
+              opacity: isRegisteringUser ? 0.5 : 1,
+            },
+          ]}
         />
 
         {/* already have account section */}

@@ -167,3 +167,9 @@ export interface SingleProductDetailsSectionProps {
   productCount: number;
   setProductCount: Dispatch<React.SetStateAction<number>>;
 }
+
+export interface RegisterUserPayload {
+  name: string;
+  email: string;
+  password: string;
+}
