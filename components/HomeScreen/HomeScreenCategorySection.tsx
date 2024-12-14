@@ -1,21 +1,23 @@
-import { homeScreenCategories } from "@/constants/homeScreenConstants";
+import { useGetProductsCategories } from "@/services/products.service";
 import useProductStore from "@/store/productStore";
 import { homeScreenStyles } from "@/styles/homeScreen.styles";
 import { FlatList, Image, Text, TouchableOpacity } from "react-native";
 
 const HomeScreenCategorySection = () => {
   const { setCategory } = useProductStore();
+  const { productCategories } = useGetProductsCategories();
+
   return (
     <FlatList
-      data={homeScreenCategories}
-      keyExtractor={(_, index) => `${index}`}
+      data={productCategories}
+      keyExtractor={(item) => `${item.category_id}`}
       renderItem={({ item }) => {
         return (
           <TouchableOpacity
             activeOpacity={0.9}
             style={homeScreenStyles.singleCategoryContainer}
             onPress={() => {
-              setCategory(item.name);
+              setCategory(item.category_id);
             }}
           >
             <Image

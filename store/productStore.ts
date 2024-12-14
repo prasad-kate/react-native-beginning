@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
 interface ProductState {
-  category: string;
-  setCategory: (category: string) => void;
+  category: number | null;
+  setCategory: (category: number) => void;
 }
 
 const useProductStore = create<ProductState>((set) => ({
-  category: "",
+  category: null,
   setCategory: (category) => set({ category }),
 }));
 

@@ -27,3 +27,14 @@ export const useGetProductFromProductId = ({
     productDetails: data?.data || [],
   };
 };
+
+export const useGetProductsCategories = () => {
+  const { data } = useQuery({
+    queryKey: ["products-category"],
+    queryFn: () => api.get("products/categories"),
+  });
+
+  return {
+    productCategories: data?.data || [],
+  };
+};

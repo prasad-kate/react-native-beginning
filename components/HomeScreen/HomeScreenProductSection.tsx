@@ -10,17 +10,11 @@ const HomeScreenProductSection = () => {
   const { productsList } = useGetProducts();
 
   const filteredProducts = productsList?.filter(
-    ({ category }: { category: string }) => {
-      if (
-        selectedCategory &&
-        selectedCategory?.toLocaleLowerCase() !== "popular"
-      ) {
-        return (
-          category?.toLocaleLowerCase() ===
-          selectedCategory?.toLocaleLowerCase()
-        );
+    ({ category_id }: { category_id: number; name: string }) => {
+      if (selectedCategory && selectedCategory !== 1) {
+        return category_id === selectedCategory;
       }
-      return true; // to show all products
+      return true; // TODO: shows all products, Later will show popular
     }
   );
 
