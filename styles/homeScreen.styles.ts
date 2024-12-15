@@ -32,7 +32,7 @@ export const homeScreenStyles = StyleSheet.create({
 
   // categroy styles
   categoryContainerContentStyles: {
-    gap: 25,
+    gap: 15,
     flexShrink: 0,
     justifyContent: "center",
     alignItems: "center",
