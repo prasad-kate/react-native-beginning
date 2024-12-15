@@ -10,7 +10,7 @@ import { ScrollView, View } from "react-native";
 const singleProductScreen = () => {
   const { id } = useLocalSearchParams();
 
-  const [productCount, setProductCount] = useState<number>(0);
+  const [productCount, setProductCount] = useState<number>(1);
 
   const { productDetails } = useGetProductFromProductId({
     productId: +id,

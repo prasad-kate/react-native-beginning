@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import useCartStore from "@/store/cartStore";
 import { singleProductScreenStyles } from "@/styles/singleProductScreen.styles";
 import { SingleProductAddOrSaveSectionProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
@@ -9,6 +10,7 @@ const SingleProductAddOrSaveSection = ({
   productCount,
 }: SingleProductAddOrSaveSectionProps) => {
   const { id } = useLocalSearchParams();
+  const { setCartItems } = useCartStore();
   return (
     <View style={singleProductScreenStyles.addToCartOrFavouritesContainer}>
       <TouchableOpacity
@@ -21,8 +23,10 @@ const SingleProductAddOrSaveSection = ({
         text="Add To Cart"
         style={singleProductScreenStyles.addToCartButton}
         onPress={() => {
-          // TODO: use productCount and productId from url to add to cart
-          console.log("zz", productCount, id);
+          setCartItems({
+            productId: +id,
+            productCount,
+          });
         }}
       />
     </View>
