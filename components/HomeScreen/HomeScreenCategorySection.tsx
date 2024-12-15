@@ -21,7 +21,7 @@ const HomeScreenCategorySection = () => {
             }}
           >
             <Image
-              source={item.image}
+              source={{ uri: item.image }}
               style={homeScreenStyles.singleCategoryImage}
             />
             <Text style={homeScreenStyles.categoryName}>{item.name}</Text>
