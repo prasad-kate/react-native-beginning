@@ -1,8 +1,10 @@
+import { useGetProductFromProductId } from "@/services/products.service";
 import { cartScreenStyles } from "@/styles/cartScreen.styles";
 import { singleProductScreenStyles } from "@/styles/singleProductScreen.styles";
 import { SingleProductDetailsSectionProps } from "@/types";
 import { formatPrice } from "@/utils";
 import { Ionicons } from "@expo/vector-icons";
+import { useLocalSearchParams } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Rating } from "react-native-ratings";
 
@@ -10,12 +12,22 @@ const SingleProductDetailsSection = ({
   productCount,
   setProductCount,
 }: SingleProductDetailsSectionProps) => {
+  const { id } = useLocalSearchParams();
+
+  const { productDetails } = useGetProductFromProductId({
+    productId: +id,
+  });
+
+  // TODO: make reviews dynamic based on review table
+
   return (
     <View style={singleProductScreenStyles.productDetailsContainer}>
-      <Text style={singleProductScreenStyles.poductTitle}>Produt name</Text>
+      <Text style={singleProductScreenStyles.poductTitle}>
+        {productDetails.name}
+      </Text>
       <View style={singleProductScreenStyles.productPriceAndCountContainer}>
         <Text style={singleProductScreenStyles.productPrice}>
-          {formatPrice(50)}
+          {formatPrice(productDetails?.price || 0)}
         </Text>
 
         <View style={cartScreenStyles.cartItemCountContainer}>
@@ -23,7 +35,7 @@ const SingleProductDetailsSection = ({
             activeOpacity={0.8}
             style={cartScreenStyles.cartNumberAddRemoveButton}
             onPress={() => {
-              if (productCount) {
+              if (productCount > 1) {
                 setProductCount((prev) => prev - 1);
               }
             }}
@@ -53,18 +65,17 @@ const SingleProductDetailsSection = ({
           ratingBackgroundColor="#F2C94C"
           readonly
         />
-        <Text style={singleProductScreenStyles.poductTitle}>{4.5}</Text>
+        <Text style={singleProductScreenStyles.poductTitle}>
+          {productDetails?.stars || 0}
+        </Text>
         <Text
           style={singleProductScreenStyles.reviewsText}
-        >{`(${50} reviews)`}</Text>
+        >{`(${10} reviews)`}</Text>
       </View>
 
       {/* product details */}
       <Text style={singleProductScreenStyles.productDetailsText}>
-        Minimal Stand is made of by natural wood. The design that is very simple
-        and minimal. This is truly one of the best furnitures in any family for
-        now. With 3 different colors, you can easily select the best match for
-        your home.
+        {productDetails?.description}
       </Text>
     </View>
   );
