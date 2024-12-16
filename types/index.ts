@@ -121,6 +121,7 @@ export interface SettingTitleProps {
 }
 
 export interface CartItemCardProp {
+  productId: number;
   name: string;
   price: string;
   image: ImageSourcePropType;

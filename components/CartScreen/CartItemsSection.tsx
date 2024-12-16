@@ -12,6 +12,7 @@ const CartItemsSection = () => {
       renderItem={({ item }) => {
         return (
           <CartItemCard
+            productId={item?.id}
             name={item?.name}
             image={item?.image}
             price={item?.price}

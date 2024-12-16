@@ -10,6 +10,8 @@ type Product = {
 interface CartState {
   cartItems: Product[];
   setCartItems: (productData: Product) => void;
+  editCartItemCount: (productData: Product) => void;
+  removeCartItem: (productId) => void;
 }
 
 const useCartStore = create<CartState>()(
@@ -28,6 +30,30 @@ const useCartStore = create<CartState>()(
             cartItems: [...cartItems, productData],
           });
         }
+      },
+      editCartItemCount: (productData) => {
+        set((state) => {
+          const updatedCartItems = state.cartItems?.map((item) => {
+            return item?.productId === productData?.productId
+              ? {
+                  ...item,
+                  ...productData,
+                }
+              : item;
+          });
+
+          return {
+            cartItems: updatedCartItems,
+          };
+        });
+      },
+      removeCartItem: (productId) => {
+        set((state) => {
+          const updatedCartItems = state.cartItems?.filter(
+            (item) => item.productId !== productId
+          );
+          return { cartItems: updatedCartItems };
+        });
       },
     }),
     {
