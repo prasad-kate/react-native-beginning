@@ -1,6 +1,5 @@
 import { cartScreenStyles } from "@/styles/cartScreen.styles";
 import { formatPrice } from "@/utils";
-import React from "react";
 import { Text, View } from "react-native";
 
 const CartTotalSection = () => {

@@ -1,16 +1,22 @@
-import { cartItems } from "@/constants/cartScreenConstants";
-import React from "react";
+import { useGetCartProductDetails } from "@/services/products.service";
 import { FlatList } from "react-native";
 import CartItemCard from "./CartItemCard";
 
 const CartItemsSection = () => {
+  const { cartItemProductDetails } = useGetCartProductDetails();
+
   return (
     <FlatList
-      data={cartItems}
+      data={cartItemProductDetails}
       keyExtractor={(_, index) => `${index}`}
       renderItem={({ item }) => {
-        const { name, image, price } = item;
-        return <CartItemCard name={name} image={image} price={price} />;
+        return (
+          <CartItemCard
+            name={item?.name}
+            image={item?.image}
+            price={item?.price}
+          />
+        );
       }}
       showsVerticalScrollIndicator={false}
     />

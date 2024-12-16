@@ -1,5 +1,6 @@
 import { api } from "@/api";
-import { useQuery } from "@tanstack/react-query";
+import useCartStore from "@/store/cartStore";
+import { useQueries, useQuery } from "@tanstack/react-query";
 
 export const useGetProducts = () => {
   const { data } = useQuery({
@@ -25,6 +26,27 @@ export const useGetProductFromProductId = ({
 
   return {
     productDetails: data?.data || [],
+  };
+};
+
+export const useGetCartProductDetails = () => {
+  const { cartItems } = useCartStore();
+
+  const data = useQueries({
+    queries: cartItems?.map((item) => {
+      return {
+        queryKey: [`product-${item?.productId}`],
+        queryFn: () => api.get(`products/${item?.productId}`),
+      };
+    }),
+  });
+
+  const cartItemProductDetails = data?.map((cartItemData) => {
+    return cartItemData?.data?.data;
+  });
+
+  return {
+    cartItemProductDetails,
   };
 };
 

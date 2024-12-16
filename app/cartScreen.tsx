@@ -9,6 +9,7 @@ import { View } from "react-native";
 
 const cartScreen = () => {
   const router = useRouter();
+
   return (
     <View style={cartScreenStyles.container}>
       <View>
