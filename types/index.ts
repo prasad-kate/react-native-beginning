@@ -123,8 +123,8 @@ export interface SettingTitleProps {
 export interface CartItemCardProp {
   productId: number;
   name: string;
-  price: string;
-  image: ImageSourcePropType;
+  price: number;
+  image: string;
 }
 
 export interface CheckoutDetailsCardProp {
@@ -173,4 +173,22 @@ export interface RegisterUserPayload {
   name: string;
   email: string;
   password: string;
+}
+
+export interface ProductItem {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+  price: number;
+  stars: number;
+  category_id: number;
+}
+
+export interface CartItemsSectionProps {
+  cartItemProductDetails: ProductItem[];
+}
+
+export interface CartTotalSectionProps {
+  total: number;
 }

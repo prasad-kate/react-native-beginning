@@ -42,7 +42,7 @@ export const useGetCartProductDetails = () => {
   });
 
   const cartItemProductDetails = data?.map((cartItemData) => {
-    return cartItemData?.data?.data;
+    return cartItemData?.data?.data || null;
   });
 
   return {

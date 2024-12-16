@@ -1,10 +1,10 @@
-import { useGetCartProductDetails } from "@/services/products.service";
+import { CartItemsSectionProps } from "@/types";
 import { FlatList } from "react-native";
 import CartItemCard from "./CartItemCard";
 
-const CartItemsSection = () => {
-  const { cartItemProductDetails } = useGetCartProductDetails();
-
+const CartItemsSection = ({
+  cartItemProductDetails,
+}: CartItemsSectionProps) => {
   return (
     <FlatList
       data={cartItemProductDetails}

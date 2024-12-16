@@ -11,7 +11,7 @@ interface CartState {
   cartItems: Product[];
   setCartItems: (productData: Product) => void;
   editCartItemCount: (productData: Product) => void;
-  removeCartItem: (productId) => void;
+  removeCartItem: (productId: number) => void;
 }
 
 const useCartStore = create<CartState>()(

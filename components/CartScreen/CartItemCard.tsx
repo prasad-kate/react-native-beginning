@@ -14,7 +14,7 @@ const CartItemCard = ({ name, image, price, productId }: CartItemCardProp) => {
 
   return (
     <View style={cartScreenStyles.cartItemContainer}>
-      <Image source={image} style={cartScreenStyles.cartItemImage} />
+      <Image source={{ uri: image }} style={cartScreenStyles.cartItemImage} />
       <View style={cartScreenStyles.cartItemDetailsContainer}>
         <View>
           <Text style={cartScreenStyles.cartItemTitle}>{name}</Text>
