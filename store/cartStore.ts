@@ -38,7 +38,7 @@ const useCartStore = create<CartState>()(
               type: "success",
               text1: `${productData.productName} added to the cart`,
             });
-          }, 100);
+          }, 50);
         }
       },
       editCartItemCount: (productData) => {

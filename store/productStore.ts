@@ -6,7 +6,7 @@ interface ProductState {
 }
 
 const useProductStore = create<ProductState>((set) => ({
-  category: null,
+  category: 1,
   setCategory: (category) => set({ category }),
 }));
 

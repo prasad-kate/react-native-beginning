@@ -31,6 +31,7 @@ export const homeScreenStyles = StyleSheet.create({
   },
   cartIconContainer: {
     position: "relative",
+    overflow: "visible",
   },
   cartItemNumber: {
     position: "absolute",
@@ -42,22 +43,23 @@ export const homeScreenStyles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: "50%",
+    borderRadius: 999,
     backgroundColor: "#f5f5f5",
     color: "red",
     fontWeight: "bold",
+    zIndex: 999,
   },
 
   // categroy styles
   categoryContainerContentStyles: {
-    gap: 15,
+    gap: 10,
     flexShrink: 0,
     justifyContent: "center",
     alignItems: "center",
   },
   categoryContainerStyles: {
-    maxHeight: 100,
-    minHeight: 70,
+    minHeight: 80,
+    maxHeight: 80,
     marginVertical: 10,
   },
   categoryName: {
@@ -70,7 +72,15 @@ export const homeScreenStyles = StyleSheet.create({
     alignItems: "center",
     gap: 3,
   },
-  singleCategoryImage: { width: 44, height: 44 },
+  singleCategoryImageContainer: {
+    padding: 4,
+    borderWidth: 1,
+    borderRadius: 16,
+  },
+  singleCategoryImage: {
+    width: 44,
+    height: 44,
+  },
 
   // products styles
   productsContainer: {
