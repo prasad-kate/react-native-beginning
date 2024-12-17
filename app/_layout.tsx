@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { StatusBar } from "react-native";
 import "react-native-reanimated";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import Toast from "react-native-toast-message";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 preventAutoHideAsync();
@@ -94,11 +95,9 @@ export default function RootLayout() {
             {/* not found */}
             <Stack.Screen name="+not-found" />
           </Stack>
+          <Toast position="top" visibilityTime={2000} />
         </SafeAreaView>
       </SafeAreaProvider>
     </QueryClientProvider>
   );
 }
-
-// Figma
-// https://www.figma.com/design/kCs0IYujhamI8C0nglKkbq/Furniture-Shopping---Minimal-UI-Kit-(Community)?node-id=1-32&node-type=canvas&t=MqLFrgRHE50EamOc-0

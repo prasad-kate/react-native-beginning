@@ -1,4 +1,5 @@
 import { zustandStorage } from "@/utils";
+import Toast from "react-native-toast-message";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -26,8 +27,13 @@ const useCartStore = create<CartState>()(
         );
 
         if (!productExistsInCart) {
-          return set({
+          set({
             cartItems: [...cartItems, productData],
+          });
+
+          Toast.show({
+            type: "success",
+            text1: "Item added to cart successfully",
           });
         }
       },
