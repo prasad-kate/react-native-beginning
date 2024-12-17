@@ -162,6 +162,7 @@ export interface SingleProductImageSectionProps {
 
 export interface SingleProductAddOrSaveSectionProps {
   productCount: number;
+  productName: string;
 }
 
 export interface SingleProductDetailsSectionProps {

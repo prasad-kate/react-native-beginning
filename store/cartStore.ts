@@ -6,12 +6,13 @@ import { persist } from "zustand/middleware";
 type Product = {
   productId: number;
   productCount: number;
+  productName: string;
 };
 
 interface CartState {
   cartItems: Product[];
   setCartItems: (productData: Product) => void;
-  editCartItemCount: (productData: Product) => void;
+  editCartItemCount: (productData: Partial<Product>) => void;
   removeCartItem: (productId: number) => void;
 }
 
@@ -31,10 +32,13 @@ const useCartStore = create<CartState>()(
             cartItems: [...cartItems, productData],
           });
 
-          Toast.show({
-            type: "success",
-            text1: "Item added to cart successfully",
-          });
+          Toast.hide();
+          setTimeout(() => {
+            Toast.show({
+              type: "success",
+              text1: `${productData.productName} added to the cart`,
+            });
+          }, 100);
         }
       },
       editCartItemCount: (productData) => {

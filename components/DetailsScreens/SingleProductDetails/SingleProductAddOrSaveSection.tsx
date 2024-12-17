@@ -8,6 +8,7 @@ import { TouchableOpacity, View } from "react-native";
 
 const SingleProductAddOrSaveSection = ({
   productCount,
+  productName,
 }: SingleProductAddOrSaveSectionProps) => {
   const { id } = useLocalSearchParams();
   const { setCartItems } = useCartStore();
@@ -26,6 +27,7 @@ const SingleProductAddOrSaveSection = ({
           setCartItems({
             productId: +id,
             productCount,
+            productName,
           });
         }}
       />

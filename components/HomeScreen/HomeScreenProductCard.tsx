@@ -38,7 +38,7 @@ const HomeScreenProductCard = ({
           style={homeScreenStyles.shoppingCartIconContainer}
           onPress={(e) => {
             e.stopPropagation();
-            setCartItems({ productId: id, productCount: 1 });
+            setCartItems({ productId: id, productCount: 1, productName: name });
           }}
         >
           <Image

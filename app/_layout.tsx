@@ -95,7 +95,7 @@ export default function RootLayout() {
             {/* not found */}
             <Stack.Screen name="+not-found" />
           </Stack>
-          <Toast position="top" visibilityTime={2000} />
+          <Toast position="top" visibilityTime={1500} autoHide />
         </SafeAreaView>
       </SafeAreaProvider>
     </QueryClientProvider>

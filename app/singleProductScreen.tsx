@@ -28,7 +28,10 @@ const singleProductScreen = () => {
           setProductCount={setProductCount}
         />
       </View>
-      <SingleProductAddOrSaveSection productCount={productCount} />
+      <SingleProductAddOrSaveSection
+        productCount={productCount}
+        productName={productDetails?.name}
+      />
     </ScrollView>
   );
 };
