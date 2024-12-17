@@ -94,12 +94,14 @@ export const homeScreenStyles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
   },
-  shoppingCartIcon: {
-    width: 30,
-    height: 30,
+  shoppingCartIconContainer: {
     position: "absolute",
     bottom: 0,
     right: 0,
     margin: 10,
+  },
+  shoppingCartIcon: {
+    width: 32,
+    height: 32,
   },
 });

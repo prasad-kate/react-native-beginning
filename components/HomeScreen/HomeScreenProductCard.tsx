@@ -1,3 +1,4 @@
+import useCartStore from "@/store/cartStore";
 import { homeScreenStyles } from "@/styles/homeScreen.styles";
 import { HomeScreenProductCardProps } from "@/types";
 import { formatPrice } from "@/utils";
@@ -12,6 +13,7 @@ const HomeScreenProductCard = ({
   isSingleItem,
 }: HomeScreenProductCardProps) => {
   const router = useRouter();
+  const { setCartItems } = useCartStore();
   return (
     <TouchableOpacity
       activeOpacity={0.9}
@@ -31,10 +33,19 @@ const HomeScreenProductCard = ({
         style={homeScreenStyles.productCardImage}
         resizeMode="cover"
       >
-        <Image
-          source={require("@/assets/images/shopping-bag-icon.png")}
-          style={homeScreenStyles.shoppingCartIcon}
-        />
+        <TouchableOpacity
+          activeOpacity={0.9}
+          style={homeScreenStyles.shoppingCartIconContainer}
+          onPress={(e) => {
+            e.stopPropagation();
+            setCartItems({ productId: id, productCount: 1 });
+          }}
+        >
+          <Image
+            source={require("@/assets/images/shopping-bag-icon.png")}
+            style={homeScreenStyles.shoppingCartIcon}
+          />
+        </TouchableOpacity>
       </ImageBackground>
       <Text style={homeScreenStyles.productName}>{name}</Text>
       <Text style={homeScreenStyles.productPrice}>{formatPrice(+price)}</Text>
