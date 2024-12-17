@@ -29,6 +29,24 @@ export const homeScreenStyles = StyleSheet.create({
     fontSize: 18,
     letterSpacing: 3,
   },
+  cartIconContainer: {
+    position: "relative",
+  },
+  cartItemNumber: {
+    position: "absolute",
+    top: -8,
+    right: -8,
+    height: 18,
+    width: 18,
+    fontSize: 11,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "50%",
+    backgroundColor: "#f5f5f5",
+    color: "red",
+    fontWeight: "bold",
+  },
 
   // categroy styles
   categoryContainerContentStyles: {
