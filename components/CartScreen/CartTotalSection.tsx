@@ -3,11 +3,13 @@ import { CartTotalSectionProps } from "@/types";
 import { formatPrice } from "@/utils";
 import { Text, View } from "react-native";
 
-const CartTotalSection = ({ total }: CartTotalSectionProps) => {
+const CartTotalSection = ({ total, isAnyPending }: CartTotalSectionProps) => {
   return (
     <View style={cartScreenStyles.cartTotalContainer}>
       <Text style={cartScreenStyles.cartTotalText}>Total:</Text>
-      <Text style={cartScreenStyles.cartTotal}>{formatPrice(total)}</Text>
+      <Text style={cartScreenStyles.cartTotal}>
+        {formatPrice(isAnyPending ? 0 : total)}
+      </Text>
     </View>
   );
 };

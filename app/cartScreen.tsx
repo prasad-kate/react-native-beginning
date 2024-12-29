@@ -7,12 +7,12 @@ import { useGetCartProductDetails } from "@/services/products.service";
 import useCartStore from "@/store/cartStore";
 import { cartScreenStyles } from "@/styles/cartScreen.styles";
 import { useRouter } from "expo-router";
-import { View } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 
 const cartScreen = () => {
   const router = useRouter();
 
-  const { cartItemProductDetails } = useGetCartProductDetails();
+  const { cartItemProductDetails, isAnyPending } = useGetCartProductDetails();
   const { cartItems } = useCartStore();
 
   const totalPrice = cartItems.reduce((accumulator, product) => {
@@ -31,14 +31,19 @@ const cartScreen = () => {
     <View style={cartScreenStyles.container}>
       <View>
         <BackButtonHeader title="My Cart" />
-        <CartItemsSection cartItemProductDetails={cartItemProductDetails} />
+        {isAnyPending ? (
+          <ActivityIndicator size={"large"} />
+        ) : (
+          <CartItemsSection cartItemProductDetails={cartItemProductDetails} />
+        )}
       </View>
       <View style={cartScreenStyles.promoCodeSectionContainer}>
-        <CartTotalSection total={totalPrice} />
+        <CartTotalSection total={totalPrice} isAnyPending={isAnyPending} />
         <EnterPromocodeSection />
         <Button
           text="Checkout"
           style={cartScreenStyles.cartCheckoutButton}
+          disabled={isAnyPending}
           onPress={() => {
             router.push("/checkOut");
           }}

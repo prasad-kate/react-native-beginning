@@ -45,8 +45,15 @@ export const useGetCartProductDetails = () => {
     return cartItemData?.data?.data || null;
   });
 
+  const isAnyPending = data
+    ?.map((cartItemData) => {
+      return cartItemData?.isPending || cartItemData?.isFetching;
+    })
+    ?.some((i) => i);
+
   return {
     cartItemProductDetails,
+    isAnyPending,
   };
 };
 

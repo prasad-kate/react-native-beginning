@@ -192,4 +192,5 @@ export interface CartItemsSectionProps {
 
 export interface CartTotalSectionProps {
   total: number;
+  isAnyPending: boolean;
 }
