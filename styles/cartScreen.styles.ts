@@ -46,6 +46,7 @@ export const cartScreenStyles = StyleSheet.create({
   cartItemNumber: {
     fontSize: 18,
     fontWeight: "bold",
+    width: 10,
   },
   cartNumberAddRemoveButton: {
     width: 30,
@@ -57,48 +58,6 @@ export const cartScreenStyles = StyleSheet.create({
   },
   cancelButtonContainer: {
     ...favouriteScreenStyles.cancelButtonContainer,
-  },
-
-  // enter promo code styles
-  promoCodeSectionContainer: {
-    paddingHorizontal: 20,
-  },
-  promoCodeInputAndButtonContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 15,
-  },
-  promoCodeInputContainer: {
-    flex: 1,
-  },
-  promoCodeInputStyles: {
-    borderWidth: 0,
-    backgroundColor: "white",
-    paddingVertical: 11,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-    height: 50,
-    marginTop: 25,
-    borderBottomWidth: 0,
-
-    // Shadow for iOS
-    shadowColor: "#8A959E",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.12,
-    shadowRadius: 20, // iOS blur effect
-
-    // Shadow for Android
-    elevation: 10,
-    marginBottom: 0,
-  },
-  promoCodeSubmitButton: {
-    width: 48,
-    height: 48,
-    backgroundColor: "black",
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 10,
   },
 
   // cart total styles

@@ -1,7 +1,6 @@
 import BackButtonHeader from "@/components/BackButtonHeader";
 import CartItemsSection from "@/components/CartScreen/CartItemsSection";
 import CartTotalSection from "@/components/CartScreen/CartTotalSection";
-import EnterPromocodeSection from "@/components/CartScreen/EnterPromocodeSection";
 import Button from "@/components/ui/Button";
 import { useGetCartProductDetails } from "@/services/products.service";
 import useCartStore from "@/store/cartStore";
@@ -37,9 +36,8 @@ const cartScreen = () => {
           <CartItemsSection cartItemProductDetails={cartItemProductDetails} />
         )}
       </View>
-      <View style={cartScreenStyles.promoCodeSectionContainer}>
+      <View style={{ paddingHorizontal: 20 }}>
         <CartTotalSection total={totalPrice} isAnyPending={isAnyPending} />
-        <EnterPromocodeSection />
         <Button
           text="Checkout"
           style={cartScreenStyles.cartCheckoutButton}
