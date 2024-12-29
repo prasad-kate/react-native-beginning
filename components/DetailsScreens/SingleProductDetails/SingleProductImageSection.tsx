@@ -13,7 +13,12 @@ const SingleProductImageSection = ({
     <View style={singleProductScreenStyles.productImageContainer}>
       <ImageBackground
         source={{ uri: imgUrl }}
-        style={singleProductScreenStyles.productImage}
+        style={[
+          singleProductScreenStyles.productImage,
+          {
+            backgroundColor: !imgUrl ? "#ededed" : undefined,
+          },
+        ]}
         imageStyle={{
           borderBottomLeftRadius: 52,
         }}
