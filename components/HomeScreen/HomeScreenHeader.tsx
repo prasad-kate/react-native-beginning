@@ -23,7 +23,11 @@ const HomeScreenHeader = () => {
           router.push("/cartScreen");
         }}
       >
-        <Ionicons name="cart" size={26} color="gray" />
+        <Ionicons
+          name="cart"
+          size={26}
+          color={cartItems?.length ? "#c9c9c9" : "gray"}
+        />
         {!!cartItems?.length && (
           <Text style={homeScreenStyles.cartItemNumber}>
             {cartItems?.length}
