@@ -10,14 +10,11 @@ import { TouchableOpacity, View } from "react-native";
 const SingleProductAddOrSaveSection = ({
   productCount,
   productName,
+  isItemAddedToCart,
 }: SingleProductAddOrSaveSectionProps) => {
   const { id } = useLocalSearchParams();
-  const { cartItems, setCartItems } = useCartStore();
+  const { setCartItems } = useCartStore();
   const { editFavouriteProducts, favouriteProducts } = useProductStore();
-
-  const isItemAddedToCart = cartItems?.some(
-    (itemData) => itemData?.productId === +id
-  );
 
   const isItemAddedToFavourites = favouriteProducts?.includes(+id);
 

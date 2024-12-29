@@ -163,10 +163,12 @@ export interface SingleProductImageSectionProps {
 export interface SingleProductAddOrSaveSectionProps {
   productCount: number;
   productName: string;
+  isItemAddedToCart: boolean;
 }
 
 export interface SingleProductDetailsSectionProps {
   productCount: number;
+  isItemAddedToCart: boolean;
   setProductCount: Dispatch<React.SetStateAction<number>>;
 }
 

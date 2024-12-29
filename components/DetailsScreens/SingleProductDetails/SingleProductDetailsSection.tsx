@@ -11,6 +11,7 @@ import { Rating } from "react-native-ratings";
 const SingleProductDetailsSection = ({
   productCount,
   setProductCount,
+  isItemAddedToCart,
 }: SingleProductDetailsSectionProps) => {
   const { id } = useLocalSearchParams();
 
@@ -39,6 +40,7 @@ const SingleProductDetailsSection = ({
                 setProductCount((prev) => prev - 1);
               }
             }}
+            disabled={isItemAddedToCart}
           >
             <Ionicons name="remove" size={18} color="#808080" />
           </TouchableOpacity>
@@ -49,6 +51,7 @@ const SingleProductDetailsSection = ({
             onPress={() => {
               setProductCount((prev) => prev + 1);
             }}
+            disabled={isItemAddedToCart}
           >
             <Ionicons name="add" size={18} color="#808080" />
           </TouchableOpacity>
