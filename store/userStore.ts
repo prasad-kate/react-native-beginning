@@ -5,6 +5,7 @@ import { persist } from "zustand/middleware";
 type UserData = {
   name: string;
   email: string;
+  user_id: number | null;
 };
 
 interface UserState {
@@ -18,6 +19,7 @@ const useUserStore = create<UserState>()(
       userData: {
         name: "",
         email: "",
+        user_id: null,
       },
       setUserData: (userData) => set({ userData }),
     }),
