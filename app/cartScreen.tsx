@@ -2,17 +2,18 @@ import BackButtonHeader from "@/components/BackButtonHeader";
 import CartItemsSection from "@/components/CartScreen/CartItemsSection";
 import CartTotalSection from "@/components/CartScreen/CartTotalSection";
 import Button from "@/components/ui/Button";
+import { useSendOrder } from "@/services/orders.service";
 import { useGetCartProductDetails } from "@/services/products.service";
 import useCartStore from "@/store/cartStore";
+import useUserStore from "@/store/userStore";
 import { cartScreenStyles } from "@/styles/cartScreen.styles";
-import { useRouter } from "expo-router";
 import { ActivityIndicator, View } from "react-native";
 
 const cartScreen = () => {
-  const router = useRouter();
-
   const { cartItemProductDetails, isAnyPending } = useGetCartProductDetails();
   const { cartItems } = useCartStore();
+  const { sendOrder } = useSendOrder();
+  const { userData } = useUserStore();
 
   const totalPrice = cartItems.reduce((accumulator, product) => {
     const priceObject = cartItemProductDetails.find(
@@ -25,6 +26,17 @@ const cartScreen = () => {
 
     return accumulator;
   }, 0);
+
+  const orderItems = cartItems.map((cartItem) => {
+    const productDetail = cartItemProductDetails.find(
+      (product) => product.product_id === cartItem.productId
+    );
+    return {
+      product_id: cartItem.productId,
+      quantity: cartItem.productCount,
+      price: productDetail.price,
+    };
+  });
 
   return (
     <View style={cartScreenStyles.container}>
@@ -43,7 +55,11 @@ const cartScreen = () => {
           style={cartScreenStyles.cartCheckoutButton}
           disabled={isAnyPending}
           onPress={() => {
-            router.push("/checkOut");
+            sendOrder({
+              user_id: userData?.user_id!,
+              total: totalPrice,
+              items: orderItems,
+            });
           }}
         />
       </View>

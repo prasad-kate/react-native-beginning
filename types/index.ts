@@ -196,3 +196,15 @@ export interface CartTotalSectionProps {
   total: number;
   isAnyPending: boolean;
 }
+
+interface OrderItem {
+  product_id: number;
+  quantity: number;
+  price: number;
+}
+
+export interface SendOrderPayload {
+  total: number;
+  user_id: number;
+  items: OrderItem[];
+}
