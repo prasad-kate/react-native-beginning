@@ -29,12 +29,12 @@ const cartScreen = () => {
 
   const orderItems = cartItems.map((cartItem) => {
     const productDetail = cartItemProductDetails.find(
-      (product) => product.product_id === cartItem.productId
+      (product) => product?.product_id === cartItem?.productId
     );
     return {
-      product_id: cartItem.productId,
-      quantity: cartItem.productCount,
-      price: productDetail.price,
+      product_id: cartItem?.productId,
+      quantity: cartItem?.productCount,
+      price: productDetail?.price,
     };
   });
 
