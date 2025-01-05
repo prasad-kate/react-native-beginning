@@ -1,3 +1,4 @@
+import { OrderItem } from "@/types";
 import { zustandStorage } from "@/utils";
 import Toast from "react-native-toast-message";
 import { create } from "zustand";
@@ -9,17 +10,30 @@ type Product = {
   productName: string;
 };
 
+type Order = {
+  user_id: number | null;
+  total: number | null;
+  items: OrderItem[] | [];
+};
+
 interface CartState {
   cartItems: Product[];
+  order: Order;
   setCartItems: (productData: Product) => void;
   editCartItemCount: (productData: Partial<Product>) => void;
   removeCartItem: (productId: number) => void;
+  setOrder: (orderDetails: Order) => void;
 }
 
 const useCartStore = create<CartState>()(
   persist(
     (set, get) => ({
       cartItems: [],
+      order: {
+        user_id: null,
+        total: 0,
+        items: [],
+      },
       setCartItems: (productData) => {
         const { cartItems } = get();
 
@@ -65,6 +79,10 @@ const useCartStore = create<CartState>()(
           return { cartItems: updatedCartItems };
         });
       },
+      setOrder: (orderDetails) =>
+        set(() => ({
+          order: orderDetails,
+        })),
     }),
     {
       name: "cart-storage", // storage key
