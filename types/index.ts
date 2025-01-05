@@ -203,7 +203,7 @@ export interface OrderItem {
   price: number;
 }
 
-export interface SendOrderPayload {
+export interface OrderPayload {
   total: number;
   user_id: number;
   items: OrderItem[];

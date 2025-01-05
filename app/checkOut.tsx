@@ -3,12 +3,15 @@ import CheckoutOrderDetails from "@/components/CheckOut/CheckoutOrderDetails";
 import CheckoutPaymentDetails from "@/components/CheckOut/CheckoutPaymentDetails";
 import CheckoutShippingDetails from "@/components/CheckOut/CheckoutShippingDetails";
 import Button from "@/components/ui/Button";
+import { useSendOrder } from "@/services/orders.service";
+import useCartStore from "@/store/cartStore";
 import { checkoutStyles } from "@/styles/checkout.styles";
-import { useRouter } from "expo-router";
 import { View } from "react-native";
 
 const checkOut = () => {
-  const router = useRouter();
+  const { order } = useCartStore();
+  const { sendOrder, isSendingOrder } = useSendOrder();
+
   return (
     <View style={checkoutStyles.container}>
       <View>
@@ -22,9 +25,17 @@ const checkOut = () => {
       <View style={checkoutStyles.checkoutDetailsContainer}>
         <Button
           text="Submit Order"
-          style={checkoutStyles.submitOrderButton}
+          style={[
+            checkoutStyles.submitOrderButton,
+            {
+              opacity: isSendingOrder ? 0.5 : 1,
+            },
+          ]}
+          disabled={isSendingOrder}
           onPress={() => {
-            router.push("/success");
+            if (order) {
+              sendOrder(order);
+            }
           }}
         />
       </View>
