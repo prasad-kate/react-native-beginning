@@ -14,6 +14,7 @@ interface CartState {
   cartItems: Product[];
   order: OrderPayload | null;
   setCartItems: (productData: Product) => void;
+  resetCartItems: () => void;
   editCartItemCount: (productData: Partial<Product>) => void;
   removeCartItem: (productId: number) => void;
   setOrder: (orderDetails: OrderPayload) => void;
@@ -45,6 +46,10 @@ const useCartStore = create<CartState>()(
           }, 50);
         }
       },
+      resetCartItems: () =>
+        set(() => ({
+          cartItems: [],
+        })),
       editCartItemCount: (productData) => {
         set((state) => {
           const updatedCartItems = state.cartItems?.map((item) => {

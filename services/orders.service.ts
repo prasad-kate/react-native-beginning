@@ -1,4 +1,5 @@
 import { api } from "@/api";
+import useCartStore from "@/store/cartStore";
 import { OrderPayload } from "@/types";
 import { useMutation } from "@tanstack/react-query";
 import { isAxiosError } from "axios";
@@ -7,6 +8,7 @@ import Toast from "react-native-toast-message";
 
 export const useSendOrder = () => {
   const router = useRouter();
+  const { resetCartItems } = useCartStore();
 
   const { mutate, isPending } = useMutation({
     mutationFn: (payload: OrderPayload) => api.post("/orders/create", payload),
@@ -16,6 +18,9 @@ export const useSendOrder = () => {
         text1: res.data.message,
         visibilityTime: 3000,
       });
+
+      resetCartItems();
+
       router.push("/success");
     },
     onError: (error) => {
