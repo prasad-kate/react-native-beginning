@@ -38,6 +38,8 @@ const cartScreen = () => {
     };
   });
 
+  const orderItemsAvailable = !!orderItems?.length;
+
   return (
     <View style={cartScreenStyles.container}>
       <View>
@@ -49,11 +51,18 @@ const cartScreen = () => {
         )}
       </View>
       <View style={{ paddingHorizontal: 20 }}>
-        <CartTotalSection total={totalPrice} isAnyPending={isAnyPending} />
+        {orderItemsAvailable && (
+          <CartTotalSection total={totalPrice} isAnyPending={isAnyPending} />
+        )}
         <Button
           text="Checkout"
-          style={cartScreenStyles.cartCheckoutButton}
-          disabled={isAnyPending}
+          style={[
+            cartScreenStyles.cartCheckoutButton,
+            {
+              opacity: orderItemsAvailable ? 1 : 0.5,
+            },
+          ]}
+          disabled={isAnyPending || !orderItemsAvailable}
           onPress={() => {
             sendOrder({
               user_id: userData?.user_id!,
