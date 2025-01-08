@@ -16,14 +16,15 @@ const OrderDeliveredDetails = () => {
           data={deliveredOrders}
           keyExtractor={({ order_id }) => order_id}
           renderItem={({ item }) => {
-            const { order_id, total, createdAt, order_status } = item;
+            const { order_id, total, createdAt, order_status, orderItems } =
+              item;
             return (
               <OrderDetailsCard
                 order_id={order_id}
                 total={total}
                 orderDate={createdAt}
                 orderStatus={order_status}
-                quantity="1" //TODO: later quantity of total items will be used
+                quantity={orderItems?.length}
               />
             );
           }}
