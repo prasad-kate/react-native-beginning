@@ -26,3 +26,15 @@ export const zustandStorage: PersistStorage<any> = {
     await AsyncStorage.removeItem(name);
   },
 };
+
+export const formatDate = (isoTimestamp: string) => {
+  const date = new Date(isoTimestamp);
+
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const year = date.getFullYear();
+
+  const formattedDate = `${day}/${month}/${year}`;
+
+  return formattedDate;
+};

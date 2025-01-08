@@ -1,12 +1,11 @@
 import Button from "@/components/ui/Button";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { OrderDetailsCardProps } from "@/types";
-import { formatPrice } from "@/utils";
-import React from "react";
+import { formatDate, formatPrice } from "@/utils";
 import { Text, View } from "react-native";
 
 const OrderDetailsCard = ({
-  orderNo,
+  order_id,
   orderDate,
   orderStatus,
   total,
@@ -18,10 +17,13 @@ const OrderDetailsCard = ({
         <Text style={detailsScreenStyles.orderDetailsKeyText}>
           Order No.:{" "}
           <Text style={detailsScreenStyles.orderDetailsValueText}>
-            {orderNo}
+            {/* TODO: temporary use of ID. Later, will use unique order no. */}
+            {order_id}
           </Text>
         </Text>
-        <Text style={detailsScreenStyles.orderDate}>{orderDate}</Text>
+        <Text style={detailsScreenStyles.orderDate}>
+          {formatDate(orderDate)}
+        </Text>
       </View>
 
       <View

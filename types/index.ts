@@ -65,10 +65,12 @@ export interface NotificationsCardProps {
   description: string;
 }
 
+export type OrderStatus = "pending" | "delivered" | "cancelled";
+
 export interface OrderDetailsCardProps {
-  orderNo: string;
+  order_id: string;
   orderDate: string;
-  orderStatus: "delivered" | "cancelled" | "processing";
+  orderStatus: OrderStatus;
   quantity: string;
   total: string;
 }
