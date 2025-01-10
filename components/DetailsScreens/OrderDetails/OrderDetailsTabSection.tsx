@@ -11,7 +11,7 @@ const OrderDetailsTabSection = () => {
 
   const routes = [
     { key: "first", title: "Delivered" },
-    { key: "second", title: "Processing" },
+    { key: "second", title: "Pending" },
     { key: "third", title: "Cancelled" },
   ];
 
