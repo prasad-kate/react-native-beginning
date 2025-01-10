@@ -1,8 +1,40 @@
-import React from "react";
+import { deliveredOrdersDetails } from "@/constants/orderDetailsConstants";
+import { useGetOrders } from "@/services/orders.service";
+import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
+import { FlatList, View } from "react-native";
+import OrderDetailsCard from "./OrderDetailsCard";
 import OrderDetailsEmptySection from "./OrderDetailsEmptySection";
 
 const OrderCancelledSection = () => {
-  return <OrderDetailsEmptySection />;
+  const { orders: deliveredOrders } = useGetOrders({
+    order_status: "cancelled",
+  });
+  return (
+    <View style={detailsScreenStyles.tabDetailsContainer}>
+      {deliveredOrdersDetails?.length ? (
+        <FlatList
+          data={deliveredOrders}
+          keyExtractor={({ order_id }) => order_id}
+          renderItem={({ item }) => {
+            const { order_id, total, createdAt, order_status, orderItems } =
+              item;
+            return (
+              <OrderDetailsCard
+                order_id={order_id}
+                total={total}
+                orderDate={createdAt}
+                orderStatus={order_status}
+                quantity={orderItems?.length}
+              />
+            );
+          }}
+          showsVerticalScrollIndicator={false}
+        />
+      ) : (
+        <OrderDetailsEmptySection />
+      )}
+    </View>
+  );
 };
 
 export default OrderCancelledSection;
