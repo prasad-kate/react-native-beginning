@@ -13,11 +13,12 @@ type Product = {
 interface CartState {
   cartItems: Product[];
   order: OrderPayload | null;
-  setCartItems: (productData: Product) => void;
+  addCartItem: (productData: Product) => void;
   resetCartItems: () => void;
   editCartItemCount: (productData: Partial<Product>) => void;
   removeCartItem: (productId: number) => void;
   setOrder: (orderDetails: OrderPayload) => void;
+  addMultipleCartItems: (productsArray: Product[]) => void;
 }
 
 const useCartStore = create<CartState>()(
@@ -25,7 +26,7 @@ const useCartStore = create<CartState>()(
     (set, get) => ({
       cartItems: [],
       order: null,
-      setCartItems: (productData) => {
+      addCartItem: (productData) => {
         const { cartItems } = get();
 
         const productExistsInCart = cartItems?.some(
@@ -78,6 +79,28 @@ const useCartStore = create<CartState>()(
         set(() => ({
           order: orderDetails,
         })),
+      addMultipleCartItems: (productsArray) => {
+        set((state) => {
+          const cartItems = state.cartItems;
+          const filteredProductsArray = productsArray?.filter((productData) => {
+            return !cartItems?.some(
+              (cartItemDetail) =>
+                cartItemDetail.productId === productData.productId
+            );
+          });
+
+          if (filteredProductsArray?.length) {
+            Toast.show({
+              type: "success",
+              text1: `${filteredProductsArray?.length} items added to the cart`,
+            });
+          }
+
+          const updatedCartItems = [...cartItems, ...filteredProductsArray];
+
+          return { cartItems: updatedCartItems };
+        });
+      },
     }),
     {
       name: "cart-storage", // storage key

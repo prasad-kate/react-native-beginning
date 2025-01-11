@@ -13,7 +13,7 @@ const SingleProductAddOrSaveSection = ({
   isItemAddedToCart,
 }: SingleProductAddOrSaveSectionProps) => {
   const { id } = useLocalSearchParams();
-  const { setCartItems } = useCartStore();
+  const { addCartItem } = useCartStore();
   const { editFavouriteProducts, favouriteProducts } = useProductStore();
 
   const isItemAddedToFavourites = favouriteProducts?.includes(+id);
@@ -41,7 +41,7 @@ const SingleProductAddOrSaveSection = ({
           },
         ]}
         onPress={() => {
-          setCartItems({
+          addCartItem({
             productId: +id,
             productCount,
             productName,

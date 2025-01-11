@@ -13,7 +13,7 @@ const HomeScreenProductCard = ({
   isSingleItem,
 }: HomeScreenProductCardProps) => {
   const router = useRouter();
-  const { setCartItems } = useCartStore();
+  const { addCartItem } = useCartStore();
   return (
     <TouchableOpacity
       activeOpacity={0.9}
@@ -38,7 +38,7 @@ const HomeScreenProductCard = ({
           style={homeScreenStyles.shoppingCartIconContainer}
           onPress={(e) => {
             e.stopPropagation();
-            setCartItems({ productId: id, productCount: 1, productName: name });
+            addCartItem({ productId: id, productCount: 1, productName: name });
           }}
         >
           <Image
