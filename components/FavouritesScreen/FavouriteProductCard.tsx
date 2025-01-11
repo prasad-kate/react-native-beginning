@@ -1,15 +1,22 @@
+import useCartStore from "@/store/cartStore";
 import { favouriteScreenStyles } from "@/styles/favouriteScreen.styles";
 import { FavouriteScreenProductCardProps } from "@/types";
 import { formatPrice } from "@/utils";
 import { Ionicons } from "@expo/vector-icons";
-import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const FavouriteProductCard = ({
   name,
   image,
   price,
+  id,
 }: FavouriteScreenProductCardProps) => {
+  const { cartItems, addCartItem } = useCartStore();
+
+  const isProductAddedToCart = cartItems?.some(
+    (itemData) => itemData?.productId === id
+  );
+
   return (
     <View style={favouriteScreenStyles.cardContainer}>
       {/* product details */}
@@ -30,15 +37,24 @@ const FavouriteProductCard = ({
       >
         <Ionicons name="close" size={20} color="black" />
       </TouchableOpacity>
-      <TouchableOpacity
-        activeOpacity={0.6}
-        style={favouriteScreenStyles.shoppingBagIconContainer}
-      >
-        <Image
-          source={require("@/assets/images/shopping-bag-icon-black.png")}
-          style={favouriteScreenStyles.shoppingBagIcon}
-        />
-      </TouchableOpacity>
+      {!isProductAddedToCart && (
+        <TouchableOpacity
+          activeOpacity={0.6}
+          style={favouriteScreenStyles.shoppingBagIconContainer}
+          onPress={() => {
+            addCartItem({
+              productId: id,
+              productCount: 1,
+              productName: name,
+            });
+          }}
+        >
+          <Image
+            source={require("@/assets/images/shopping-bag-icon-black.png")}
+            style={favouriteScreenStyles.shoppingBagIcon}
+          />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
