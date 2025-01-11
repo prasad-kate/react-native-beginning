@@ -1,5 +1,6 @@
 import { api } from "@/api";
 import useCartStore from "@/store/cartStore";
+import useProductStore from "@/store/productStore";
 import { useQueries, useQuery } from "@tanstack/react-query";
 
 export const useGetProducts = () => {
@@ -65,5 +66,35 @@ export const useGetProductsCategories = () => {
 
   return {
     productCategories: data?.data || [],
+  };
+};
+
+export const useGetFavrouriteProductsDetails = () => {
+  const { favouriteProducts } = useProductStore();
+
+  const data = useQueries({
+    queries: favouriteProducts?.map((id) => {
+      return {
+        queryKey: [`favourite-product-${id}`],
+        queryFn: () => api.get(`products/${id}`),
+      };
+    }),
+  });
+
+  const favouriteProductDetails = data?.map((favouriteProductData) => {
+    return favouriteProductData?.data?.data || null;
+  });
+
+  const isAnyPending = data
+    ?.map((favouriteProductData) => {
+      return (
+        favouriteProductData?.isPending || favouriteProductData?.isFetching
+      );
+    })
+    ?.some((i) => i);
+
+  return {
+    favouriteProductDetails,
+    isAnyPending,
   };
 };
