@@ -1,17 +1,22 @@
-import { deliveredOrdersDetails } from "@/constants/orderDetailsConstants";
 import { useGetOrders } from "@/services/orders.service";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
+import { OrderStatus } from "@/types";
 import { FlatList, View } from "react-native";
 import OrderDetailsCard from "./OrderDetailsCard";
 import OrderDetailsEmptySection from "./OrderDetailsEmptySection";
 
-const OrderCancelledSection = () => {
+const OrderDetailsByStatus = ({
+  orderStatus,
+}: {
+  orderStatus: OrderStatus;
+}) => {
   const { orders: deliveredOrders } = useGetOrders({
-    order_status: "cancelled",
+    order_status: orderStatus,
   });
+
   return (
     <View style={detailsScreenStyles.tabDetailsContainer}>
-      {deliveredOrdersDetails?.length ? (
+      {deliveredOrders?.length ? (
         <FlatList
           data={deliveredOrders}
           keyExtractor={({ order_id }) => order_id}
@@ -37,4 +42,4 @@ const OrderCancelledSection = () => {
   );
 };
 
-export default OrderCancelledSection;
+export default OrderDetailsByStatus;

@@ -1,10 +1,8 @@
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Dimensions, Text } from "react-native";
 import { SceneMap, TabBar, TabView } from "react-native-tab-view";
-import OrderCancelledSection from "./OrderCancelledSection";
-import OrderDeliveredDetails from "./OrderDeliveredDetails";
-import OrderProcessingDetails from "./OrderProcessingDetails";
+import OrderDetailsByStatus from "./OrderDetailsByStatus";
 
 const OrderDetailsTabSection = () => {
   const [index, setIndex] = useState(0);
@@ -19,9 +17,9 @@ const OrderDetailsTabSection = () => {
     <TabView
       navigationState={{ index, routes }}
       renderScene={SceneMap({
-        first: OrderDeliveredDetails,
-        second: OrderProcessingDetails,
-        third: OrderCancelledSection,
+        first: () => <OrderDetailsByStatus orderStatus="delivered" />,
+        second: () => <OrderDetailsByStatus orderStatus="pending" />,
+        third: () => <OrderDetailsByStatus orderStatus="cancelled" />,
       })}
       onIndexChange={setIndex}
       initialLayout={{ width: Dimensions.get("window").width }}
