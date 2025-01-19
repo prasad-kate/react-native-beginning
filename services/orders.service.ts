@@ -13,12 +13,13 @@ export const useGetOrders = ({
 }) => {
   const query = `order_status=${order_status}`;
   const url = order_status ? `orders?${query}` : "orders";
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["orders", order_status],
     queryFn: () => api.get(url),
   });
   return {
     orders: data?.data?.orders || [],
+    isGettingOrders: isLoading,
   };
 };
 

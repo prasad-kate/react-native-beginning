@@ -1,7 +1,7 @@
 import { useGetOrders } from "@/services/orders.service";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { OrderStatus } from "@/types";
-import { FlatList, View } from "react-native";
+import { ActivityIndicator, FlatList, View } from "react-native";
 import OrderDetailsCard from "./OrderDetailsCard";
 import OrderDetailsEmptySection from "./OrderDetailsEmptySection";
 
@@ -10,7 +10,7 @@ const OrderDetailsByStatus = ({
 }: {
   orderStatus: OrderStatus;
 }) => {
-  const { orders: deliveredOrders } = useGetOrders({
+  const { orders: deliveredOrders, isGettingOrders } = useGetOrders({
     order_status: orderStatus,
   });
 
@@ -35,6 +35,8 @@ const OrderDetailsByStatus = ({
           }}
           showsVerticalScrollIndicator={false}
         />
+      ) : isGettingOrders ? (
+        <ActivityIndicator size={"large"} />
       ) : (
         <OrderDetailsEmptySection />
       )}
