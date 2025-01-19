@@ -44,14 +44,7 @@ export default function TabsLayout() {
             <Ionicons name="home" color={color} size={26} />
           ),
           tabBarButton: (props) => (
-            <TabButton
-              style={{
-                backgroundColor: "red",
-              }}
-              {...props}
-            >
-              {props.children}
-            </TabButton>
+            <TabButton {...props}>{props.children}</TabButton>
           ),
         }}
       />
