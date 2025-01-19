@@ -1,4 +1,5 @@
 import useCartStore from "@/store/cartStore";
+import useProductStore from "@/store/productStore";
 import { favouriteScreenStyles } from "@/styles/favouriteScreen.styles";
 import { FavouriteScreenProductCardProps } from "@/types";
 import { formatPrice } from "@/utils";
@@ -12,6 +13,7 @@ const FavouriteProductCard = ({
   id,
 }: FavouriteScreenProductCardProps) => {
   const { cartItems, addCartItem } = useCartStore();
+  const { editFavouriteProducts } = useProductStore();
 
   const isProductAddedToCart = cartItems?.some(
     (itemData) => itemData?.productId === id
@@ -34,6 +36,9 @@ const FavouriteProductCard = ({
       <TouchableOpacity
         activeOpacity={0.6}
         style={favouriteScreenStyles.cancelButtonContainer}
+        onPress={() => {
+          editFavouriteProducts(id);
+        }}
       >
         <Ionicons name="close" size={20} color="black" />
       </TouchableOpacity>
