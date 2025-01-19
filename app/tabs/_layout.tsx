@@ -2,7 +2,7 @@ import useAuthStore from "@/store/authStore";
 import useUserStore from "@/store/userStore";
 import { Ionicons } from "@expo/vector-icons";
 import { Redirect, Tabs } from "expo-router";
-import { TouchableWithoutFeedback, View } from "react-native";
+import { Pressable, View } from "react-native";
 
 export default function TabsLayout() {
   const { authToken } = useAuthStore();
@@ -90,7 +90,7 @@ export default function TabsLayout() {
 
 function TabButton({ ...props }) {
   return (
-    <TouchableWithoutFeedback {...props}>
+    <Pressable {...props}>
       <View
         style={{
           flex: 1,
@@ -100,6 +100,6 @@ function TabButton({ ...props }) {
       >
         {props.children}
       </View>
-    </TouchableWithoutFeedback>
+    </Pressable>
   );
 }
