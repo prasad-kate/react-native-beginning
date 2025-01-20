@@ -1,9 +1,10 @@
-import useCartStore from "@/store/cartStore";
+import useProductStore from "@/store/productStore";
 import { homeScreenStyles } from "@/styles/homeScreen.styles";
 import { HomeScreenProductCardProps } from "@/types";
 import { formatPrice } from "@/utils";
+import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { Image, ImageBackground, Text, TouchableOpacity } from "react-native";
+import { ImageBackground, Text, TouchableOpacity } from "react-native";
 
 const HomeScreenProductCard = ({
   id,
@@ -13,7 +14,10 @@ const HomeScreenProductCard = ({
   isSingleItem,
 }: HomeScreenProductCardProps) => {
   const router = useRouter();
-  const { addCartItem } = useCartStore();
+  const { favouriteProducts, editFavouriteProducts } = useProductStore();
+
+  const isItemAddedToFavourites = favouriteProducts?.includes(+id);
+
   return (
     <TouchableOpacity
       activeOpacity={0.9}
@@ -35,15 +39,16 @@ const HomeScreenProductCard = ({
       >
         <TouchableOpacity
           activeOpacity={0.9}
-          style={homeScreenStyles.shoppingCartIconContainer}
+          style={homeScreenStyles.addToFavoritesContainer}
           onPress={(e) => {
             e.stopPropagation();
-            addCartItem({ productId: id, productCount: 1, productName: name });
+            editFavouriteProducts(id);
           }}
         >
-          <Image
-            source={require("@/assets/images/shopping-bag-icon.png")}
-            style={homeScreenStyles.shoppingCartIcon}
+          <Ionicons
+            size={18}
+            name={isItemAddedToFavourites ? "bookmark" : "bookmark-outline"}
+            color={"white"}
           />
         </TouchableOpacity>
       </ImageBackground>

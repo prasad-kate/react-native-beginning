@@ -101,14 +101,16 @@ export const homeScreenStyles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
   },
-  shoppingCartIconContainer: {
+  addToFavoritesContainer: {
     position: "absolute",
     bottom: 0,
     right: 0,
     margin: 10,
-  },
-  shoppingCartIcon: {
-    width: 32,
-    height: 32,
+    backgroundColor: "#00000040",
+    width: 26,
+    height: 30,
+    borderRadius: 4,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
