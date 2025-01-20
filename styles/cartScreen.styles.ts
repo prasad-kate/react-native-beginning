@@ -6,7 +6,6 @@ export const cartScreenStyles = StyleSheet.create({
   // main container
   container: {
     paddingBottom: 20,
-    justifyContent: "space-between",
     flex: 1,
     backgroundColor: "white",
   },
@@ -85,5 +84,17 @@ export const cartScreenStyles = StyleSheet.create({
     width: "100%",
     marginVertical: 15,
     borderRadius: 8,
+  },
+
+  // empty cart screen
+  emptyCartContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  emptyCartImage: {
+    width: "75%",
+    marginBottom: 50,
   },
 });

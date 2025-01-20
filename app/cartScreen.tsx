@@ -1,6 +1,7 @@
 import BackButtonHeader from "@/components/BackButtonHeader";
 import CartItemsSection from "@/components/CartScreen/CartItemsSection";
 import CartTotalSection from "@/components/CartScreen/CartTotalSection";
+import EmptyCartScreen from "@/components/CartScreen/EmptyCartScreen";
 import Button from "@/components/ui/Button";
 import { useGetCartProductDetails } from "@/services/products.service";
 import useCartStore from "@/store/cartStore";
@@ -45,44 +46,50 @@ const cartScreen = () => {
 
   return (
     <View style={cartScreenStyles.container}>
-      <View>
-        <BackButtonHeader title="My Cart" />
-        {isAnyPending ? (
-          <ActivityIndicator size={"large"} />
-        ) : (
-          <CartItemsSection cartItemProductDetails={cartItemProductDetails} />
-        )}
-      </View>
-      <View style={{ paddingHorizontal: 20 }}>
-        {orderItemsAvailable && (
-          <CartTotalSection total={totalPrice} isAnyPending={isAnyPending} />
-        )}
-        <Button
-          text="Checkout"
-          style={[
-            cartScreenStyles.cartCheckoutButton,
-            {
-              opacity: orderItemsAvailable ? 1 : 0.5,
-            },
-          ]}
-          disabled={isAnyPending || !orderItemsAvailable}
-          onPress={() => {
-            if (orderItemsAvailable) {
-              setOrder({
-                user_id: userData?.user_id!,
-                total: totalPrice,
-                items: orderItems,
-              });
-              router.push("/checkOut");
-            } else {
-              Toast.show({
-                type: "info",
-                text1: "Invalid order details. Please try again",
-              });
-            }
+      <BackButtonHeader title="My Cart" />
+      {isAnyPending ? (
+        <ActivityIndicator size={"large"} />
+      ) : cartItemProductDetails?.length ? (
+        <View
+          style={{
+            paddingHorizontal: 20,
+            flex: 1,
+            justifyContent: "flex-end",
           }}
-        />
-      </View>
+        >
+          {<CartItemsSection cartItemProductDetails={cartItemProductDetails} />}
+          {orderItemsAvailable && (
+            <CartTotalSection total={totalPrice} isAnyPending={isAnyPending} />
+          )}
+          <Button
+            text="Checkout"
+            style={[
+              cartScreenStyles.cartCheckoutButton,
+              {
+                opacity: orderItemsAvailable ? 1 : 0.5,
+              },
+            ]}
+            disabled={isAnyPending || !orderItemsAvailable}
+            onPress={() => {
+              if (orderItemsAvailable) {
+                setOrder({
+                  user_id: userData?.user_id!,
+                  total: totalPrice,
+                  items: orderItems,
+                });
+                router.push("/checkOut");
+              } else {
+                Toast.show({
+                  type: "info",
+                  text1: "Invalid order details. Please try again",
+                });
+              }
+            }}
+          />
+        </View>
+      ) : (
+        <EmptyCartScreen />
+      )}
     </View>
   );
 };
