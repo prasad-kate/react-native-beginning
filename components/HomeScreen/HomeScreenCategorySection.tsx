@@ -34,7 +34,14 @@ const HomeScreenCategorySection = () => {
                 style={homeScreenStyles.singleCategoryImage}
               />
             </View>
-            <Text style={homeScreenStyles.categoryName}>{item.name}</Text>
+            <Text
+              style={[
+                homeScreenStyles.categoryName,
+                { color: isSelectedCategory ? "black" : "gray" },
+              ]}
+            >
+              {item.name}
+            </Text>
           </TouchableOpacity>
         );
       }}

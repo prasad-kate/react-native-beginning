@@ -62,7 +62,6 @@ export const homeScreenStyles = StyleSheet.create({
   categoryName: {
     fontSize: 14,
     textAlign: "center",
-    color: "gray",
   },
   singleCategoryContainer: {
     justifyContent: "center",
