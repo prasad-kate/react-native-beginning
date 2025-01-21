@@ -1,9 +1,12 @@
-import { notificationsList } from "@/constants/notificationScreenConstants";
-import React from "react";
+import { NotificationsDetails } from "@/types";
 import { FlatList } from "react-native";
 import NotificationCard from "./NotificationCard";
 
-const NotificationsCardSection = () => {
+const NotificationsCardSection = ({
+  notificationsList,
+}: {
+  notificationsList: NotificationsDetails[];
+}) => {
   return (
     <FlatList
       data={notificationsList}

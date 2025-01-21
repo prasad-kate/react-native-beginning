@@ -210,3 +210,9 @@ export interface OrderPayload {
   user_id: number;
   items: OrderItem[];
 }
+
+export interface NotificationsDetails {
+  title: string;
+  description: string;
+  image: ImageSourcePropType;
+}
