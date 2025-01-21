@@ -1,9 +1,12 @@
-import { productReviews } from "@/constants/reviewDetailsConstants";
-import React from "react";
+import { ReviewDetailsCardProps } from "@/types";
 import { FlatList } from "react-native";
 import ReviewDetailsCard from "./ReviewDetailsCard";
 
-const ReviewDetailsSection = () => {
+const ReviewDetailsSection = ({
+  productReviews,
+}: {
+  productReviews: ReviewDetailsCardProps[];
+}) => {
   return (
     <FlatList
       data={productReviews}
