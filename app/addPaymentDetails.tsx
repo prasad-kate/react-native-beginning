@@ -1,7 +1,7 @@
 import BackButtonHeader from "@/components/BackButtonHeader";
 import AddPaymentDetailsForm from "@/components/DetailsScreens/PaymentDetails/AddPaymentDetailsForm";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
-import { View } from "react-native";
+import { ImageBackground, View } from "react-native";
 
 const addPaymentDetails = () => {
   return (

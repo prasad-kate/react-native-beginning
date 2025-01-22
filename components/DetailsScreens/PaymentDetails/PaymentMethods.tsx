@@ -6,7 +6,10 @@ import PaymentCardSelectionCheckbox from "./PaymentCardSelectionCheckbox";
 import PaymentMethodCard from "./PaymentMethodCard";
 
 const PaymentMethods = () => {
-  const [selectedCard, setSelectedCard] = useState<null | string>(null);
+  // TODO: make this dynamic
+  const [selectedCard, setSelectedCard] = useState<null | string>(
+    paymentMethods?.[0].cardNumber
+  );
 
   return (
     <FlatList

@@ -1,4 +1,4 @@
-import { getCardImageAsPerCardType } from "@/constants/paymentMethodConstants";
+import paymentMethodMasterCard from "@/assets/images/payment-method-mastercard.png";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { PaymentMethodCardProps } from "@/types";
 import { ImageBackground, Text, View } from "react-native";
@@ -10,13 +10,17 @@ const PaymentMethodCard = ({
   expiryDate,
   isSelectedCard,
 }: PaymentMethodCardProps) => {
-  const cardImgSrc = getCardImageAsPerCardType(cardType);
   return (
     <ImageBackground
-      source={cardImgSrc}
+      source={paymentMethodMasterCard}
       resizeMode="cover"
       style={detailsScreenStyles.paymentMethodCardContainer}
-      imageStyle={detailsScreenStyles.paymentMethodCardImage}
+      imageStyle={[
+        detailsScreenStyles.paymentMethodCardImage,
+        {
+          opacity: isSelectedCard ? 1 : 0.7,
+        },
+      ]}
     >
       <Text style={detailsScreenStyles.paymentMethodCardNumber}>
         {`****  ****  ****  ${cardNumber?.slice(cardNumber?.length - 4)}`}
