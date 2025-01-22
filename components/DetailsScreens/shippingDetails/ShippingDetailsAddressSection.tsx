@@ -5,7 +5,7 @@ import ShippingDetailsCard from "./ShippingDetailsCard";
 import ShippingAddressCheckbox from "./ShippingDetailsCheckbox";
 
 const ShippingDetailsAddressSection = () => {
-  const [selectedAddress, setSelectedAddress] = useState<null | string>(null);
+  const [selectedAddress, setSelectedAddress] = useState<null | string>("0");
   return (
     <FlatList
       data={shippingAddresses}
