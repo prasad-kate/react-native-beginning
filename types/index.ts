@@ -216,3 +216,9 @@ export interface NotificationsDetails {
   description: string;
   image: ImageSourcePropType;
 }
+
+export interface BottomSheetProps {
+  isVisible: boolean;
+  onClose: () => void;
+  children: ReactNode;
+}
