@@ -73,6 +73,7 @@ export interface OrderDetailsCardProps {
   orderStatus: OrderStatus;
   quantity: string;
   total: string;
+  handleShowOrderDetails: (order_id: number) => void;
 }
 
 export interface PaymentMethodCardProps {
@@ -221,4 +222,9 @@ export interface BottomSheetProps {
   isVisible: boolean;
   onClose: () => void;
   children: ReactNode;
+}
+
+export interface SingleOrderDetailsProps {
+  orderDetails: [];
+  isGettingOrderDetails: boolean;
 }

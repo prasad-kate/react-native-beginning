@@ -1,9 +1,15 @@
-import { useGetOrders } from "@/services/orders.service";
+import BottomSheet from "@/components/BottomSheet";
+import {
+  useGetOrderDetailsFromOrderId,
+  useGetOrders,
+} from "@/services/orders.service";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { OrderStatus } from "@/types";
+import { useState } from "react";
 import { ActivityIndicator, FlatList, View } from "react-native";
 import OrderDetailsCard from "./OrderDetailsCard";
 import OrderDetailsEmptySection from "./OrderDetailsEmptySection";
+import SingleOrderDetails from "./SingleOrderDetails";
 
 const OrderDetailsByStatus = ({
   orderStatus,
@@ -13,6 +19,22 @@ const OrderDetailsByStatus = ({
   const { orders: deliveredOrders, isGettingOrders } = useGetOrders({
     order_status: orderStatus,
   });
+
+  const [showOrderDetails, setShowOrderDetails] = useState<boolean>(false);
+  const [selectedOrderIdForDetails, setSelectedOrderIdForDetails] = useState<
+    number | null
+  >(null);
+
+  const { orderDetails, isGettingOrderDetails } = useGetOrderDetailsFromOrderId(
+    {
+      order_id: selectedOrderIdForDetails,
+    }
+  );
+
+  const handleShowOrderDetails = (order_id: number) => {
+    setShowOrderDetails(true);
+    setSelectedOrderIdForDetails(order_id);
+  };
 
   return (
     <View style={detailsScreenStyles.tabDetailsContainer}>
@@ -30,6 +52,7 @@ const OrderDetailsByStatus = ({
                 orderDate={createdAt}
                 orderStatus={order_status}
                 quantity={orderItems?.length}
+                handleShowOrderDetails={handleShowOrderDetails}
               />
             );
           }}
@@ -40,6 +63,15 @@ const OrderDetailsByStatus = ({
       ) : (
         <OrderDetailsEmptySection />
       )}
+      <BottomSheet
+        isVisible={showOrderDetails}
+        onClose={() => setShowOrderDetails(false)}
+      >
+        <SingleOrderDetails
+          isGettingOrderDetails={isGettingOrderDetails}
+          orderDetails={orderDetails}
+        />
+      </BottomSheet>
     </View>
   );
 };

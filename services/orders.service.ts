@@ -56,3 +56,21 @@ export const useSendOrder = () => {
     isSendingOrder: isPending,
   };
 };
+
+export const useGetOrderDetailsFromOrderId = ({
+  order_id,
+}: {
+  order_id: number | null;
+}) => {
+  const { data, isLoading } = useQuery({
+    queryKey: [`${order_id}-order-details`],
+    queryFn: () => api.get(`orders/${order_id}`),
+    refetchOnMount: false,
+    enabled: !!order_id,
+  });
+
+  return {
+    orderDetails: data?.data,
+    isGettingOrderDetails: isLoading,
+  };
+};

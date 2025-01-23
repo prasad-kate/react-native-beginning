@@ -10,6 +10,7 @@ const OrderDetailsCard = ({
   orderStatus,
   total,
   quantity,
+  handleShowOrderDetails,
 }: OrderDetailsCardProps) => {
   return (
     <View style={detailsScreenStyles.orderDetailsCardContainer}>
@@ -52,7 +53,13 @@ const OrderDetailsCard = ({
           ...detailsScreenStyles.orderDetailsButtonContainer,
         }}
       >
-        <Button text="Details" style={detailsScreenStyles.orderDetailsButton} />
+        <Button
+          text="Details"
+          style={detailsScreenStyles.orderDetailsButton}
+          onPress={() => {
+            handleShowOrderDetails(+order_id);
+          }}
+        />
         <Text style={detailsScreenStyles.orderStatus}>{orderStatus}</Text>
       </View>
     </View>
