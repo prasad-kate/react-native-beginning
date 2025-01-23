@@ -5,8 +5,9 @@ import {
   Animated,
   Dimensions,
   Modal,
+  Pressable,
   ScrollView,
-  TouchableWithoutFeedback,
+  StyleSheet,
 } from "react-native";
 
 const BottomSheet = ({ isVisible, onClose, children }: BottomSheetProps) => {
@@ -61,7 +62,10 @@ const BottomSheet = ({ isVisible, onClose, children }: BottomSheetProps) => {
       onRequestClose={onClose}
     >
       {/* Overlay */}
-      <TouchableWithoutFeedback onPress={onClose}>
+      <Pressable
+        style={StyleSheet.absoluteFillObject} // Ensure Pressable covers the entire screen
+        onPress={onClose}
+      >
         <Animated.View
           style={[
             bottomSheetStyles.overlay,
@@ -70,7 +74,7 @@ const BottomSheet = ({ isVisible, onClose, children }: BottomSheetProps) => {
             },
           ]}
         />
-      </TouchableWithoutFeedback>
+      </Pressable>
 
       {/* Modal Content */}
       <Animated.View
