@@ -11,7 +11,9 @@ const HomeScreenProductCard = ({
   name,
   image,
   price,
+  quantity,
   isSingleItem,
+  readonly,
 }: HomeScreenProductCardProps) => {
   const router = useRouter();
   const { favouriteProducts, editFavouriteProducts } = useProductStore();
@@ -22,14 +24,16 @@ const HomeScreenProductCard = ({
     <TouchableOpacity
       activeOpacity={0.9}
       style={[
-        homeScreenStyles.productCardContainer,
         {
           flex: isSingleItem ? 0.5 : 1,
           marginRight: isSingleItem ? 20 : 0,
+          marginBottom: readonly ? 10 : 20,
         },
       ]}
       onPress={() => {
-        router.push(`/singleProductScreen?id=${id}`);
+        if (!readonly) {
+          router.push(`/singleProductScreen?id=${id}`);
+        }
       }}
     >
       <ImageBackground
@@ -37,23 +41,29 @@ const HomeScreenProductCard = ({
         style={homeScreenStyles.productCardImage}
         resizeMode="cover"
       >
-        <TouchableOpacity
-          activeOpacity={0.9}
-          style={homeScreenStyles.addToFavoritesContainer}
-          onPress={(e) => {
-            e.stopPropagation();
-            editFavouriteProducts(id);
-          }}
-        >
-          <Ionicons
-            size={18}
-            name={isItemAddedToFavourites ? "bookmark" : "bookmark-outline"}
-            color={"white"}
-          />
-        </TouchableOpacity>
+        {!readonly && (
+          <TouchableOpacity
+            activeOpacity={0.9}
+            style={homeScreenStyles.addToFavoritesContainer}
+            onPress={(e) => {
+              e.stopPropagation();
+              editFavouriteProducts(id);
+            }}
+          >
+            <Ionicons
+              size={18}
+              name={isItemAddedToFavourites ? "bookmark" : "bookmark-outline"}
+              color={"white"}
+            />
+          </TouchableOpacity>
+        )}
       </ImageBackground>
-      <Text style={homeScreenStyles.productName}>{name}</Text>
-      <Text style={homeScreenStyles.productPrice}>{formatPrice(+price)}</Text>
+      <Text style={homeScreenStyles.productName}>
+        {name} {quantity && `(${quantity})`}
+      </Text>
+      {price && (
+        <Text style={homeScreenStyles.productPrice}>{formatPrice(price)}</Text>
+      )}
     </TouchableOpacity>
   );
 };

@@ -46,8 +46,10 @@ export interface HomeScreenProductCardProps {
   id: number;
   name: string;
   image: ImageSourcePropType;
-  price: string;
+  price?: number;
   isSingleItem?: boolean;
+  readonly?: boolean;
+  quantity?: number;
 }
 
 export interface FavouriteScreenProductCardProps
@@ -224,7 +226,14 @@ export interface BottomSheetProps {
   children: ReactNode;
 }
 
+interface SingleOrderItem {
+  order_item_id: number;
+  product_name: string;
+  image: ImageSourcePropType;
+  quantity: number;
+}
+
 export interface SingleOrderDetailsProps {
-  orderDetails: [];
+  orderDetails: SingleOrderItem[];
   isGettingOrderDetails: boolean;
 }

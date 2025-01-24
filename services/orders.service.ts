@@ -70,7 +70,7 @@ export const useGetOrderDetailsFromOrderId = ({
   });
 
   return {
-    orderDetails: data?.data,
+    orderDetails: data?.data?.order_items,
     isGettingOrderDetails: isLoading,
   };
 };

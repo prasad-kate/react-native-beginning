@@ -82,9 +82,6 @@ export const homeScreenStyles = StyleSheet.create({
   productsContainer: {
     gap: 20,
   },
-  productCardContainer: {
-    marginBottom: 20,
-  },
   productCardImage: {
     aspectRatio: "3/4",
     borderRadius: 10,
