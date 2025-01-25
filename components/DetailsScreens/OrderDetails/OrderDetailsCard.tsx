@@ -1,8 +1,9 @@
 import Button from "@/components/ui/Button";
+import { useCancelOrder } from "@/services/orders.service";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { OrderDetailsCardProps } from "@/types";
 import { formatDate, formatPrice } from "@/utils";
-import { Text, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 
 const OrderDetailsCard = ({
   order_id,
@@ -12,6 +13,26 @@ const OrderDetailsCard = ({
   quantity,
   handleShowOrderDetails,
 }: OrderDetailsCardProps) => {
+  const { cancelOrder } = useCancelOrder();
+  const handleCancelOrder = () => {
+    Alert.alert(
+      "Confirm cancellation",
+      `Do you want to cancel order ${order_id}?`,
+      [
+        {
+          text: "No",
+          style: "cancel",
+        },
+        {
+          text: "Yes",
+          onPress: () => {
+            cancelOrder(order_id);
+          },
+        },
+      ],
+      { cancelable: true }
+    );
+  };
   return (
     <View style={detailsScreenStyles.orderDetailsCardContainer}>
       <View style={detailsScreenStyles.orderDetailsCardHeader}>
@@ -53,13 +74,29 @@ const OrderDetailsCard = ({
           ...detailsScreenStyles.orderDetailsButtonContainer,
         }}
       >
-        <Button
-          text="Details"
-          style={detailsScreenStyles.orderDetailsButton}
-          onPress={() => {
-            handleShowOrderDetails(+order_id);
+        <View
+          style={{
+            flexDirection: "row",
           }}
-        />
+        >
+          <Button
+            text="Details"
+            style={detailsScreenStyles.orderDetailsButton}
+            onPress={() => {
+              handleShowOrderDetails(+order_id);
+            }}
+          />
+          {orderStatus?.toLowerCase() === "pending" && (
+            <Button
+              text="Cancel"
+              style={detailsScreenStyles.orderDetailsCancelButton}
+              buttonTextStyles={{
+                color: "#909090",
+              }}
+              onPress={handleCancelOrder}
+            />
+          )}
+        </View>
         <Text style={detailsScreenStyles.orderStatus}>{orderStatus}</Text>
       </View>
     </View>
