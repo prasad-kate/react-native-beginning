@@ -78,9 +78,8 @@ export const useGetOrderDetailsFromOrderId = ({
 export const useCancelOrder = () => {
   const { mutate } = useMutation({
     mutationFn: (order_id: string) =>
-      api.patch(`orders/update_status`, {
+      api.patch(`orders/cancel`, {
         order_id,
-        order_status: "CANCELLED",
       }),
     onSuccess: () => {
       Toast.show({
