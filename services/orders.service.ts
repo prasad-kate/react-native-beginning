@@ -1,7 +1,7 @@
 import { api } from "@/api";
 import useCartStore from "@/store/cartStore";
 import { OrderPayload, OrderStatus } from "@/types";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { isAxiosError } from "axios";
 import { useRouter } from "expo-router";
 import Toast from "react-native-toast-message";
@@ -76,6 +76,7 @@ export const useGetOrderDetailsFromOrderId = ({
 };
 
 export const useCancelOrder = () => {
+  const queryClient = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: (order_id: string) =>
       api.patch(`orders/cancel`, {
@@ -86,6 +87,7 @@ export const useCancelOrder = () => {
         type: "success",
         text1: `Order cancelled successfully`,
       });
+      queryClient.invalidateQueries({ queryKey: ["orders"] });
     },
     onError: (error) => {
       Toast.show({

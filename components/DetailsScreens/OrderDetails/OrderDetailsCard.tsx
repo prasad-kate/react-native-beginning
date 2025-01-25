@@ -14,6 +14,7 @@ const OrderDetailsCard = ({
   handleShowOrderDetails,
 }: OrderDetailsCardProps) => {
   const { cancelOrder } = useCancelOrder();
+
   const handleCancelOrder = () => {
     Alert.alert(
       "Confirm cancellation",
@@ -33,6 +34,7 @@ const OrderDetailsCard = ({
       { cancelable: true }
     );
   };
+
   return (
     <View style={detailsScreenStyles.orderDetailsCardContainer}>
       <View style={detailsScreenStyles.orderDetailsCardHeader}>
