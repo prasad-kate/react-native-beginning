@@ -1,3 +1,4 @@
+import useAuthStore from "@/store/authStore";
 import { uiStyles } from "@/styles/global.styles";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useFonts } from "expo-font";
@@ -12,7 +13,15 @@ import Toast from "react-native-toast-message";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 preventAutoHideAsync();
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      enabled: () => !!useAuthStore.getState().authToken,
+      retry: 2,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export default function RootLayout() {
   const [loaded] = useFonts({
