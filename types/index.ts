@@ -42,14 +42,31 @@ export interface GlobalTextInputProps extends TextInputProps {
   customInputContainerStyles?: StyleProp<ViewStyle>;
 }
 
-export interface HomeScreenProductCardProps {
+export interface ProductCategories {
+  category_id: number;
+  name: string;
+  image: ImageSourcePropType;
+}
+
+export interface HomeScreenCategorySectionProps {
+  productCategories: ProductCategories[];
+}
+
+export interface ProductDetails {
   id: number;
   name: string;
   image: ImageSourcePropType;
   price?: number;
+}
+
+export interface HomeScreenProductCardProps extends ProductDetails {
   isSingleItem?: boolean;
   readonly?: boolean;
   quantity?: number;
+}
+
+export interface HomeScreenProductSectionProps {
+  filteredProducts: ProductDetails[];
 }
 
 export interface FavouriteScreenProductCardProps

@@ -1,11 +1,12 @@
-import { useGetProductsCategories } from "@/services/products.service";
 import useProductStore from "@/store/productStore";
 import { homeScreenStyles } from "@/styles/homeScreen.styles";
+import { HomeScreenCategorySectionProps } from "@/types";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 
-const HomeScreenCategorySection = () => {
+const HomeScreenCategorySection = ({
+  productCategories,
+}: HomeScreenCategorySectionProps) => {
   const { setCategory, category: selectedCategory } = useProductStore();
-  const { productCategories } = useGetProductsCategories();
 
   return (
     <FlatList
@@ -30,7 +31,7 @@ const HomeScreenCategorySection = () => {
               ]}
             >
               <Image
-                source={{ uri: item.image }}
+                source={item.image}
                 style={homeScreenStyles.singleCategoryImage}
               />
             </View>

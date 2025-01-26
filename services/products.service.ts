@@ -4,13 +4,14 @@ import useProductStore from "@/store/productStore";
 import { useQueries, useQuery } from "@tanstack/react-query";
 
 export const useGetProducts = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: () => api.get("products"),
   });
 
   return {
     productsList: data?.data,
+    isGettingProducts: isLoading,
   };
 };
 

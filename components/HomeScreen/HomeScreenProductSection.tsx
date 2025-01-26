@@ -1,23 +1,12 @@
-import { useGetProducts } from "@/services/products.service";
-import useProductStore from "@/store/productStore";
 import { homeScreenStyles } from "@/styles/homeScreen.styles";
 import { FlatList } from "react-native";
 import EmptySection from "../DetailsScreens/OrderDetails/OrderDetailsEmptySection";
 import HomeScreenProductCard from "./HomeScreenProductCard";
+import { HomeScreenProductSectionProps } from "@/types";
 
-const HomeScreenProductSection = () => {
-  const { category: selectedCategory } = useProductStore();
-  const { productsList } = useGetProducts();
-
-  const filteredProducts = productsList?.filter(
-    ({ category_id }: { category_id: number; name: string }) => {
-      if (selectedCategory && selectedCategory !== 1) {
-        return category_id === selectedCategory;
-      }
-      return true; // TODO: shows all products, Later will show popular
-    }
-  );
-
+const HomeScreenProductSection = ({
+  filteredProducts,
+}: HomeScreenProductSectionProps) => {
   return (
     <>
       {!filteredProducts?.length ? (
