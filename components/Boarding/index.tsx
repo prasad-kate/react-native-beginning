@@ -1,12 +1,28 @@
 import useAuthStore from "@/store/authStore";
 import { useRouter } from "expo-router";
+import { useEffect } from "react";
 import { ImageBackground, Text, View } from "react-native";
 import Button from "../ui/Button";
 import { boardingStyles } from "./styles/boarding.styles";
 
 const Boarding = () => {
   const router = useRouter();
-  const { authToken } = useAuthStore();
+  const authToken = useAuthStore((state) => state.authToken);
+
+  useEffect(() => {
+    const checkTokenAndNavigate = async () => {
+      const timeoutId = setTimeout(() => {
+        if (authToken) {
+          router.push("/tabs/home");
+        }
+      }, 2500);
+
+      return () => clearTimeout(timeoutId);
+    };
+
+    checkTokenAndNavigate();
+  }, [authToken]);
+
   return (
     <ImageBackground
       source={require("@/assets/images/furniture-app-first-bg.png")}
