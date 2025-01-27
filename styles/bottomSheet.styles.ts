@@ -20,4 +20,9 @@ export const bottomSheetStyles = StyleSheet.create({
     flexGrow: 1,
     paddingVertical: 20,
   },
+  cancleIconContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 15,
+  },
 });

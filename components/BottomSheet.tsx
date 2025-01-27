@@ -1,5 +1,6 @@
 import { bottomSheetStyles } from "@/styles/bottomSheet.styles";
 import { BottomSheetProps } from "@/types";
+import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useRef, useState } from "react";
 import {
   Animated,
@@ -8,6 +9,7 @@ import {
   Pressable,
   ScrollView,
   StyleSheet,
+  TouchableOpacity,
 } from "react-native";
 
 const BottomSheet = ({ isVisible, onClose, children }: BottomSheetProps) => {
@@ -100,6 +102,15 @@ const BottomSheet = ({ isVisible, onClose, children }: BottomSheetProps) => {
         >
           {children}
         </ScrollView>
+        <TouchableOpacity
+          style={bottomSheetStyles.cancleIconContainer}
+          activeOpacity={0.7}
+          onPress={() => {
+            onClose();
+          }}
+        >
+          <Ionicons name="close-outline" size={35} color={"gray"} />
+        </TouchableOpacity>
       </Animated.View>
     </Modal>
   );
