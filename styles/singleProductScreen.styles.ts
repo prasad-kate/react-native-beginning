@@ -104,4 +104,20 @@ export const singleProductScreenStyles = StyleSheet.create({
     width: "auto",
     flex: 1,
   },
+
+  // skeleton styles
+  productNameSkeleton: {
+    height: 30,
+    width: "50%",
+    marginTop: 10,
+  },
+
+  productPriceSkeleton: {
+    width: "20%",
+    marginTop: 10,
+    height: 35,
+  },
+  descriptionSkeleton: {
+    marginTop: 20,
+  },
 });

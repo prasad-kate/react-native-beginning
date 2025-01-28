@@ -20,7 +20,7 @@ export const useGetProductFromProductId = ({
 }: {
   productId: number;
 }) => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["product-details", productId],
     queryFn: () => api.get(`products/${productId}`),
     enabled: !!productId,
@@ -28,6 +28,7 @@ export const useGetProductFromProductId = ({
 
   return {
     productDetails: data?.data || [],
+    isGettingProductDetails: isLoading,
   };
 };
 

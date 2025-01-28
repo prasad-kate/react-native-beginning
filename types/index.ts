@@ -179,7 +179,7 @@ export interface LoginUserPayload {
 }
 
 export interface SingleProductImageSectionProps {
-  imgUrl: string;
+  imgUrl: ImageSourcePropType;
 }
 
 export interface SingleProductAddOrSaveSectionProps {

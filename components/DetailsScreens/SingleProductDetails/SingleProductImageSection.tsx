@@ -1,3 +1,4 @@
+import SkeletonLoader from "@/components/Skeleton";
 import { singleProductScreenStyles } from "@/styles/singleProductScreen.styles";
 import { SingleProductImageSectionProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
@@ -11,29 +12,28 @@ const SingleProductImageSection = ({
 
   return (
     <View style={singleProductScreenStyles.productImageContainer}>
-      <ImageBackground
-        source={{ uri: imgUrl }}
-        style={[
-          singleProductScreenStyles.productImage,
-          {
-            backgroundColor: !imgUrl ? "#ededed" : undefined,
-          },
-        ]}
-        imageStyle={{
-          borderBottomLeftRadius: 52,
-        }}
-        resizeMode="cover"
-      >
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={singleProductScreenStyles.backButtonContainer}
-          onPress={() => {
-            router.push("/tabs/home");
+      {!imgUrl ? (
+        <SkeletonLoader style={singleProductScreenStyles.productImage} />
+      ) : (
+        <ImageBackground
+          source={imgUrl}
+          style={singleProductScreenStyles.productImage}
+          imageStyle={{
+            borderBottomLeftRadius: 52,
           }}
+          resizeMode="cover"
         >
-          <Ionicons name="chevron-back" size={22} />
-        </TouchableOpacity>
-      </ImageBackground>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={singleProductScreenStyles.backButtonContainer}
+            onPress={() => {
+              router.push("/tabs/home");
+            }}
+          >
+            <Ionicons name="chevron-back" size={22} />
+          </TouchableOpacity>
+        </ImageBackground>
+      )}
     </View>
   );
 };
