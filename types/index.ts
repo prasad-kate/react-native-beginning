@@ -254,3 +254,12 @@ export interface SingleOrderDetailsProps {
   orderDetails: SingleOrderItem[];
   isGettingOrderDetails: boolean;
 }
+
+export interface CreateAddressPayload {
+  fullname: string;
+  address: string;
+  pincode: string;
+  country: string;
+  city: string;
+  district: string;
+}

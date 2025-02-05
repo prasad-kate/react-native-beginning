@@ -6,6 +6,7 @@ import {
   countryList,
   districtList,
 } from "@/constants/shippingScreenConstants";
+import { useCreateNewAddress } from "@/services/address.service";
 import { cartScreenStyles } from "@/styles/cartScreen.styles";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { FormProvider, useForm } from "react-hook-form";
@@ -22,6 +23,20 @@ const AddShippingDetailsForm = () => {
       city: "",
     },
   });
+
+  const { createAddress } = useCreateNewAddress();
+
+  const handleSubmit = () => {
+    const values = methods.getValues();
+
+    const allValuesAvaialable = Object.values(values).every((value) => !!value);
+
+    if (!allValuesAvaialable) {
+      return;
+    }
+
+    createAddress(values);
+  };
 
   return (
     <FormProvider {...methods}>
@@ -57,9 +72,7 @@ const AddShippingDetailsForm = () => {
         <Button
           text="Save Address"
           style={cartScreenStyles.cartCheckoutButton}
-          onPress={() => {
-            alert(JSON.stringify(methods.getValues()));
-          }}
+          onPress={handleSubmit}
         />
       </View>
     </FormProvider>
