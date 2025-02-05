@@ -1,7 +1,11 @@
 import Button from "@/components/ui/Button";
 import Dropdown from "@/components/ui/Dropdown";
 import TextInput from "@/components/ui/TextInput";
-import { countryList } from "@/constants/shippingScreenConstants";
+import {
+  cityList,
+  countryList,
+  districtList,
+} from "@/constants/shippingScreenConstants";
 import { cartScreenStyles } from "@/styles/cartScreen.styles";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { FormProvider, useForm } from "react-hook-form";
@@ -43,8 +47,12 @@ const AddShippingDetailsForm = () => {
             keyboardType="number-pad"
           />
           <Dropdown label="Country" options={countryList} variant="outlined" />
-          <Dropdown label="District" options={countryList} variant="outlined" />
-          <Dropdown label="City" options={countryList} variant="outlined" />
+          <Dropdown
+            label="District"
+            options={districtList}
+            variant="outlined"
+          />
+          <Dropdown label="City" options={cityList} variant="outlined" />
         </View>
         <Button
           text="Save Address"
