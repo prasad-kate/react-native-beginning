@@ -61,13 +61,14 @@ export const useGetCartProductDetails = () => {
 };
 
 export const useGetProductsCategories = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["products-category"],
     queryFn: () => api.get("products/categories"),
   });
 
   return {
     productCategories: data?.data || [],
+    isGettingCategories: isLoading,
   };
 };
 

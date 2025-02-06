@@ -12,7 +12,7 @@ import HomeScreenHeader from "../../components/HomeScreen/HomeScreenHeader";
 const HomeScreen = () => {
   const { category: selectedCategory } = useProductStore();
 
-  const { productCategories } = useGetProductsCategories();
+  const { productCategories, isGettingCategories } = useGetProductsCategories();
   const { productsList, isGettingProducts } = useGetProducts();
 
   const filteredProducts = productsList?.filter(
@@ -31,7 +31,10 @@ const HomeScreen = () => {
         <ActivityIndicator size={"large"} style={{ marginTop: 20 }} />
       ) : (
         <>
-          <HomeScreenCategorySection productCategories={productCategories} />
+          <HomeScreenCategorySection
+            productCategories={productCategories}
+            isGettingCategories={isGettingCategories}
+          />
           <HomeScreenProductSection filteredProducts={filteredProducts} />
         </>
       )}

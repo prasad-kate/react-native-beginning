@@ -2,13 +2,17 @@ import useProductStore from "@/store/productStore";
 import { homeScreenStyles } from "@/styles/homeScreen.styles";
 import { HomeScreenCategorySectionProps } from "@/types";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
+import SkeletonLoader from "../Skeleton";
 
 const HomeScreenCategorySection = ({
   productCategories,
+  isGettingCategories,
 }: HomeScreenCategorySectionProps) => {
   const { setCategory, category: selectedCategory } = useProductStore();
 
-  return (
+  return isGettingCategories ? (
+    <SkeletonLoader style={{ height: 60, marginBottom: 20 }} />
+  ) : (
     <FlatList
       data={productCategories}
       keyExtractor={(item) => `${item.category_id}`}

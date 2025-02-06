@@ -50,6 +50,7 @@ export interface ProductCategories {
 
 export interface HomeScreenCategorySectionProps {
   productCategories: ProductCategories[];
+  isGettingCategories: boolean;
 }
 
 export interface ProductDetails {
