@@ -9,16 +9,16 @@ const ShippingAddressCheckbox = ({
   const handleSelection = () => {
     setSelectedAddress(addressId);
   };
+  const isSelectedAddress = selectedAddress === addressId;
   return (
     <Checkbox
-      label="Use as shipping address"
-      value={selectedAddress === addressId}
+      label={`Address ${addressId + 1} ${isSelectedAddress ? "(In-Use)" : ""}`}
+      value={isSelectedAddress}
       onValueChange={handleSelection}
       onLabelPress={handleSelection}
       checkboxContainerStyles={{
-        marginHorizontal: 20,
         marginTop: 0,
-        marginBottom: 35,
+        marginBottom: 0,
       }}
     />
   );

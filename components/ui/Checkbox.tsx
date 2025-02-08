@@ -2,7 +2,7 @@
 import { checkboxStyles } from "@/styles/global.styles";
 import { GlobalCheckboxProps } from "@/types";
 import { Checkbox as ExpoCheckbox } from "expo-checkbox";
-import React, { FC } from "react";
+import { FC } from "react";
 import { Text, TouchableOpacity } from "react-native";
 
 const Checkbox: FC<GlobalCheckboxProps> = ({
@@ -29,9 +29,11 @@ const Checkbox: FC<GlobalCheckboxProps> = ({
         {...props}
         color={value ? "#333" : undefined}
       />
-      <Text style={checkboxStyles.label} onPress={onLabelPress}>
-        {label}
-      </Text>
+      {label && (
+        <Text style={checkboxStyles.label} onPress={onLabelPress}>
+          {label}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 };

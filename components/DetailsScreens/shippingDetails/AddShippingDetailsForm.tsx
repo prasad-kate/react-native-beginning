@@ -15,7 +15,6 @@ import { View } from "react-native";
 const AddShippingDetailsForm = () => {
   const methods = useForm({
     defaultValues: {
-      fullname: "",
       address: "",
       pincode: "",
       country: "",
@@ -42,12 +41,6 @@ const AddShippingDetailsForm = () => {
     <FormProvider {...methods}>
       <View style={detailsScreenStyles.addShippingDetailsFormContainer}>
         <View>
-          <TextInput
-            name="fullname"
-            label="Full Name"
-            placeholder="Enter your full name"
-            variant="outlined"
-          />
           <TextInput
             name="address"
             label="Address"

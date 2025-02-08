@@ -1,11 +1,10 @@
 import { shippingAddresses } from "@/constants/shippingScreenConstants";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FlatList } from "react-native";
 import ShippingDetailsCard from "./ShippingDetailsCard";
-import ShippingAddressCheckbox from "./ShippingDetailsCheckbox";
 
 const ShippingDetailsAddressSection = () => {
-  const [selectedAddress, setSelectedAddress] = useState<null | string>("0");
+  const [selectedAddress, setSelectedAddress] = useState<null | number>(0);
   return (
     <FlatList
       data={shippingAddresses}
@@ -14,9 +13,10 @@ const ShippingDetailsAddressSection = () => {
         const { name, address } = item;
         return (
           <>
-            <ShippingDetailsCard name={name} address={address} />
-            <ShippingAddressCheckbox
-              addressId={`${index}`}
+            <ShippingDetailsCard
+              name={name}
+              address={address}
+              addressId={index}
               selectedAddress={selectedAddress}
               setSelectedAddress={setSelectedAddress}
             />
