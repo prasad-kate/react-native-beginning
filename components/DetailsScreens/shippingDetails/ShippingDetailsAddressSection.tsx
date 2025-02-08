@@ -1,11 +1,22 @@
 import { useGetUserAdresses } from "@/services/address.service";
-import { useState } from "react";
+import { Address } from "@/types";
+import { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 import ShippingDetailsCard from "./ShippingDetailsCard";
 
 const ShippingDetailsAddressSection = () => {
   const { userAddresses } = useGetUserAdresses();
-  const [selectedAddress, setSelectedAddress] = useState<null | number>(0);
+
+  const [selectedAddress, setSelectedAddress] = useState<null | number>(null);
+
+  useEffect(() => {
+    const activeAddress = userAddresses?.findIndex(
+      (item: Address) => !!item.isActive
+    );
+    if (activeAddress) {
+      setSelectedAddress(activeAddress);
+    }
+  }, [userAddresses]);
 
   return (
     <FlatList

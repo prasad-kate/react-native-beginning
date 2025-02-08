@@ -276,3 +276,8 @@ export interface CreateAddressPayload {
   city: string;
   district: string;
 }
+
+export interface UpdateAddressStatusPayload {
+  userId: number;
+  addressId: number;
+}

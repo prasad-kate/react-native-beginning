@@ -1,4 +1,6 @@
 import Checkbox from "@/components/ui/Checkbox";
+import { useUpdateAddressStatus } from "@/services/address.service";
+import useUserStore from "@/store/userStore";
 import { ShippingAddressCheckboxProps } from "@/types";
 
 const ShippingAddressCheckbox = ({
@@ -7,8 +9,14 @@ const ShippingAddressCheckbox = ({
   selectedAddress,
   setSelectedAddress,
 }: ShippingAddressCheckboxProps) => {
+  const { userData } = useUserStore();
+  const { updateAddressStatus } = useUpdateAddressStatus();
   const handleSelection = () => {
     setSelectedAddress(addressId);
+    updateAddressStatus({
+      userId: userData?.user_id as number,
+      addressId: addressId,
+    });
   };
   const isSelectedAddress = selectedAddress === addressId;
   return (

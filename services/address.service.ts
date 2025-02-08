@@ -1,6 +1,6 @@
 import { api } from "@/api";
 import useUserStore from "@/store/userStore";
-import { CreateAddressPayload } from "@/types";
+import { CreateAddressPayload, UpdateAddressStatusPayload } from "@/types";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 export const useCreateNewAddress = () => {
@@ -25,4 +25,13 @@ export const useGetUserAdresses = () => {
   return {
     userAddresses: data?.data || [],
   };
+};
+
+export const useUpdateAddressStatus = () => {
+  const { mutate } = useMutation({
+    mutationFn: (payload: UpdateAddressStatusPayload) =>
+      api.patch("address/update_status", payload),
+  });
+
+  return { updateAddressStatus: mutate };
 };
