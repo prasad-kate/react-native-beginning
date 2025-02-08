@@ -110,10 +110,19 @@ export interface PaymentCardSelectionCheckboxProps {
   cardNumber: string;
 }
 
-export interface ShippingAddressCardProps {
-  name: string;
+export interface Address {
+  address_id: number;
   address: string;
-  addressId: number;
+  city: string;
+  country: string;
+  state: string;
+  pincode: string;
+  isActive: boolean;
+}
+
+export interface ShippingAddressCardProps {
+  index: number;
+  addressDetails: Address;
   selectedAddress: number | null;
   setSelectedAddress: Dispatch<React.SetStateAction<number | null>>;
 }
@@ -122,6 +131,7 @@ export interface ShippingAddressCheckboxProps {
   setSelectedAddress: Dispatch<React.SetStateAction<number | null>>;
   selectedAddress: number | null;
   addressId: number;
+  index: number;
 }
 
 export interface GlobalCheckboxProps extends CheckboxProps {

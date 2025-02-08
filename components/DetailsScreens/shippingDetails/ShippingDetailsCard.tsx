@@ -5,9 +5,8 @@ import { Text, TouchableOpacity, View } from "react-native";
 import ShippingAddressCheckbox from "./ShippingDetailsCheckbox";
 
 const ShippingDetailsCard = ({
-  name,
-  address,
-  addressId,
+  addressDetails,
+  index,
   selectedAddress,
   setSelectedAddress,
 }: ShippingAddressCardProps) => {
@@ -15,7 +14,8 @@ const ShippingDetailsCard = ({
     <View style={detailsScreenStyles.shippingDetailsCardContainer}>
       <View style={detailsScreenStyles.shippindDetailsCardHeader}>
         <ShippingAddressCheckbox
-          addressId={addressId}
+          index={index}
+          addressId={addressDetails?.address_id}
           selectedAddress={selectedAddress}
           setSelectedAddress={setSelectedAddress}
         />
@@ -23,7 +23,9 @@ const ShippingDetailsCard = ({
           <Ionicons name="create" size={24} color="black" />
         </TouchableOpacity>
       </View>
-      <Text style={detailsScreenStyles.shippindAddress}>{address}</Text>
+      <Text style={detailsScreenStyles.shippindAddress}>
+        {addressDetails?.address}
+      </Text>
     </View>
   );
 };
