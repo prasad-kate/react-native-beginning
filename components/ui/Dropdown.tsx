@@ -1,15 +1,21 @@
 import { dropdownStyles } from "@/styles/global.styles";
 import { GlobalDropdownProps } from "@/types";
 import { Picker } from "@react-native-picker/picker";
-import { useState } from "react";
+import { FC } from "react";
+import { Controller, useFormContext } from "react-hook-form";
 import { Text, View } from "react-native";
 
-const Dropdown = ({
+const Dropdown: FC<GlobalDropdownProps> = ({
+  name,
   label,
   options,
   variant = "standard",
-}: GlobalDropdownProps) => {
-  const [selectedValue, setSelectedValue] = useState("");
+  ...props
+}) => {
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
 
   const containerStyles =
     variant === "standard"
@@ -22,17 +28,36 @@ const Dropdown = ({
       : dropdownStyles.outlinedPicker;
 
   return (
-    <View style={containerStyles}>
+    <View style={[containerStyles]}>
       {label && <Text style={dropdownStyles.label}>{label}</Text>}
-      <Picker
-        selectedValue={selectedValue}
-        onValueChange={(itemValue) => setSelectedValue(itemValue)}
-        style={pickerStyles}
-      >
-        {options.map((option, index) => (
-          <Picker.Item key={index} label={option.label} value={option.value} />
-        ))}
-      </Picker>
+
+      <Controller
+        name={name}
+        control={control}
+        render={({ field: { onChange, value } }) => (
+          <Picker
+            selectedValue={value || ""}
+            onValueChange={onChange}
+            style={[pickerStyles]}
+            {...props}
+          >
+            <Picker.Item label="Select" value="" enabled={false} />
+            {options.map((option, index) => (
+              <Picker.Item
+                key={index}
+                label={option.label}
+                value={option.value}
+              />
+            ))}
+          </Picker>
+        )}
+      />
+
+      {errors[name] && (
+        <Text style={dropdownStyles.error}>
+          {errors[name]?.message as string}
+        </Text>
+      )}
     </View>
   );
 };

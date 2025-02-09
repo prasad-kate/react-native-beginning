@@ -177,6 +177,7 @@ export interface DropdownOptions {
 }
 
 export interface GlobalDropdownProps {
+  name: string;
   label: string;
   options: DropdownOptions[];
   variant?: "standard" | "outlined";

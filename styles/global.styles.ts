@@ -166,4 +166,8 @@ export const dropdownStyles = StyleSheet.create({
     height: 50,
     backgroundColor: "#F5F5F5",
   },
+  error: {
+    color: "red",
+    fontSize: 12,
+  },
 });
