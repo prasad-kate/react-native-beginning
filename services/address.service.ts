@@ -17,13 +17,15 @@ export const useCreateNewAddress = () => {
 export const useGetUserAdresses = () => {
   const { userData } = useUserStore();
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["addresses"],
     queryFn: () => api.get(`address/${userData?.user_id}`),
+    refetchOnMount: true,
   });
 
   return {
     userAddresses: data?.data || [],
+    isGettingUserAddresses: isLoading,
   };
 };
 

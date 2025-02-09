@@ -1,11 +1,11 @@
 import { useGetUserAdresses } from "@/services/address.service";
 import { Address } from "@/types";
 import { useEffect, useState } from "react";
-import { FlatList } from "react-native";
+import { ActivityIndicator, FlatList } from "react-native";
 import ShippingDetailsCard from "./ShippingDetailsCard";
 
 const ShippingDetailsAddressSection = () => {
-  const { userAddresses } = useGetUserAdresses();
+  const { userAddresses, isGettingUserAddresses } = useGetUserAdresses();
 
   const [selectedAddress, setSelectedAddress] = useState<null | number>(null);
 
@@ -18,7 +18,9 @@ const ShippingDetailsAddressSection = () => {
     }
   }, [userAddresses]);
 
-  return (
+  return isGettingUserAddresses ? (
+    <ActivityIndicator size={"large"} />
+  ) : (
     <FlatList
       data={userAddresses}
       keyExtractor={(_, index) => `${index}`}
