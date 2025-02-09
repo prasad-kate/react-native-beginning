@@ -1,12 +1,23 @@
 import { api } from "@/api";
 import useUserStore from "@/store/userStore";
 import { CreateAddressPayload, UpdateAddressStatusPayload } from "@/types";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useRouter } from "expo-router";
 
 export const useCreateNewAddress = () => {
+  const { userData } = useUserStore();
+  const queryClient = useQueryClient();
+  const router = useRouter();
+
   const { mutate } = useMutation({
     mutationFn: (payload: CreateAddressPayload) =>
-      api.post("/address", payload),
+      api.post(`/address/${userData?.user_id}`, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["addresses"],
+      });
+      router.back();
+    },
   });
 
   return {

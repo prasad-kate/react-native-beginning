@@ -274,8 +274,8 @@ export interface CreateAddressPayload {
   address: string;
   pincode: string;
   country: string;
+  state: string;
   city: string;
-  district: string;
 }
 
 export interface UpdateAddressStatusPayload {

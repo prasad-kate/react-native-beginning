@@ -4,7 +4,7 @@ import TextInput from "@/components/ui/TextInput";
 import {
   cityList,
   countryList,
-  districtList,
+  stateList,
 } from "@/constants/shippingScreenConstants";
 import { useCreateNewAddress } from "@/services/address.service";
 import { cartScreenStyles } from "@/styles/cartScreen.styles";
@@ -18,7 +18,7 @@ const AddShippingDetailsForm = () => {
       address: "",
       pincode: "",
       country: "",
-      district: "",
+      state: "",
       city: "",
     },
   });
@@ -54,13 +54,24 @@ const AddShippingDetailsForm = () => {
             variant="outlined"
             keyboardType="number-pad"
           />
-          <Dropdown label="Country" options={countryList} variant="outlined" />
           <Dropdown
-            label="District"
-            options={districtList}
+            name="country"
+            label="Country"
+            options={countryList}
             variant="outlined"
           />
-          <Dropdown label="City" options={cityList} variant="outlined" />
+          <Dropdown
+            name="state"
+            label="State"
+            options={stateList}
+            variant="outlined"
+          />
+          <Dropdown
+            name="city"
+            label="City"
+            options={cityList}
+            variant="outlined"
+          />
         </View>
         <Button
           text="Save Address"
