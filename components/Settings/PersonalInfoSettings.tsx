@@ -1,10 +1,11 @@
+import useUserStore from "@/store/userStore";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { Ionicons } from "@expo/vector-icons";
-import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import SettingsTitle from "./SettingsTitle";
 
 const PersonalInfoSettings = () => {
+  const { userData } = useUserStore();
   return (
     <View>
       <View style={detailsScreenStyles.settingsTitleContainer}>
@@ -16,13 +17,15 @@ const PersonalInfoSettings = () => {
 
       <View style={detailsScreenStyles.settingsDetailCard}>
         <Text style={detailsScreenStyles.settingsDetailsTitle}>Name</Text>
-        <Text style={detailsScreenStyles.settingsDetailsValue}>John Doe</Text>
+        <Text style={detailsScreenStyles.settingsDetailsValue}>
+          {userData?.name}
+        </Text>
       </View>
 
       <View style={detailsScreenStyles.settingsDetailCard}>
         <Text style={detailsScreenStyles.settingsDetailsTitle}>Email</Text>
         <Text style={detailsScreenStyles.settingsDetailsValue}>
-          Sample@mail.com
+          {userData?.email}
         </Text>
       </View>
     </View>
