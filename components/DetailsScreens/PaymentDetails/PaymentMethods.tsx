@@ -1,7 +1,7 @@
-import { paymentMethods } from "@/constants/paymentMethodConstants";
 import { useGetCardList } from "@/services/payment.service";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
-import { useState } from "react";
+import { CardDetails } from "@/types";
+import { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 import PaymentCardSelectionCheckbox from "./PaymentCardSelectionCheckbox";
 import PaymentMethodCard from "./PaymentMethodCard";
@@ -9,9 +9,14 @@ import PaymentMethodCard from "./PaymentMethodCard";
 const PaymentMethods = () => {
   const { cards } = useGetCardList();
 
-  const [selectedCard, setSelectedCard] = useState<null | string>(
-    paymentMethods?.[0].cardNumber
-  );
+  const [selectedCard, setSelectedCard] = useState<null | number>(null);
+
+  useEffect(() => {
+    const activeCard = cards?.findIndex((item: CardDetails) => !!item.isActive);
+    if (activeCard) {
+      setSelectedCard(activeCard);
+    }
+  }, [cards]);
 
   return (
     <FlatList
@@ -19,7 +24,7 @@ const PaymentMethods = () => {
       showsVerticalScrollIndicator={false}
       keyExtractor={({ id }) => id}
       style={detailsScreenStyles.paymentMethodsContainer}
-      renderItem={({ item }) => {
+      renderItem={({ item, index }) => {
         return (
           <>
             <PaymentMethodCard
@@ -31,6 +36,7 @@ const PaymentMethods = () => {
               cardNumber={item.cardNumber}
               selectedCard={selectedCard}
               setSelectedCard={setSelectedCard}
+              index={index}
             />
           </>
         );

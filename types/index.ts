@@ -103,9 +103,10 @@ export interface PaymentMethodCardProps {
 }
 
 export interface PaymentCardSelectionCheckboxProps {
-  setSelectedCard: Dispatch<React.SetStateAction<string | null>>;
-  selectedCard: string | null;
+  setSelectedCard: Dispatch<React.SetStateAction<number | null>>;
+  selectedCard: number | null;
   cardNumber: string;
+  index: number;
 }
 
 export interface Address {
@@ -279,4 +280,11 @@ export interface CreateAddressPayload {
 export interface UpdateAddressStatusPayload {
   userId: number;
   addressId: number;
+}
+
+export interface CardDetails {
+  userName: string;
+  lastDigits: string;
+  expiry: string;
+  isActive: boolean;
 }

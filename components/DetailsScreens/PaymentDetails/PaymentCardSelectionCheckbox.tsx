@@ -1,20 +1,20 @@
 import Checkbox from "@/components/ui/Checkbox";
 import { PaymentCardSelectionCheckboxProps } from "@/types";
-import React from "react";
 
 const PaymentCardSelectionCheckbox = ({
   selectedCard,
   setSelectedCard,
   cardNumber,
+  index,
 }: PaymentCardSelectionCheckboxProps) => {
   const handleSelection = () => {
-    setSelectedCard(cardNumber);
+    setSelectedCard(index);
   };
   return (
     <Checkbox
       label="Use as default payment"
-      value={selectedCard === cardNumber}
-      onValueChange={() => setSelectedCard(cardNumber)}
+      value={selectedCard === index}
+      onValueChange={() => setSelectedCard(index)}
       onChange={handleSelection}
       onLabelPress={handleSelection}
     />
