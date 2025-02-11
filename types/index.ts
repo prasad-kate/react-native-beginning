@@ -100,8 +100,6 @@ export interface PaymentMethodCardProps {
   cardNumber: string;
   cardHolderName: string;
   expiryDate: string;
-  cardType: "visa" | "mastercard";
-  isSelectedCard?: boolean;
 }
 
 export interface PaymentCardSelectionCheckboxProps {

@@ -1,4 +1,5 @@
 import { paymentMethods } from "@/constants/paymentMethodConstants";
+import { useGetCardList } from "@/services/payment.service";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { useState } from "react";
 import { FlatList } from "react-native";
@@ -6,30 +7,28 @@ import PaymentCardSelectionCheckbox from "./PaymentCardSelectionCheckbox";
 import PaymentMethodCard from "./PaymentMethodCard";
 
 const PaymentMethods = () => {
-  // TODO: make this dynamic
+  const { cards } = useGetCardList();
+
   const [selectedCard, setSelectedCard] = useState<null | string>(
     paymentMethods?.[0].cardNumber
   );
 
   return (
     <FlatList
-      data={paymentMethods}
+      data={cards}
       showsVerticalScrollIndicator={false}
-      keyExtractor={({ cardNumber }) => cardNumber}
+      keyExtractor={({ id }) => id}
       style={detailsScreenStyles.paymentMethodsContainer}
       renderItem={({ item }) => {
-        const { cardNumber, cardHolderName, cardType, expiryDate } = item;
         return (
           <>
             <PaymentMethodCard
-              cardNumber={cardNumber}
-              cardHolderName={cardHolderName}
-              cardType={cardType}
-              expiryDate={expiryDate}
-              isSelectedCard={cardNumber === selectedCard}
+              cardNumber={item.lastDigits}
+              cardHolderName={item.userName}
+              expiryDate={item.expiry}
             />
             <PaymentCardSelectionCheckbox
-              cardNumber={cardNumber}
+              cardNumber={item.cardNumber}
               selectedCard={selectedCard}
               setSelectedCard={setSelectedCard}
             />

@@ -6,10 +6,9 @@ import { ImageBackground, Text, View } from "react-native";
 const PaymentMethodCard = ({
   cardNumber,
   cardHolderName,
-  cardType,
   expiryDate,
-  isSelectedCard,
 }: PaymentMethodCardProps) => {
+  const isSelectedCard = false;
   return (
     <ImageBackground
       source={paymentMethodMasterCard}
@@ -23,7 +22,7 @@ const PaymentMethodCard = ({
       ]}
     >
       <Text style={detailsScreenStyles.paymentMethodCardNumber}>
-        {`****  ****  ****  ${cardNumber?.slice(cardNumber?.length - 4)}`}
+        {`****  ****  ****  ${cardNumber}`}
       </Text>
       <View
         style={detailsScreenStyles.paymentMethodsCardHolderDetailsContainer}
