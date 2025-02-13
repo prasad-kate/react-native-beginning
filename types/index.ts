@@ -286,5 +286,7 @@ export interface CardDetails {
   userName: string;
   lastDigits: string;
   expiry: string;
-  isActive: boolean;
+  isActive?: boolean;
 }
+
+export interface AddNewCardPayload extends CardDetails {}
