@@ -14,7 +14,7 @@ const AddPaymentDetailsForm = () => {
     },
   });
 
-  const { addCard } = useAddCard();
+  const { addCard, isAddingCard } = useAddCard();
 
   return (
     <FormProvider {...methods}>
@@ -49,7 +49,13 @@ const AddPaymentDetailsForm = () => {
         </View>
         <Button
           text="Add New Card"
-          style={detailsScreenStyles.saveCardDetailsButton}
+          style={[
+            detailsScreenStyles.saveCardDetailsButton,
+            {
+              opacity: isAddingCard ? 0.5 : 1,
+            },
+          ]}
+          disabled={isAddingCard}
           onPress={() => {
             const values = methods.getValues();
             addCard(values);
