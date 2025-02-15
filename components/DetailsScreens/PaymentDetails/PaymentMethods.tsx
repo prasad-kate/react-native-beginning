@@ -9,7 +9,7 @@ import PaymentMethodCard from "./PaymentMethodCard";
 const PaymentMethods = () => {
   const { cards } = useGetCardList();
 
-  const [selectedCard, setSelectedCard] = useState<null | number>(null);
+  const [selectedCard, setSelectedCard] = useState<null | string>(null);
 
   useEffect(() => {
     const activeCard = cards?.findIndex((item: CardDetails) => !!item.isActive);
@@ -22,9 +22,9 @@ const PaymentMethods = () => {
     <FlatList
       data={cards}
       showsVerticalScrollIndicator={false}
-      keyExtractor={({ id }) => id}
+      keyExtractor={({ card_id }) => card_id}
       style={detailsScreenStyles.paymentMethodsContainer}
-      renderItem={({ item, index }) => {
+      renderItem={({ item }) => {
         return (
           <>
             <PaymentMethodCard
@@ -33,10 +33,9 @@ const PaymentMethods = () => {
               expiryDate={item.expiry}
             />
             <PaymentCardSelectionCheckbox
-              cardNumber={item.cardNumber}
+              cardID={item.card_id}
               selectedCard={selectedCard}
               setSelectedCard={setSelectedCard}
-              index={index}
             />
           </>
         );
