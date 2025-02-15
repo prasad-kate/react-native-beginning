@@ -1,6 +1,6 @@
 import { api } from "@/api";
 import useUserStore from "@/store/userStore";
-import { AddNewCardPayload } from "@/types";
+import { AddNewCardPayload, UpdateCardStatusPayload } from "@/types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "expo-router";
 import Toast from "react-native-toast-message";
@@ -54,5 +54,16 @@ export const useAddCard = () => {
   return {
     addCard: mutate,
     isAddingCard: isPending,
+  };
+};
+
+export const useUpdateCardStatus = () => {
+  const { mutate } = useMutation({
+    mutationFn: (payload: UpdateCardStatusPayload) =>
+      api.patch("cards/update_status", payload),
+  });
+
+  return {
+    updateCardStatus: mutate,
   };
 };

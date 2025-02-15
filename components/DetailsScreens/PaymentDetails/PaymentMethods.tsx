@@ -33,7 +33,7 @@ const PaymentMethods = () => {
               expiryDate={item.expiry}
             />
             <PaymentCardSelectionCheckbox
-              cardID={item.card_id}
+              cardId={item.card_id}
               selectedCard={selectedCard}
               setSelectedCard={setSelectedCard}
             />
