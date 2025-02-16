@@ -2,12 +2,12 @@ import { useGetCardList } from "@/services/payment.service";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { CardDetails } from "@/types";
 import { useEffect, useState } from "react";
-import { FlatList } from "react-native";
+import { ActivityIndicator, FlatList } from "react-native";
 import PaymentCardSelectionCheckbox from "./PaymentCardSelectionCheckbox";
 import PaymentMethodCard from "./PaymentMethodCard";
 
 const PaymentMethods = () => {
-  const { cards } = useGetCardList();
+  const { cards, isGettingCardDetails } = useGetCardList();
 
   const [selectedCard, setSelectedCard] = useState<null | string>(null);
 
@@ -18,7 +18,9 @@ const PaymentMethods = () => {
     }
   }, [cards]);
 
-  return (
+  return isGettingCardDetails ? (
+    <ActivityIndicator size={"large"} />
+  ) : (
     <FlatList
       data={cards}
       showsVerticalScrollIndicator={false}

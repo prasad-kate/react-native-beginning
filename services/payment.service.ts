@@ -7,13 +7,14 @@ import Toast from "react-native-toast-message";
 
 export const useGetCardList = () => {
   const { userData } = useUserStore();
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["cards"],
     queryFn: () => api.get(`cards/${userData?.user_id}`),
   });
 
   return {
     cards: data?.data || [],
+    isGettingCardDetails: isLoading,
   };
 };
 
