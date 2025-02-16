@@ -14,7 +14,7 @@ const PaymentMethods = () => {
   useEffect(() => {
     const activeCard = cards?.findIndex((item: CardDetails) => !!item.isActive);
     if (activeCard) {
-      setSelectedCard(activeCard);
+      setSelectedCard(cards[activeCard].card_id);
     }
   }, [cards]);
 
