@@ -16,6 +16,36 @@ const AddPaymentDetailsForm = () => {
 
   const { addCard, isAddingCard } = useAddCard();
 
+  const handleExpiryChange = (
+    text: string,
+    onChange: (formatted: string) => void
+  ) => {
+    let cleaned = text.replace(/\D/g, "");
+
+    if (cleaned.length > 4) {
+      cleaned = cleaned.slice(0, 4);
+    }
+
+    if (cleaned.length < 2) {
+      onChange(cleaned);
+      return;
+    }
+
+    if (cleaned.length === 2) {
+      if (text.includes("/")) {
+        onChange(cleaned);
+      } else {
+        onChange(`${cleaned}/`);
+      }
+      return;
+    }
+
+    const left = cleaned.slice(0, 2);
+    const right = cleaned.slice(2);
+
+    onChange(`${left}/${right}`);
+  };
+
   return (
     <FormProvider {...methods}>
       <View style={detailsScreenStyles.addPaymentDetailsForm}>
@@ -42,6 +72,11 @@ const AddPaymentDetailsForm = () => {
               placeholder="XX/XX"
               customInputContainerStyles={
                 detailsScreenStyles.addPaymentDetailsCvAndExpiryInputContainer
+              }
+              onChangeText={(text) =>
+                handleExpiryChange(text, (formatted) =>
+                  methods.setValue("expiry", formatted)
+                )
               }
               variant="outlined"
             />
