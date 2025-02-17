@@ -12,9 +12,11 @@ const PaymentMethods = () => {
   const [selectedCard, setSelectedCard] = useState<null | string>(null);
 
   useEffect(() => {
-    const activeCard = cards?.findIndex((item: CardDetails) => !!item.isActive);
-    if (activeCard) {
-      setSelectedCard(cards[activeCard].card_id);
+    const activeCard = cards?.findIndex(
+      (item: CardDetails) => !!item?.isActive
+    );
+    if (activeCard !== -1) {
+      setSelectedCard(cards[activeCard]?.card_id);
     }
   }, [cards]);
 
