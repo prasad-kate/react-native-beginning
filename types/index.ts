@@ -100,6 +100,8 @@ export interface PaymentMethodCardProps {
   cardNumber: string;
   cardHolderName: string;
   expiryDate: string;
+  cardId: string;
+  selectedCard: string | null;
 }
 
 export interface PaymentCardSelectionCheckboxProps {

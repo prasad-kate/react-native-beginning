@@ -35,6 +35,8 @@ const PaymentMethods = () => {
               cardNumber={item.lastDigits}
               cardHolderName={item.userName}
               expiryDate={item.expiry}
+              cardId={item.card_id}
+              selectedCard={selectedCard}
             />
             <PaymentCardSelectionCheckbox
               cardId={item.card_id}

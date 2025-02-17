@@ -7,8 +7,9 @@ const PaymentMethodCard = ({
   cardNumber,
   cardHolderName,
   expiryDate,
+  cardId,
+  selectedCard,
 }: PaymentMethodCardProps) => {
-  const isSelectedCard = false;
   return (
     <ImageBackground
       source={paymentMethodMasterCard}
@@ -17,7 +18,7 @@ const PaymentMethodCard = ({
       imageStyle={[
         detailsScreenStyles.paymentMethodCardImage,
         {
-          opacity: isSelectedCard ? 1 : 0.7,
+          opacity: selectedCard === cardId ? 1 : 0.7,
         },
       ]}
     >
