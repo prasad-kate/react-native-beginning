@@ -105,9 +105,9 @@ export interface PaymentMethodCardProps {
 }
 
 export interface PaymentCardSelectionCheckboxProps {
-  setSelectedCard: Dispatch<React.SetStateAction<string | null>>;
-  selectedCard: string | null;
   cardId: string;
+  selectedCard: string | null;
+  handleSelection: (cardId: string) => void;
 }
 
 export interface Address {
