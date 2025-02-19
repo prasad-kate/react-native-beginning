@@ -296,6 +296,12 @@ export const detailsScreenStyles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
   },
+  settingsEditNameContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
   notificationSettingCard: {
     ...profileScreenStyles.optionsContainer,
     paddingVertical: 12,
