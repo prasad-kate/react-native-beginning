@@ -11,10 +11,11 @@ const ShippingDetailsAddressSection = () => {
 
   useEffect(() => {
     const activeAddress = userAddresses?.findIndex(
-      (item: Address) => !!item.isActive
+      (item: Address) => item.isActive
     );
-    if (activeAddress) {
-      setSelectedAddress(activeAddress);
+
+    if (activeAddress !== -1) {
+      setSelectedAddress(userAddresses[activeAddress]?.address_id);
     }
   }, [userAddresses]);
 

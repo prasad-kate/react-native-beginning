@@ -18,7 +18,9 @@ const ShippingAddressCheckbox = ({
       addressId: addressId,
     });
   };
+
   const isSelectedAddress = selectedAddress === addressId;
+
   return (
     <Checkbox
       label={`Address ${index + 1} ${isSelectedAddress ? "(In-Use)" : ""}`}
