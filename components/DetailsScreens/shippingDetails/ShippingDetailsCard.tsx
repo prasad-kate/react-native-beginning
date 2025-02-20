@@ -19,9 +19,14 @@ const ShippingDetailsCard = ({
           selectedAddress={selectedAddress}
           setSelectedAddress={setSelectedAddress}
         />
-        <TouchableOpacity activeOpacity={0.5}>
-          <Ionicons name="create" size={24} color="black" />
-        </TouchableOpacity>
+        <View style={detailsScreenStyles.shippingDetailsActionsContainer}>
+          <TouchableOpacity activeOpacity={0.5}>
+            <Ionicons name="create" size={24} color="grey" />
+          </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.5}>
+            <Ionicons name="trash" size={21} color="grey" />
+          </TouchableOpacity>
+        </View>
       </View>
       <Text style={detailsScreenStyles.shippindAddress}>
         {addressDetails?.address}

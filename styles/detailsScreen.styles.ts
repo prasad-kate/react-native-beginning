@@ -221,7 +221,11 @@ export const detailsScreenStyles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
   },
-
+  shippingDetailsActionsContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
   // review details styles
   reviewDetailsCard: {
     ...profileScreenStyles.optionsContainer,
