@@ -1,3 +1,4 @@
+import { useDeleteAddress } from "@/services/address.service";
 import { detailsScreenStyles } from "@/styles/detailsScreen.styles";
 import { ShippingAddressCardProps } from "@/types";
 import { Ionicons } from "@expo/vector-icons";
@@ -10,6 +11,8 @@ const ShippingDetailsCard = ({
   selectedAddress,
   setSelectedAddress,
 }: ShippingAddressCardProps) => {
+  const { deleteAddress } = useDeleteAddress();
+
   return (
     <View style={detailsScreenStyles.shippingDetailsCardContainer}>
       <View style={detailsScreenStyles.shippindDetailsCardHeader}>
@@ -23,7 +26,10 @@ const ShippingDetailsCard = ({
           <TouchableOpacity activeOpacity={0.5}>
             <Ionicons name="create" size={24} color="grey" />
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.5}>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => deleteAddress(addressDetails?.address_id)}
+          >
             <Ionicons name="trash" size={21} color="grey" />
           </TouchableOpacity>
         </View>

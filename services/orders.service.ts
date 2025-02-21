@@ -92,7 +92,10 @@ export const useCancelOrder = () => {
     onError: (error) => {
       Toast.show({
         type: "error",
-        text1: `${error.message}`,
+        text1: isAxiosError(error)
+          ? error?.response?.data?.message
+          : "Something went wrong. Please try again",
+        visibilityTime: 3000,
       });
     },
   });

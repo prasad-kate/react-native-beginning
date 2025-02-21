@@ -2,7 +2,9 @@ import { api } from "@/api";
 import useUserStore from "@/store/userStore";
 import { CreateAddressPayload, UpdateAddressStatusPayload } from "@/types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { isAxiosError } from "axios";
 import { useRouter } from "expo-router";
+import Toast from "react-native-toast-message";
 
 export const useCreateNewAddress = () => {
   const { userData } = useUserStore();
@@ -47,4 +49,37 @@ export const useUpdateAddressStatus = () => {
   });
 
   return { updateAddressStatus: mutate };
+};
+
+export const useDeleteAddress = () => {
+  const queryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationFn: (address_id: number) =>
+      api.delete("address/delete", {
+        data: { address_id: "" },
+      }),
+    onSuccess: (res) => {
+      Toast.show({
+        type: "success",
+        text1: res.data.message,
+        visibilityTime: 3000,
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["addresses"],
+      });
+    },
+    onError: (error) => {
+      Toast.show({
+        type: "error",
+        text1: isAxiosError(error)
+          ? error?.response?.data?.message
+          : "Something went wrong. Please try again",
+        visibilityTime: 3000,
+      });
+    },
+  });
+
+  return {
+    deleteAddress: mutate,
+  };
 };
