@@ -3,6 +3,8 @@ import useAuthStore from "@/store/authStore";
 import useUserStore from "@/store/userStore";
 import { LoginUserPayload, RegisterUserPayload } from "@/types";
 import { useMutation } from "@tanstack/react-query";
+import { isAxiosError } from "axios";
+import Toast from "react-native-toast-message";
 
 export const useRegisterUser = () => {
   const { setAuthToken } = useAuthStore();
@@ -40,6 +42,15 @@ export const useLogin = () => {
         setAuthToken(token);
         setUserData(res?.data?.userData);
       }
+    },
+    onError: (error) => {
+      Toast.show({
+        type: "error",
+        text1: isAxiosError(error)
+          ? error?.response?.data?.message
+          : "Something went wrong. Please try again",
+        visibilityTime: 3000,
+      });
     },
   });
 
