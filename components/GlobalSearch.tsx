@@ -10,8 +10,9 @@ import Animated, {
 } from "react-native-reanimated";
 
 export default function GlobalSearch() {
-  const { isGlobalSearchVisible, toggleGlobalSearch } = useGlobalSearchStore();
-  const translateY = useSharedValue(-150);
+  const { isGlobalSearchVisible, toggleGlobalSearch, setGlobalSearch } =
+    useGlobalSearchStore();
+  const translateY = useSharedValue(-100);
   const [isMounted, setIsMounted] = useState(isGlobalSearchVisible);
 
   useEffect(() => {
@@ -40,6 +41,7 @@ export default function GlobalSearch() {
             style={globalSearchStyles.input}
             placeholder="Search..."
             placeholderTextColor="gray"
+            onChangeText={(text) => setGlobalSearch(text)}
           />
           <TouchableOpacity onPress={toggleGlobalSearch}>
             <Ionicons name="close" size={20} color="gray" />
