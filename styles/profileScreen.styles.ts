@@ -10,11 +10,17 @@ export const profileScreenStyles = StyleSheet.create({
   headerContainer: {
     ...homeScreenStyles.headerContainer,
     marginHorizontal: 20,
+    position: "relative",
   },
   headerText: {
     ...homeScreenStyles.headerBeautifulText,
+    flex: 1,
+    textAlign: "center",
   },
-
+  logoutButtonContainer: {
+    position: "absolute",
+    right: 0,
+  },
   // profile details styles
   profileDetailsContainer: {
     flexDirection: "row",
