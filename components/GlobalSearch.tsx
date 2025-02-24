@@ -1,6 +1,7 @@
 import { useGlobalSearchStore } from "@/store/globalSearchStore";
 import { globalSearchStyles } from "@/styles/globalSearchStyles";
 import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 import { useEffect, useState } from "react";
 import { TextInput, TouchableOpacity, View } from "react-native";
 import Animated, {
@@ -35,6 +36,10 @@ export default function GlobalSearch() {
   return (
     <>
       <Animated.View style={[globalSearchStyles.container, animatedStyle]}>
+        <LinearGradient
+          colors={["rgba(0, 0, 0, 0.35)", "transparent"]}
+          style={globalSearchStyles.gradient}
+        />
         <View style={globalSearchStyles.searchBox}>
           <Ionicons name="search" size={20} color="gray" />
           <TextInput
