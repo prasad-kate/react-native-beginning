@@ -1,3 +1,4 @@
+import GlobalSearch from "@/components/GlobalSearch";
 import EmptyNotifications from "@/components/NotificationScreen/EmptyNotification";
 import NotificationsCardSection from "@/components/NotificationScreen/NotificationsCardSection";
 import NotificationsHeader from "@/components/NotificationScreen/NotificationsHeader";
@@ -16,6 +17,7 @@ const NotificationsScreen = () => {
       ) : (
         <EmptyNotifications />
       )}
+      <GlobalSearch />
     </View>
   );
 };

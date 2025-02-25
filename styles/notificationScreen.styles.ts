@@ -4,6 +4,12 @@ import { homeScreenStyles } from "./homeScreen.styles";
 
 export const notificationScreenStyles = StyleSheet.create({
   // header styles
+  headerContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingVertical: 5,
+  },
   headerText: {
     ...homeScreenStyles.headerMakeHomeText,
     textAlign: "center",
