@@ -1,6 +1,8 @@
 import { useGetFavrouriteProductsDetails } from "@/services/products.service";
 import useCartStore from "@/store/cartStore";
+import { useGlobalSearchStore } from "@/store/globalSearchStore";
 import { favouriteScreenStyles } from "@/styles/favouriteScreen.styles";
+import { useMemo } from "react";
 import { ActivityIndicator, FlatList, View } from "react-native";
 import OrderDetailsEmptySection from "../DetailsScreens/OrderDetails/OrderDetailsEmptySection";
 import Button from "../ui/Button";
@@ -8,6 +10,8 @@ import FavouriteProductCard from "./FavouriteProductCard";
 
 const FavouriteProductsSections = () => {
   const { addMultipleCartItems } = useCartStore();
+  const { globalSearch } = useGlobalSearchStore();
+
   const { favouriteProductDetails, isAnyPending } =
     useGetFavrouriteProductsDetails();
 
@@ -19,6 +23,16 @@ const FavouriteProductsSections = () => {
     })
   );
 
+  const filteredFavouriteProducts = useMemo(() => {
+    return favouriteProductDetails?.filter(({ name }: { name: string }) => {
+      const matchesSearch = globalSearch
+        ? name?.toLowerCase().includes(globalSearch?.toLowerCase())
+        : true;
+
+      return matchesSearch;
+    });
+  }, [globalSearch, favouriteProductDetails]);
+
   return (
     <View style={favouriteScreenStyles.sectionContainer}>
       {isAnyPending ? (
@@ -26,7 +40,7 @@ const FavouriteProductsSections = () => {
       ) : favouriteProductDetails?.length ? (
         <>
           <FlatList
-            data={favouriteProductDetails}
+            data={filteredFavouriteProducts}
             keyExtractor={({ id }) => id}
             renderItem={({ item }) => {
               return (
