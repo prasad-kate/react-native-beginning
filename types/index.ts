@@ -3,6 +3,7 @@ import { Dispatch, ReactNode } from "react";
 import {
   GestureResponderEvent,
   ImageSourcePropType,
+  PressableProps,
   StyleProp,
   TextInputProps,
   TextStyle,
@@ -295,4 +296,8 @@ export interface AddNewCardPayload extends CardDetails {}
 export interface UpdateCardStatusPayload {
   userId: number;
   cardId: string;
+}
+
+export interface TabButtonProps extends PressableProps {
+  children: ReactNode;
 }

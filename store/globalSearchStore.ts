@@ -3,6 +3,7 @@ import { create } from "zustand";
 interface GlobalSearchStore {
   isGlobalSearchVisible: boolean;
   toggleGlobalSearch: () => void;
+  closeGlobalSearch: () => void;
   globalSearch: string;
   setGlobalSearch: (text: string) => void;
 }
@@ -13,4 +14,5 @@ export const useGlobalSearchStore = create<GlobalSearchStore>((set) => ({
   toggleGlobalSearch: () =>
     set((state) => ({ isGlobalSearchVisible: !state.isGlobalSearchVisible })),
   setGlobalSearch: (text) => set({ globalSearch: text }),
+  closeGlobalSearch: () => set({ isGlobalSearchVisible: false }),
 }));

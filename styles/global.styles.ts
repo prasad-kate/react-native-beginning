@@ -171,3 +171,11 @@ export const dropdownStyles = StyleSheet.create({
     fontSize: 12,
   },
 });
+
+export const tabStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
